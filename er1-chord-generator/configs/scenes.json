@@ -1,0 +1,560 @@
+[
+  {
+    "VCO-1": {
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 0,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 51,
+      "PAN": 64,
+      "LEVEL": 100
+    },
+    "VCO-2": {
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 54,
+      "PAN": 64,
+      "LEVEL": 100
+    },
+    "VCO-3": {
+      "LOW-BOOST": 26,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 65,
+      "PITCH": 58,
+      "PAN": 64,
+      "LEVEL": 100
+    },
+    "VCO-4": {
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 0,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 64,
+      "PAN": 64,
+      "LEVEL": 100
+    }
+  },
+  {
+    "VCO-1": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 0,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 44
+    },
+    "VCO-2": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 51
+    },
+    "VCO-3": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 26,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 65,
+      "PITCH": 54
+    },
+    "VCO-4": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 0,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 47
+    }
+  },
+  {
+    "VCO-1": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 0,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 42
+    },
+    "VCO-2": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 54
+    },
+    "VCO-3": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 26,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 65,
+      "PITCH": 51
+    },
+    "VCO-4": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 0,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 46
+    }
+  },
+  {
+    "VCO-1": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 0,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 51
+    },
+    "VCO-2": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 54
+    },
+    "VCO-3": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 26,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 65,
+      "PITCH": 58
+    },
+    "VCO-4": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 0,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 46
+    }
+  },
+  {
+    "VCO-1": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 0,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 54
+    },
+    "VCO-2": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 56
+    },
+    "VCO-3": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 26,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 65,
+      "PITCH": 58
+    },
+    "VCO-4": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 64
+    }
+  },
+  {
+    "VCO-1": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 0,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 56
+    },
+    "VCO-2": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 47
+    },
+    "VCO-3": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 26,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 65,
+      "PITCH": 58
+    },
+    "VCO-4": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 54
+    }
+  },
+  {
+    "VCO-1": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 0,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 56
+    },
+    "VCO-2": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 47
+    },
+    "VCO-3": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 26,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 65,
+      "PITCH": 44
+    },
+    "VCO-4": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 27,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 0,
+      "MOD-DEPTH": 64,
+      "PITCH": 46
+    }
+  },
+  {
+    "VCO-1": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 97,
+      "MOD-TYPE": 0,
+      "DECAY": 100,
+      "WAVE-TYPE": 0,
+      "MOD-SPEED": 70,
+      "MOD-DEPTH": 64,
+      "PITCH": 59
+    },
+    "VCO-2": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 31,
+      "MOD-TYPE": 0,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 97,
+      "MOD-DEPTH": 64,
+      "PITCH": 49
+    },
+    "VCO-3": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 62,
+      "MOD-TYPE": 0,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 114,
+      "MOD-DEPTH": 64,
+      "PITCH": 47
+    },
+    "VCO-4": {
+      "PAN": 89,
+      "LEVEL": 0,
+      "LOW-BOOST": 33,
+      "MOD-TYPE": 0,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 104,
+      "MOD-DEPTH": 64,
+      "PITCH": 40
+    }
+  },
+  {
+    "VCO-1": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 57,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 48,
+      "MOD-DEPTH": 64,
+      "PITCH": 62
+    },
+    "VCO-2": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 31,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 49,
+      "MOD-DEPTH": 64,
+      "PITCH": 51
+    },
+    "VCO-3": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 62,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 49,
+      "MOD-DEPTH": 64,
+      "PITCH": 44
+    },
+    "VCO-4": { "LEVEL": 0, "DECAY": 100, "PITCH": 39 }
+  },
+  {
+    "VCO-1": { "LEVEL": 0, "DECAY": 100, "PITCH": 64 },
+    "VCO-2": { "LEVEL": 0, "DECAY": 100, "PITCH": 54 },
+    "VCO-3": { "LEVEL": 0, "DECAY": 100, "PITCH": 44 },
+    "VCO-4": { "LEVEL": 0, "DECAY": 100, "PITCH": 46 }
+  },
+  {
+    "VCO-1": { "LEVEL": 0, "DECAY": 100, "PITCH": 67 },
+    "VCO-2": { "LEVEL": 0, "DECAY": 100, "PITCH": 58 },
+    "VCO-3": { "LEVEL": 0, "DECAY": 100, "PITCH": 42 },
+    "VCO-4": { "LEVEL": 0, "DECAY": 100, "PITCH": 51 }
+  },
+  {
+    "VCO-1": { "LEVEL": 0, "DECAY": 100, "PITCH": 64 },
+    "VCO-2": { "LEVEL": 0, "DECAY": 100, "PITCH": 56 },
+    "VCO-3": { "LEVEL": 0, "DECAY": 100, "PITCH": 44 },
+    "VCO-4": { "LEVEL": 0, "DECAY": 100, "PITCH": 54 }
+  },
+  {
+    "VCO-1": { "LEVEL": 0, "DECAY": 100, "PITCH": 70 },
+    "VCO-2": { "LEVEL": 0, "DECAY": 100, "PITCH": 59 },
+    "VCO-3": { "LEVEL": 0, "DECAY": 100, "PITCH": 64 },
+    "VCO-4": { "LEVEL": 0, "DECAY": 100, "PITCH": 56 }
+  },
+  {
+    "VCO-1": { "LEVEL": 0, "DECAY": 100, "PITCH": 70 },
+    "VCO-2": { "LEVEL": 0, "DECAY": 100, "PITCH": 54 },
+    "VCO-3": { "LEVEL": 0, "DECAY": 100, "PITCH": 56 },
+    "VCO-4": { "LEVEL": 0, "DECAY": 100, "PITCH": 64 }
+  },
+  {
+    "VCO-1": { "LEVEL": 0, "DECAY": 100, "PITCH": 56 },
+    "VCO-2": { "LEVEL": 0, "DECAY": 100, "PITCH": 64 },
+    "VCO-3": { "LEVEL": 0, "DECAY": 100, "PITCH": 47 },
+    "VCO-4": { "LEVEL": 0, "DECAY": 100, "PITCH": 59 }
+  },
+  {
+    "VCO-1": { "LEVEL": 0, "DECAY": 100, "PITCH": 58 },
+    "VCO-2": { "LEVEL": 0, "DECAY": 100, "PITCH": 62 },
+    "VCO-3": { "LEVEL": 0, "DECAY": 100, "PITCH": 44 },
+    "VCO-4": { "LEVEL": 0, "DECAY": 100, "PITCH": 56 }
+  },
+  {
+    "VCO-1": { "LEVEL": 0, "DECAY": 100, "PITCH": 56 },
+    "VCO-2": { "LEVEL": 0, "DECAY": 100, "PITCH": 59 },
+    "VCO-3": { "LEVEL": 0, "DECAY": 100, "PITCH": 51 },
+    "VCO-4": { "LEVEL": 0, "DECAY": 100, "PITCH": 47 }
+  },
+  {
+    "VCO-1": { "LEVEL": 0, "DECAY": 100, "PITCH": 59 },
+    "VCO-2": { "LEVEL": 0, "DECAY": 100, "PITCH": 51 },
+    "VCO-3": { "LEVEL": 0, "DECAY": 100, "PITCH": 47 },
+    "VCO-4": { "LEVEL": 0, "DECAY": 100, "PITCH": 44 }
+  },
+  {
+    "VCO-1": { "LEVEL": 0, "DECAY": 100, "PITCH": 64 },
+    "VCO-2": { "LEVEL": 0, "DECAY": 100, "PITCH": 56 },
+    "VCO-3": { "LEVEL": 0, "DECAY": 100, "PITCH": 54 },
+    "VCO-4": { "LEVEL": 0, "DECAY": 100, "PITCH": 67 }
+  },
+  {
+    "VCO-1": { "LEVEL": 0, "DECAY": 100, "PITCH": 74 },
+    "VCO-2": { "LEVEL": 0, "DECAY": 100, "PITCH": 62 },
+    "VCO-3": { "LEVEL": 0, "DECAY": 100, "PITCH": 64 },
+    "VCO-4": { "LEVEL": 0, "DECAY": 100, "PITCH": 70 }
+  },
+  {
+    "VCO-1": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 125,
+      "MOD-TYPE": 0,
+      "DECAY": 100,
+      "WAVE-TYPE": 0,
+      "MOD-SPEED": 33,
+      "MOD-DEPTH": 69,
+      "PITCH": 70
+    },
+    "VCO-2": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 74,
+      "MOD-TYPE": 1,
+      "DECAY": 100,
+      "WAVE-TYPE": 0,
+      "MOD-SPEED": 98,
+      "MOD-DEPTH": 74,
+      "PITCH": 64
+    },
+    "VCO-3": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 52,
+      "MOD-TYPE": 5,
+      "DECAY": 100,
+      "WAVE-TYPE": 1,
+      "MOD-SPEED": 105,
+      "MOD-DEPTH": 59,
+      "PITCH": 60
+    },
+    "VCO-4": {
+      "PAN": 64,
+      "LEVEL": 0,
+      "LOW-BOOST": 34,
+      "MOD-TYPE": 0,
+      "DECAY": 100,
+      "WAVE-TYPE": 0,
+      "MOD-SPEED": 93,
+      "MOD-DEPTH": 67,
+      "PITCH": 79
+    }
+  },
+  {
+    "VCO-1": { "LEVEL": 0, "DECAY": 100, "PITCH": 86 },
+    "VCO-2": { "LEVEL": 0, "DECAY": 100, "PITCH": 60 },
+    "VCO-3": { "LEVEL": 0, "DECAY": 100, "PITCH": 56 },
+    "VCO-4": { "LEVEL": 0, "DECAY": 100, "PITCH": 74 }
+  },
+  {
+    "VCO-1": { "LEVEL": 0, "DECAY": 100, "PITCH": 79 },
+    "VCO-2": { "LEVEL": 0, "DECAY": 100, "PITCH": 64 },
+    "VCO-3": { "LEVEL": 0, "DECAY": 100, "PITCH": 70 },
+    "VCO-4": { "LEVEL": 0, "DECAY": 100, "PITCH": 90 }
+  },
+  {
+    "VCO-1": { "LEVEL": 0, "DECAY": 100, "PITCH": 56 },
+    "VCO-2": { "LEVEL": 0, "DECAY": 100, "PITCH": 51 },
+    "VCO-3": { "LEVEL": 0, "DECAY": 100, "PITCH": 39 },
+    "VCO-4": { "LEVEL": 0, "DECAY": 100, "PITCH": 44 }
+  },
+  {
+    "VCO-1": { "LEVEL": 0, "DECAY": 100, "PITCH": 47 },
+    "VCO-2": { "LEVEL": 0, "DECAY": 100, "PITCH": 44 },
+    "VCO-3": { "LEVEL": 0, "DECAY": 100, "PITCH": 37 },
+    "VCO-4": { "LEVEL": 0, "DECAY": 100, "PITCH": 39 }
+  },
+  {
+    "VCO-1": { "LEVEL": 0, "DECAY": 100, "PITCH": 39 },
+    "VCO-2": { "LEVEL": 0, "DECAY": 100, "PITCH": 47 },
+    "VCO-3": { "LEVEL": 0, "DECAY": 100, "PITCH": 36 },
+    "VCO-4": { "LEVEL": 0, "DECAY": 100, "PITCH": 44 }
+  },
+  {
+    "VCO-1": { "LEVEL": 0, "DECAY": 100, "PITCH": 47 },
+    "VCO-2": { "LEVEL": 0, "DECAY": 100, "PITCH": 44 },
+    "VCO-3": { "LEVEL": 0, "DECAY": 100, "PITCH": 33 },
+    "VCO-4": { "LEVEL": 0, "DECAY": 100, "PITCH": 39 }
+  },
+  {
+    "VCO-1": { "LEVEL": 0, "DECAY": 100, "PITCH": 44 },
+    "VCO-2": { "LEVEL": 0, "DECAY": 100, "PITCH": 39 },
+    "VCO-3": { "LEVEL": 0, "DECAY": 100, "PITCH": 36 },
+    "VCO-4": { "LEVEL": 0, "DECAY": 100, "PITCH": 33 }
+  }
+]

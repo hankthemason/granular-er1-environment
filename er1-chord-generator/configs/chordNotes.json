@@ -1,0 +1,326 @@
+{
+  "PRIMARY": {
+    "LOW": [
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 33,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 63,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 36,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 63,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 39,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 67,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 44,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 66,
+        "LEVEL": 100,
+        "DECAY": 100
+      }
+    ],
+    "MEDIUM": [
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 44,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 66,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 47,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 65,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 51,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 65,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 56,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 67,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 59,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 67,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 64,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 64,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 70,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 64,
+        "LEVEL": 100,
+        "DECAY": 100
+      }
+    ],
+    "HIGH": [
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 70,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 64,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 73,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 64,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 79,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 64,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 85,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 64,
+        "LEVEL": 100,
+        "DECAY": 100
+      }
+    ]
+  },
+  "SECONDARY": {
+    "LOW": [
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 35,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 63,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 38,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 61,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 42,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 67,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 46,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 65,
+        "LEVEL": 100,
+        "DECAY": 100
+      }
+    ],
+    "MEDIUM": [
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 46,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 65,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 49,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 65,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 54,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 65,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 58,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 67,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 61,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 67,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 68,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 64,
+        "LEVEL": 100,
+        "DECAY": 100
+      }
+    ],
+    "HIGH": [
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 72,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 64,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 76,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 64,
+        "LEVEL": 100,
+        "DECAY": 100
+      },
+      {
+        "LOW-BOOST": 23,
+        "PAN": 64,
+        "PITCH": 82,
+        "WAVE": 127,
+        "MOD-TYPE": 1,
+        "MOD-SPEED": 0,
+        "MOD-DEPTH": 64,
+        "LEVEL": 100,
+        "DECAY": 100
+      }
+    ]
+  }
+}

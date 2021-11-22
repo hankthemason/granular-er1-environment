@@ -1,0 +1,84 @@
+{
+  "VCO-1": {
+    "LOW-BOOST": 23,
+    "PAN": 64,
+    "PITCH": 56,
+    "WAVE": 127,
+    "MOD-TYPE": 1,
+    "MOD-SPEED": 0,
+    "MOD-DEPTH": 64,
+    "LEVEL": 100,
+    "DECAY": 100
+  },
+  "VCO-2": {
+    "LOW-BOOST": 25,
+    "PAN": 64,
+    "PITCH": 64,
+    "WAVE": 127,
+    "MOD-TYPE": 1,
+    "MOD-SPEED": 0,
+    "MOD-DEPTH": 64,
+    "LEVEL": 100,
+    "DECAY": 100
+  },
+  "VCO-3": {
+    "LOW-BOOST": 26,
+    "PAN": 64,
+    "PITCH": 47,
+    "WAVE": 127,
+    "MOD-TYPE": 1,
+    "MOD-SPEED": 0,
+    "MOD-DEPTH": 64,
+    "LEVEL": 100,
+    "DECAY": 100
+  },
+  "VCO-4": {
+    "LOW-BOOST": 27,
+    "PAN": 64,
+    "PITCH": 59,
+    "WAVE": 127,
+    "MOD-TYPE": 1,
+    "MOD-SPEED": 0,
+    "MOD-DEPTH": 64,
+    "LEVEL": 100,
+    "DECAY": 100
+  },
+  "HH-CLOSE": {
+    "LOW-BOOST": 22,
+    "PAN": 64,
+    "PITCH": 56,
+    "LEVEL": 100,
+    "DECAY": 0
+  },
+  "HH-OPEN": {
+    "LOW-BOOST": 30,
+    "PAN": 64,
+    "PITCH": 41,
+    "LEVEL": 100,
+    "DECAY": 0
+  },
+  "CRASH": { "LOW-BOOST": 0, "PAN": 64, "PITCH": 54, "LEVEL": 100, "DECAY": 0 },
+  "CLAP": { "LOW-BOOST": 13, "PAN": 64, "PITCH": 24, "LEVEL": 100, "DECAY": 0 },
+  "AUDIO-IN-1": {
+    "GAIN": 100,
+    "LOW-BOOST": 14,
+    "PAN": 64,
+    "LEVEL": 90,
+    "DECAY": 10
+  },
+  "AUDIO-IN-2": {
+    "GAIN": 100,
+    "LOW-BOOST": 18,
+    "PAN": 64,
+    "LEVEL": 90,
+    "DECAY": 6
+  },
+  "MUTE": { "VCO": 0, "SAMPLE/AUDIO": 0 },
+  "SOLO": { "VCO": 79, "SAMPLE/AUDIO": 127 },
+  "GLOBAL": {
+    "DELAY-DEPTH": 0,
+    "DELAY-TIME": 0,
+    "RING-MOD-1": 0,
+    "RING-MOD-2": 0
+  }
+}

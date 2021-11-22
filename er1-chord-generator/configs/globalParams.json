@@ -1,0 +1,14 @@
+{
+  "MUTE": {
+    "VCO": 365,
+    "SAMPLE/AUDIO": 366
+  },
+  "SOLO": {
+    "VCO": 365,
+    "SAMPLE/AUDIO": 366
+  },
+  "DELAY-DEPTH": 356,
+  "DELAY-TIME": 357,
+  "RING-MOD-1": 358,
+  "RING-MOD-2": 359
+}
