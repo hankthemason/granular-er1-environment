@@ -10,6 +10,8 @@ const sampleAndAudioVoices = require("./configs/sampleAndAudioVoices");
 const voiceNotes = require("./configs/voiceNotes.json");
 const allNotes = require("./configs/allNotes.json");
 const scenes = require("./configs/scenes");
+const chords = require("./configs/chords.json");
+let chordsFromWrite = require("./configs/chordsFromWrite.json");
 
 let MUTE = {
   VCO: 0,
@@ -31,6 +33,7 @@ const notesAscending = allNotes.sort((a, b) => {
 });
 
 let state = JSON.parse(JSON.stringify(presetTemplate));
+chordsFromWrite = JSON.parse(JSON.stringify(chordsFromWrite));
 
 maxApi.addHandler("makeChord", (type) => {
   let pitches = [];
@@ -60,6 +63,38 @@ maxApi.addHandler("makeChord", (type) => {
     maxApi.outlet("valIn", vcoName, "PITCH", pitch);
     maxApi.outlet("valIn", vcoName, "MOD-DEPTH", modDepth);
   }
+});
+
+maxApi.addHandler("getChord", (chordNum) => {
+  const chord = chordsFromWrite[chordNum];
+  for (const [vcoName, voiceSettings] of Object.entries(chord)) {
+    const pitch = voiceSettings.PITCH;
+    const modDepth = voiceSettings["MOD-DEPTH"];
+    const pitchNrpn = voiceMap[vcoName].PITCH.nrpn;
+    const modDepthNrpn = voiceMap[vcoName]["MOD-DEPTH"].nrpn;
+    maxApi.outlet("nrpnOut", pitch, pitchNrpn);
+    maxApi.outlet("nrpnOut", modDepth, modDepthNrpn);
+    maxApi.outlet("valIn", vcoName, "PITCH", pitch);
+    maxApi.outlet("valIn", vcoName, "MOD-DEPTH", modDepth);
+  }
+});
+
+maxApi.addHandler("writeChord", () => {
+  let chord = {};
+  for (let i = 0; i < numVCOs; i++) {
+    let notes = {};
+    const vcoName = "VCO-".concat(i + 1);
+    const pitch = state[vcoName].PITCH;
+    const modDepth = state[vcoName]["MOD-DEPTH"];
+    notes.PITCH = pitch;
+    notes["MOD-DEPTH"] = modDepth;
+    chord[vcoName] = notes;
+  }
+  chordsFromWrite.push(chord);
+  fs.writeFileSync(
+    "./configs/chordsFromWrite.json",
+    JSON.stringify(chordsFromWrite)
+  );
 });
 
 maxApi.addHandler("getScene", (idx) => {
@@ -146,5 +181,86 @@ maxApi.addHandler("setDecay", (decay) => {
     const nrpn = voiceMap[voice].DECAY.nrpn;
     maxApi.outlet("nrpnOut", decay, nrpn);
     maxApi.outlet("valIn", voice, "DECAY", decay);
+  }
+});
+
+//listens to changes coming from the UI
+//and relays the changed value to the ER-1
+maxApi.addHandler("paramChanged", (voice, param, val) => {
+  var outputVal;
+  var nrpn;
+  if (voice !== "GLOBAL" && voiceMap[voice][param]) {
+    nrpn = voiceMap[voice][param].nrpn;
+    if (param === "WAVE" && val === 1) {
+      //wave toggles between values of 0 & 127
+      outputVal = 127;
+    } else {
+      outputVal = val;
+    }
+    state[voice][param] = outputVal;
+    maxApi.outlet("nrpnOut", outputVal, nrpn);
+  } else {
+    //mute/solo are separated because they need to output 2 different nrpn/value pairs
+    if (param === "MUTE" || param === "SOLO") {
+      if (param === "MUTE") {
+        //get the mute state that has changed
+        var voiceType = getVoiceType(voice);
+
+        //break out the two nrpn values and put them in an array for output
+        var nrpnPairKeys = Object.keys(globalParams[param]);
+        var nrpnPair = [];
+        for (var i = 0; i < nrpnPairKeys.length; i++) {
+          nrpnPair[i] = globalParams[param][nrpnPairKeys[i]];
+        }
+
+        //update the mute state so that it can be output
+        handleUIMuteChange(voice, val, voiceType);
+
+        maxApi.outlet("nrpnOut", MUTE["VCO"], nrpnPair[0]);
+        maxApi.outlet("nrpnOut", MUTE["SAMPLE/AUDIO"], nrpnPair[1]);
+        maxApi.outlet("nrpnOut", SOLO["VCO"], nrpnPair[0]);
+        maxApi.outlet("nrpnOut", SOLO["SAMPLE/AUDIO"], nrpnPair[1]);
+      } else if (param === "SOLO") {
+        var voiceType = getVoiceType(voice);
+        //break out the two nrpn values and put them in an array for output
+        var nrpnPairKeys = Object.keys(globalParams[param]);
+        var nrpnPair = [];
+        for (var i = 0; i < nrpnPairKeys.length; i++) {
+          nrpnPair[i] = globalParams[param][nrpnPairKeys[i]];
+        }
+        handleUISoloChange(voice, val, voiceType);
+        maxApi.outlet("nrpnOut", SOLO["VCO"], nrpnPair[0]);
+        maxApi.outlet("nrpnOut", SOLO["SAMPLE/AUDIO"], nrpnPair[1]);
+      }
+    } else {
+      if (param === "RING MOD 1" || param === "RING MOD 2") {
+        nrpn = globalParams[param];
+        outputVal = val === 1 ? 127 : 0;
+      } else {
+        outputVal = val;
+        nrpn = globalParams[param];
+      }
+      maxApi.outlet("nrpnOut", outputVal, nrpn);
+    }
+
+    //update state
+    if (param === "SOLO" || param === "MUTE") {
+      var voiceType = getVoiceType(voiceType);
+      if (param === "MUTE") {
+        state[param][voiceType] = MUTE[voiceType];
+      } else {
+        state[param][voiceType] = SOLO[voiceType];
+      }
+    } else {
+      state[voice][param] = val;
+    }
+  }
+
+  //if all solo's are off, let everything be audible again
+  if (SOLO["VCO"] === 79 && SOLO["SAMPLE/AUDIO"] === 127) {
+    var outlet1Val = 0 | MUTE["VCO"];
+    var outlet2Val = 0 | MUTE["SAMPLE/AUDIO"];
+    maxApi.outlet("nrpnOut", outlet1Val, globalParams["SOLO"]["VCO"]);
+    maxApi.outlet("nrpnOut", outlet2Val, globalParams["SOLO"]["SAMPLE/AUDIO"]);
   }
 });

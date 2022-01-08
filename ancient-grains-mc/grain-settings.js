@@ -14,6 +14,7 @@ let state = {
   panSpread: 0,
   interpolation: 0,
   maxLength: 100,
+  startTime: 0,
 };
 
 maxApi.addHandler("paramChanged", (param, val) => {
@@ -24,7 +25,6 @@ maxApi.addHandler("write", (name) => {
   name = name.slice(13);
   name = name.concat(".json");
   const stateStr = JSON.stringify(state);
-  maxApi.post(name);
   try {
     fs.writeFileSync(name, stateStr);
     maxApi.post(`success. wrote file at: ${name}`);
