@@ -107,6 +107,7 @@ maxApi.addHandler("paramChanged", (voice, param, val) => {
     maxApi.outlet("nrpnOut", outlet1Val, globalParams["SOLO"]["VCO"]);
     maxApi.outlet("nrpnOut", outlet2Val, globalParams["SOLO"]["SAMPLE/AUDIO"]);
   }
+  maxApi.post(state);
 });
 
 //update the UI when the ER-1 changes
@@ -300,6 +301,7 @@ maxApi.addHandler("read", (filePath) => {
   let presetObj = JSON.parse(rawData);
   state = { ...presetObj };
   readFromState(state);
+  maxApi.outlet("stateAfterRead", state);
 });
 
 const readFromState = (state) => {
@@ -362,3 +364,9 @@ const readNotesObj = () => {
   const rawData = fs.readFileSync("./notes.json");
   return JSON.parse(rawData);
 };
+
+maxApi.addHandler("write", (filepath) => {
+  filepath = filepath.slice(13).concat(".json");
+  maxApi.post(filepath);
+  fs.writeFileSync(filepath, JSON.stringify(state));
+});

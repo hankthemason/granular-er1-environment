@@ -12,6 +12,38 @@ const allNotes = require("./configs/allNotes.json");
 const scenes = require("./configs/scenes");
 const chords = require("./configs/chords.json");
 let chordsFromWrite = require("./configs/chordsFromWrite.json");
+const notesByMidiNoteNumber = require("./configs/notesByMidiNoteNumber.json");
+const notesWithNames = require("./configs/notesWithNames.json");
+const allNotesByMidiNoteNumber = require("./configs/allNotesByMidiNoteNumber.json");
+
+/* 
+pitch collections: 
+0: allNotes (array), allNotesByMidiNoteNumber (object)
+1: notesWithNames (array), notesByMidiNoteNumber (object) 
+*/
+
+let pitchCollectionIndex = 0;
+const pitchArrays = [allNotes, notesWithNames];
+const pitchMaps = [allNotesByMidiNoteNumber, notesByMidiNoteNumber];
+
+maxApi.addHandler("setPitchCollection", (newPitchCollectionIdx) => {
+  if (newPitchCollectionIdx > 1) return;
+  pitchCollectionIndex = newPitchCollectionIdx;
+  makeEr1PitchMap();
+  maxApi.post(midiNoteNumbersByEr1Pitch);
+});
+
+let midiNoteNumbersByEr1Pitch;
+
+const makeEr1PitchMap = () => {
+  midiNoteNumbersByEr1Pitch = Object.entries(
+    pitchMaps[pitchCollectionIndex]
+  ).reduce((accumulator, [midiNoteNumber, noteObj]) => {
+    return { ...accumulator, [noteObj.PITCH]: midiNoteNumber };
+  }, {});
+};
+
+makeEr1PitchMap();
 
 let MUTE = {
   VCO: 0,
@@ -26,6 +58,8 @@ let SOLO = {
 //number of VCO's
 const numVCOs = 4;
 
+const midiNotes = [36, 38, 40, 41];
+
 const variableDecayMode = false;
 
 const notesAscending = allNotes.sort((a, b) => {
@@ -35,21 +69,51 @@ const notesAscending = allNotes.sort((a, b) => {
 let state = JSON.parse(JSON.stringify(presetTemplate));
 chordsFromWrite = JSON.parse(JSON.stringify(chordsFromWrite));
 
-maxApi.addHandler("makeChord", (type) => {
+let globalDecay = 127;
+
+//maxApi.addHandler("makeChord", (type) => {
+//  let pitches = [];
+//  for (let i = 0; i < numVCOs; i++) {
+//    const vcoName = `VCO-${i + 1}`;
+//    let randomIdx, randomNote;
+//    if (type === "voiceNotes") {
+//      randomIdx = Math.floor(Math.random() * voiceNotes[vcoName].length);
+//      randomNote = voiceNotes[vcoName][randomIdx];
+//    } else if (type === "allNotes") {
+//      randomIdx = Math.floor(Math.random() * allNotes.length);
+//      randomNote = allNotes[randomIdx];
+//    }
+//    const pitch = randomNote.PITCH;
+//    let modDepth = randomNote["MOD-DEPTH"];
+//    if (type === "allNotes" && pitches.includes(pitch)) {
+//      const isPositive = Math.random() > 0.5;
+//      let randomNum = Math.floor(Math.random() * 2) + 1;
+//      if (!isPositive) randomNum *= -1;
+//      modDepth += randomNum;
+//    }
+//    pitches.push(pitch);
+//    const pitchNrpn = voiceMap[vcoName].PITCH.nrpn;
+//    const modDepthNrpn = voiceMap[vcoName]["MOD-DEPTH"].nrpn;
+//    maxApi.outlet("nrpnOut", pitch, pitchNrpn);
+//    maxApi.outlet("nrpnOut", modDepth, modDepthNrpn);
+//    maxApi.outlet("valIn", vcoName, "PITCH", pitch);
+//    maxApi.outlet("valIn", vcoName, "MOD-DEPTH", modDepth);
+//  }
+//  midiNoteNumbers = pitches.map((pitch) => midiNoteNumbersByEr1Pitch[pitch]);
+//  maxApi.post(midiNoteNumbers);
+//});
+//
+maxApi.addHandler("makeChord", () => {
+  const pitchCollection = pitchArrays[pitchCollectionIndex];
   let pitches = [];
   for (let i = 0; i < numVCOs; i++) {
     const vcoName = `VCO-${i + 1}`;
     let randomIdx, randomNote;
-    if (type === "voiceNotes") {
-      randomIdx = Math.floor(Math.random() * voiceNotes[vcoName].length);
-      randomNote = voiceNotes[vcoName][randomIdx];
-    } else if (type === "allNotes") {
-      randomIdx = Math.floor(Math.random() * allNotes.length);
-      randomNote = allNotes[randomIdx];
-    }
+    randomIdx = Math.floor(Math.random() * pitchCollection.length);
+    randomNote = pitchCollection[randomIdx];
     const pitch = randomNote.PITCH;
     let modDepth = randomNote["MOD-DEPTH"];
-    if (type === "allNotes" && pitches.includes(pitch)) {
+    if (pitches.includes(pitch)) {
       const isPositive = Math.random() > 0.5;
       let randomNum = Math.floor(Math.random() * 2) + 1;
       if (!isPositive) randomNum *= -1;
@@ -63,6 +127,8 @@ maxApi.addHandler("makeChord", (type) => {
     maxApi.outlet("valIn", vcoName, "PITCH", pitch);
     maxApi.outlet("valIn", vcoName, "MOD-DEPTH", modDepth);
   }
+  midiNoteNumbers = pitches.map((pitch) => midiNoteNumbersByEr1Pitch[pitch]);
+  maxApi.outlet("midiNoteNumbers", midiNoteNumbers);
 });
 
 maxApi.addHandler("getChord", (chordNum) => {
@@ -176,11 +242,21 @@ maxApi.addHandler("getNote", (voiceNum, sequence) => {
 });
 
 maxApi.addHandler("setDecay", (decay) => {
+  globalDecay = decay;
   for (let i = 0; i < numVCOs; i++) {
     const voice = `VCO-${i + 1}`;
     const nrpn = voiceMap[voice].DECAY.nrpn;
     maxApi.outlet("nrpnOut", decay, nrpn);
     maxApi.outlet("valIn", voice, "DECAY", decay);
+  }
+});
+
+maxApi.addHandler("setLevel", (level) => {
+  for (let i = 0; i < numVCOs; i++) {
+    const voice = `VCO-${i + 1}`;
+    const nrpn = voiceMap[voice].LEVEL.nrpn;
+    maxApi.outlet("nrpnOut", level, nrpn);
+    maxApi.outlet("valIn", voice, "LEVEL", level);
   }
 });
 
@@ -263,4 +339,102 @@ maxApi.addHandler("paramChanged", (voice, param, val) => {
     maxApi.outlet("nrpnOut", outlet1Val, globalParams["SOLO"]["VCO"]);
     maxApi.outlet("nrpnOut", outlet2Val, globalParams["SOLO"]["SAMPLE/AUDIO"]);
   }
+});
+
+/* possible pitchCollections are:
+  - allNotesByMidiNoteNumber
+  - notesByMidiNoteNumber
+*/
+
+maxApi.addHandler("setNote", (noteNumber, voiceNum) => {
+  if (!pitchMaps[pitchCollectionIndex][noteNumber]) {
+    return;
+  }
+  setNote(noteNumber, voiceNum);
+});
+
+maxApi.addHandler("playNote", (noteNumber, voiceNum) => {
+  if (!pitchMaps[pitchCollectionIndex][noteNumber]) {
+    return;
+  }
+  setNote(noteNumber, voiceNum);
+
+  maxApi.outlet("playNote", midiNotes[voiceNum - 1]);
+});
+
+const setNote = (noteNumber, voiceNum) => {
+  const vcoName = "VCO-".concat(voiceNum);
+  const note = pitchMaps[pitchCollectionIndex][noteNumber];
+  const pitch = note.PITCH;
+  const modDepth = note["MOD-DEPTH"];
+  const pitchNrpn = voiceMap[vcoName].PITCH.nrpn;
+  const modDepthNrpn = voiceMap[vcoName]["MOD-DEPTH"].nrpn;
+  maxApi.outlet("nrpnOut", pitch, pitchNrpn);
+  maxApi.outlet("nrpnOut", modDepth, modDepthNrpn);
+  maxApi.outlet("valIn", vcoName, "PITCH", pitch);
+  maxApi.outlet("valIn", vcoName, "MOD-DEPTH", modDepth);
+};
+
+maxApi.addHandler("setWaveType", (waveType) => {
+  const waveVal = waveType === "sine" ? 0 : 127;
+  for (let i = 0; i < numVCOs; i++) {
+    const vcoName = "VCO-".concat(i + 1);
+    const waveNrpn = voiceMap[vcoName]["WAVE"].nrpn;
+    maxApi.outlet("nrpnOut", waveVal, waveNrpn);
+    maxApi.outlet("valIn", vcoName, "WAVE", waveVal);
+  }
+});
+
+maxApi.addHandler("noiseBlast", () => {
+  const vco4PreviousState = state["VCO-4"];
+  const vcoName = "VCO-4";
+  const modType = 4;
+  const modDepth = 127;
+  const decay = 127;
+  const pitch = 0;
+  const modSpeed = 0;
+
+  const modTypeNrpn = voiceMap[vcoName]["MOD-TYPE"].nrpn;
+  const modDepthNrpn = voiceMap[vcoName]["MOD-DEPTH"].nrpn;
+  const decayNrpn = voiceMap[vcoName].DECAY.nrpn;
+  const pitchNrpn = voiceMap[vcoName].PITCH.nrpn;
+  const modSpeedNrpn = voiceMap[vcoName]["MOD-SPEED"].nrpn;
+
+  maxApi.outlet("nrpnOut", modType, modTypeNrpn);
+  maxApi.outlet("nrpnOut", modDepth, modDepthNrpn);
+  maxApi.outlet("nrpnOut", decay, decayNrpn);
+  maxApi.outlet("nrpnOut", pitch, pitchNrpn);
+  maxApi.outlet("nrpnOut", modSpeed, modSpeedNrpn);
+  maxApi.outlet("valIn", vcoName, "MOD-TYPE", modType);
+  maxApi.outlet("valIn", vcoName, "MOD-DEPTH", modDepth);
+  maxApi.outlet("valIn", vcoName, "DECAY", decay);
+  maxApi.outlet("valIn", vcoName, "PITCH", pitch);
+  maxApi.outlet("valIn", vcoName, "MOD-SPEED", modSpeedNrpn);
+  maxApi.outlet("playNote", midiNotes[midiNotes.length - 1]);
+  setTimeout(() => {
+    maxApi.outlet("nrpnOut", vco4PreviousState["MOD-TYPE"], modTypeNrpn);
+    maxApi.outlet("nrpnOut", vco4PreviousState["MOD-DEPTH"], modDepthNrpn);
+    maxApi.outlet("nrpnOut", globalDecay, decayNrpn);
+    maxApi.outlet("nrpnOut", vco4PreviousState.PITCH, pitchNrpn);
+    maxApi.outlet("nrpnOut", vco4PreviousState["MOD-SPEED"], modSpeedNrpn);
+    maxApi.outlet("valIn", vcoName, "MOD-TYPE", vco4PreviousState["MOD-TYPE"]);
+    maxApi.outlet(
+      "valIn",
+      vcoName,
+      "MOD-DEPTH",
+      vco4PreviousState["MOD-DEPTH"]
+    );
+    maxApi.outlet("valIn", vcoName, "DECAY", globalDecay);
+    maxApi.outlet("valIn", vcoName, "PITCH", vco4PreviousState.PITCH);
+    maxApi.outlet(
+      "valIn",
+      vcoName,
+      "MOD-SPEED",
+      vco4PreviousState["MOD-SPEED"]
+    );
+  }, 7525);
+});
+
+maxApi.addHandler("stateAfterRead", (stateInput) => {
+  state = stateInput;
 });

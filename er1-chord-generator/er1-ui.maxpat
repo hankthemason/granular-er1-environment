@@ -4905,7 +4905,7 @@
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_linknames" : 1,
-							"parameter_longname" : "none[66]",
+							"parameter_longname" : "none[51]",
 							"parameter_mmax" : 100.0,
 							"parameter_shortname" : "Gain",
 							"parameter_type" : 0,
@@ -6155,7 +6155,7 @@
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_linknames" : 1,
-							"parameter_longname" : "none[51]",
+							"parameter_longname" : "none[75]",
 							"parameter_shortname" : "Low Boost",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 0
@@ -6928,7 +6928,7 @@
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_linknames" : 1,
-							"parameter_longname" : "none[22]",
+							"parameter_longname" : "none[72]",
 							"parameter_shortname" : "Low Boost",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 0
@@ -7104,7 +7104,7 @@
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_enum" : [ "square", "sine" ],
-							"parameter_longname" : "none[72]",
+							"parameter_longname" : "none[69]",
 							"parameter_mmax" : 1.0,
 							"parameter_shortname" : "live.tab",
 							"parameter_type" : 1,
@@ -7132,7 +7132,7 @@
 					"presentation_rect" : [ 551.0, 20.0, 49.0, 47.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_longname" : "none[69]",
+							"parameter_longname" : "none[22]",
 							"parameter_shortname" : "Mod Speed",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 0
@@ -11823,6 +11823,9 @@
 		"styles" : [ 			{
 				"name" : "PAt_style0",
 				"default" : 				{
+					"clearcolor" : [ 1.0, 0.947758, 0.687073, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"color" : [ 0.952941, 0.564706, 0.098039, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color1" : [ 0.862745, 0.870588, 0.878431, 1.0 ],
@@ -11830,12 +11833,9 @@
 						"color" : [ 0.290196, 0.309804, 0.301961, 1.0 ]
 					}
 ,
+					"fontsize" : [ 12.0 ],
 					"bgcolor" : [ 0.901961, 0.901961, 0.901961, 1.0 ],
 					"accentcolor" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-					"fontsize" : [ 12.0 ],
-					"color" : [ 0.952941, 0.564706, 0.098039, 1.0 ],
-					"clearcolor" : [ 1.0, 0.947758, 0.687073, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontname" : [ "Arial" ]
 				}
 ,
