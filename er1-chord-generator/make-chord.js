@@ -30,7 +30,6 @@ maxApi.addHandler("setPitchCollection", (newPitchCollectionIdx) => {
   if (newPitchCollectionIdx > 1) return;
   pitchCollectionIndex = newPitchCollectionIdx;
   makeEr1PitchMap();
-  maxApi.post(midiNoteNumbersByEr1Pitch);
 });
 
 let midiNoteNumbersByEr1Pitch;
@@ -190,7 +189,7 @@ maxApi.addHandler("getNote", (voiceNum, sequence) => {
     maxApi.outlet("nrpnOut", note["MOD-DEPTH"], modDepthNrpn);
     maxApi.outlet("valIn", voice, "PITCH", note.PITCH);
     maxApi.outlet("valIn", voice, "MOD-DEPTH", note["MOD-DEPTH"]);
-  } else if (sequence === "ascending") {
+  } else if (sequence === "up") {
     const note = notesAscending[sequenceIndex];
     const voice = `VCO-${voiceNum}`;
     const pitchNrpn = voiceMap[voice].PITCH.nrpn;
@@ -203,7 +202,7 @@ maxApi.addHandler("getNote", (voiceNum, sequence) => {
     if (sequenceIndex === notesAscending.length) {
       sequenceIndex = 0;
     }
-  } else if (sequence === "descending") {
+  } else if (sequence === "down") {
     const note = notesAscending[sequenceIndex];
     const voice = `VCO-${voiceNum}`;
     const pitchNrpn = voiceMap[voice].PITCH.nrpn;
@@ -216,7 +215,7 @@ maxApi.addHandler("getNote", (voiceNum, sequence) => {
     if (sequenceIndex < 0) {
       sequenceIndex = notesAscending.length - 1;
     }
-  } else if (sequence === "upAndDown") {
+  } else if (sequence === "upDown") {
     const note = notesAscending[sequenceIndex];
     const voice = `VCO-${voiceNum}`;
     const pitchNrpn = voiceMap[voice].PITCH.nrpn;
@@ -373,6 +372,8 @@ const setNote = (noteNumber, voiceNum) => {
   maxApi.outlet("nrpnOut", modDepth, modDepthNrpn);
   maxApi.outlet("valIn", vcoName, "PITCH", pitch);
   maxApi.outlet("valIn", vcoName, "MOD-DEPTH", modDepth);
+  state[vcoName].PITCH = pitch;
+  state[vcoName]["MOD-DEPTH"] = modDepth;
 };
 
 maxApi.addHandler("setWaveType", (waveType) => {
@@ -410,7 +411,7 @@ maxApi.addHandler("noiseBlast", () => {
   maxApi.outlet("valIn", vcoName, "DECAY", decay);
   maxApi.outlet("valIn", vcoName, "PITCH", pitch);
   maxApi.outlet("valIn", vcoName, "MOD-SPEED", modSpeedNrpn);
-  maxApi.outlet("playNote", midiNotes[midiNotes.length - 1]);
+  maxApi.outlet("noiseBlast", midiNotes[midiNotes.length - 1]);
   setTimeout(() => {
     maxApi.outlet("nrpnOut", vco4PreviousState["MOD-TYPE"], modTypeNrpn);
     maxApi.outlet("nrpnOut", vco4PreviousState["MOD-DEPTH"], modDepthNrpn);
@@ -437,4 +438,46 @@ maxApi.addHandler("noiseBlast", () => {
 
 maxApi.addHandler("stateAfterRead", (stateInput) => {
   state = stateInput;
+  let pitches = [];
+  for (let i = 0; i < numVCOs; i++) {
+    const vcoName = "VCO-".concat(i + 1);
+    const voice = state[vcoName];
+    pitches.push(voice.PITCH);
+  }
+  const midiNoteNumbers = pitches.map(
+    (pitch) => midiNoteNumbersByEr1Pitch[pitch]
+  );
+  maxApi.outlet("midiNoteNumbers", midiNoteNumbers);
+});
+
+maxApi.addHandler("spreadModDepth", () => {
+  for (let i = 0; i < numVCOs; i++) {
+    const vcoName = "VCO-".concat(i + 1);
+    let modDepth = state[vcoName]["MOD-DEPTH"];
+    const toAdd = Math.floor(Math.random() * 3) - 1;
+    modDepth += toAdd;
+    const modDepthNrpn = voiceMap[vcoName]["MOD-DEPTH"].nrpn;
+    state[vcoName]["MOD-DEPTH"] = modDepth;
+    maxApi.outlet("nrpnOut", modDepth, modDepthNrpn);
+    maxApi.outlet("valIn", vcoName, "MOD-DEPTH", modDepth);
+  }
+});
+
+maxApi.addHandler("restoreDefaultNoteValues", () => {
+  const pitchArr = pitchArrays[pitchCollectionIndex];
+  const modDepthsByPitch = pitchArr.reduce((acc, note) => {
+    return {
+      ...acc,
+      [note.PITCH]: note["MOD-DEPTH"],
+    };
+  }, {});
+  for (let i = 0; i < numVCOs; i++) {
+    const vcoName = "VCO-".concat(i + 1);
+    const pitch = state[vcoName].PITCH;
+    const modDepth = modDepthsByPitch[pitch];
+    const modDepthNrpn = voiceMap[vcoName]["MOD-DEPTH"].nrpn;
+    maxApi.outlet("nrpnOut", modDepth, modDepthNrpn);
+    maxApi.outlet("valIn", vcoName, "MOD-DEPTH", modDepth);
+    state[vcoName]["MOD-DEPTH"] = modDepth;
+  }
 });

@@ -3,12 +3,14 @@ const maxApi = require("max-api");
 const envelopeModes = ["singleNote", "allNotes"];
 const noteModes = ["set", "play"];
 const waveTypes = ["square", "sine"];
+const arpDirections = ["up", "down", "upDown", "random"];
 
 let isPlaying = false;
 let tempo = 0.5;
 let envelopeMode = envelopeModes[0];
 let noteMode = noteModes[0];
 let waveType = waveTypes[0];
+let arpDirection = arpDirections[0];
 
 maxApi.addHandler("setTempo", (t) => {
   tempo = t / 120;
@@ -53,4 +55,12 @@ maxApi.addHandler("setWaveType", (waveIdx) => {
     maxApi.outlet("waveType", waveType);
   }
   maxApi.outlet("waveType", waveType);
+});
+
+maxApi.addHandler("setArpDirection", (arpDirectionIdx) => {
+  if (arpDirection !== arpDirections[arpDirectionIdx]) {
+    arpDirection = arpDirections[arpDirectionIdx];
+    maxApi.outlet("arpDirection", arpDirection);
+  }
+  maxApi.outlet("arpDirection", arpDirection);
 });

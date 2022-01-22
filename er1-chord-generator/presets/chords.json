@@ -35,11 +35,11 @@
   "VCO-4": {
     "LOW-BOOST": 20,
     "PAN": 64,
-    "PITCH": 63,
+    "PITCH": 64,
     "WAVE": 127,
     "MOD-TYPE": 0,
     "MOD-SPEED": 0,
-    "MOD-DEPTH": 70,
+    "MOD-DEPTH": 64,
     "LEVEL": 127,
     "DECAY": 127
   },
