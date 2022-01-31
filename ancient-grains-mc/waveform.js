@@ -100,7 +100,7 @@ maxApi.addHandler("setCurrentBufferLength", (length) => {
   currentBufferLength = length;
   const outOfBounds = mostRecentSelectionEnd > currentBufferLength;
   if (outOfBounds && isPlaying && !isPaused) {
-    maxApi.outlet("lineInstructions", "stop");
+    maxApi.outlet("lineInstruction", "stop");
     position = 0;
     selectionEnd = 0;
     makeLine();
@@ -112,8 +112,15 @@ let isOn = false;
 maxApi.addHandler("handleOnOff", (status) => {
   isOn = status === 1 ? true : false;
   if (!isOn) {
-    isPaused = false;
-    isPlaying = false;
+    if (isPlaying) {
+      isPlaying = false;
+      isPaused = true;
+      togglePlayPauseButton();
+      maxApi.outlet("lineInstruction", "pause");
+    } else {
+      isPaused = false;
+      isPlaying = false;
+    }
   }
 });
 

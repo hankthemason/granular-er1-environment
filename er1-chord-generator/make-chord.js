@@ -26,23 +26,39 @@ let pitchCollectionIndex = 0;
 const pitchArrays = [allNotes, notesWithNames];
 const pitchMaps = [allNotesByMidiNoteNumber, notesByMidiNoteNumber];
 
-maxApi.addHandler("setPitchCollection", (newPitchCollectionIdx) => {
-  if (newPitchCollectionIdx > 1) return;
-  pitchCollectionIndex = newPitchCollectionIdx;
-  makeEr1PitchMap();
-});
-
 let midiNoteNumbersByEr1Pitch;
 
 const makeEr1PitchMap = () => {
   midiNoteNumbersByEr1Pitch = Object.entries(
     pitchMaps[pitchCollectionIndex]
   ).reduce((accumulator, [midiNoteNumber, noteObj]) => {
-    return { ...accumulator, [noteObj.PITCH]: midiNoteNumber };
+    return {
+      ...accumulator,
+      [noteObj.PITCH]: {
+        NOTE: midiNoteNumber,
+        "MOD-DEPTH": noteObj["MOD-DEPTH"],
+      },
+    };
   }, {});
 };
 
 makeEr1PitchMap();
+
+maxApi.addHandler("setPitchCollection", (newPitchCollectionIdx) => {
+  if (newPitchCollectionIdx > 1) return;
+  pitchCollectionIndex = newPitchCollectionIdx;
+  makeEr1PitchMap();
+  for (let i = 0; i < numVCOs; i++) {
+    const vcoName = "VCO-".concat(i + 1);
+    const pitch = state[vcoName].PITCH;
+    if (midiNoteNumbersByEr1Pitch[pitch]) {
+      const modDepth = midiNoteNumbersByEr1Pitch[pitch]["MOD-DEPTH"];
+      const modDepthNrpn = voiceMap[vcoName]["MOD-DEPTH"].nrpn;
+      maxApi.outlet("nrpnOut", modDepth, modDepthNrpn);
+      maxApi.outlet("valIn", vcoName, "MOD-DEPTH", modDepth);
+    }
+  }
+});
 
 let MUTE = {
   VCO: 0,
@@ -125,8 +141,12 @@ maxApi.addHandler("makeChord", () => {
     maxApi.outlet("nrpnOut", modDepth, modDepthNrpn);
     maxApi.outlet("valIn", vcoName, "PITCH", pitch);
     maxApi.outlet("valIn", vcoName, "MOD-DEPTH", modDepth);
+    state[vcoName].PITCH = pitch;
+    state[vcoName]["MOD-DEPTH"] = modDepth;
   }
-  midiNoteNumbers = pitches.map((pitch) => midiNoteNumbersByEr1Pitch[pitch]);
+  midiNoteNumbers = pitches.map(
+    (pitch) => midiNoteNumbersByEr1Pitch[pitch].NOTE
+  );
   maxApi.outlet("midiNoteNumbers", midiNoteNumbers);
 });
 
@@ -445,7 +465,7 @@ maxApi.addHandler("stateAfterRead", (stateInput) => {
     pitches.push(voice.PITCH);
   }
   const midiNoteNumbers = pitches.map(
-    (pitch) => midiNoteNumbersByEr1Pitch[pitch]
+    (pitch) => midiNoteNumbersByEr1Pitch[pitch].NOTE
   );
   maxApi.outlet("midiNoteNumbers", midiNoteNumbers);
 });
