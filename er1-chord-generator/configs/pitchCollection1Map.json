@@ -1,0 +1,17 @@
+{
+  "36": { "pitch": 21, "noteName": "C1", "modDepth": 66 },
+  "46": { "pitch": 42, "noteName": "A#1", "modDepth": 64 },
+  "53": { "pitch": 40, "noteName": "F2", "modDepth": 57 },
+  "60": { "pitch": 44, "noteName": "C3", "modDepth": 64 },
+  "62": { "pitch": 46, "noteName": "D3", "modDepth": 64 },
+  "63": { "pitch": 47, "noteName": "D#3", "modDepth": 64 },
+  "67": { "pitch": 51, "noteName": "G3", "modDepth": 64 },
+  "70": { "pitch": 54, "noteName": "A#3", "modDepth": 65 },
+  "72": { "pitch": 56, "noteName": "C4", "modDepth": 64 },
+  "74": { "pitch": 58, "noteName": "D4", "modDepth": 65 },
+  "75": { "pitch": 60, "noteName": "D#4", "modDepth": 59 },
+  "77": { "pitch": 62, "noteName": "F4", "modDepth": 64 },
+  "79": { "pitch": 64, "noteName": "G4", "modDepth": 64 },
+  "82": { "pitch": 67, "noteName": "A#4", "modDepth": 64 },
+  "84": { "pitch": 70, "noteName": "C5", "modDepth": 64 }
+}

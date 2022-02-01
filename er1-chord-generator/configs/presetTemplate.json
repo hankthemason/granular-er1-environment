@@ -1,66 +1,55 @@
 {
   "VCO-1": {
-    "LOW-BOOST": 0,
-    "PAN": 0,
-    "PITCH": 0,
-    "WAVE": 0,
-    "MOD-TYPE": 0,
-    "MOD-SPEED": 0,
-    "MOD-DEPTH": 0,
-    "LEVEL": 0,
-    "DECAY": 0
+    "lowBoost": 0,
+    "pan": 0,
+    "pitch": 0,
+    "wave": 0,
+    "modType": 0,
+    "modSpeed": 0,
+    "modDepth": 0,
+    "level": 0,
+    "decay": 0
   },
   "VCO-2": {
-    "LOW-BOOST": 0,
-    "PAN": 0,
-    "PITCH": 0,
-    "WAVE": 0,
-    "MOD-TYPE": 0,
-    "MOD-SPEED": 0,
-    "MOD-DEPTH": 0,
-    "LEVEL": 0,
-    "DECAY": 0
+    "lowBoost": 0,
+    "pan": 0,
+    "pitch": 0,
+    "wave": 0,
+    "modType": 0,
+    "modSpeed": 0,
+    "modDepth": 0,
+    "level": 0,
+    "decay": 0
   },
   "VCO-3": {
-    "LOW-BOOST": 0,
-    "PAN": 0,
-    "PITCH": 0,
-    "WAVE": 0,
-    "MOD-TYPE": 0,
-    "MOD-SPEED": 0,
-    "MOD-DEPTH": 0,
-    "LEVEL": 0,
-    "DECAY": 0
+    "lowBoost": 0,
+    "pan": 0,
+    "pitch": 0,
+    "wave": 0,
+    "modType": 0,
+    "modSpeed": 0,
+    "modDepth": 0,
+    "level": 0,
+    "decay": 0
   },
   "VCO-4": {
-    "LOW-BOOST": 0,
-    "PAN": 0,
-    "PITCH": 0,
-    "WAVE": 0,
-    "MOD-TYPE": 0,
-    "MOD-SPEED": 0,
-    "MOD-DEPTH": 0,
-    "LEVEL": 0,
-    "DECAY": 0
+    "lowBoost": 0,
+    "pan": 0,
+    "pitch": 0,
+    "wave": 0,
+    "modType": 0,
+    "modSpeed": 0,
+    "modDepth": 0,
+    "level": 0,
+    "decay": 0
   },
-  "HH-CLOSE": { "LOW-BOOST": 0, "PAN": 0, "PITCH": 0, "LEVEL": 0, "DECAY": 0 },
-  "HH-OPEN": { "LOW-BOOST": 0, "PAN": 0, "PITCH": 0, "LEVEL": 0, "DECAY": 0 },
-  "CRASH": { "LOW-BOOST": 0, "PAN": 0, "PITCH": 0, "LEVEL": 0, "DECAY": 0 },
-  "CLAP": { "LOW-BOOST": 0, "PAN": 0, "PITCH": 0, "LEVEL": 0, "DECAY": 0 },
-  "AUDIO-IN-1": { "GAIN": 0, "LOW-BOOST": 0, "PAN": 0, "LEVEL": 0, "DECAY": 0 },
-  "AUDIO-IN-2": { "GAIN": 0, "LOW-BOOST": 0, "PAN": 0, "LEVEL": 0, "DECAY": 0 },
-  "MUTE": {
-    "VCO": 0,
-    "SAMPLE/AUDIO": 0
-  },
-  "SOLO": {
-    "VCO": 79,
-    "SAMPLE/AUDIO": 127
-  },
-  "GLOBAL": {
-    "DELAY-DEPTH": 0,
-    "DELAY-TIME": 0,
-    "RING-MOD-1": 0,
-    "RING-MOD-2": 0
-  }
+  "HH-CLOSE": { "lowBoost": 0, "pan": 0, "pitch": 0, "level": 0, "decay": 0 },
+  "HH-OPEN": { "lowBoost": 0, "pan": 0, "pitch": 0, "level": 0, "decay": 0 },
+  "CRASH": { "lowBoost": 0, "pan": 0, "pitch": 0, "level": 0, "decay": 0 },
+  "CLAP": { "lowBoost": 0, "pan": 0, "pitch": 0, "level": 0, "decay": 0 },
+  "AUDIO-IN-1": { "lowBoost": 0, "pan": 0, "level": 0, "decay": 0, "gain": 0 },
+  "AUDIO-IN-2": { "lowBoost": 0, "pan": 0, "level": 0, "decay": 0, "gain": 0 },
+  "MUTE": { "vco": 0, "sampleAndAudio": 0 },
+  "SOLO": { "vco": 79, "sampleAndAudio": 127 },
+  "GLOBAL": { "delayDepth": 0, "delayTime": 0, "ringMod1": 0, "ringMod2": 0 }
 }
