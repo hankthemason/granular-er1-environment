@@ -7,18 +7,15 @@ const presetTemplate = require("./configs/presetTemplate.json");
 const globalParams = require("./configs/globalParams.json");
 //list of sample/audio voices
 const sampleAndAudioVoices = require("./configs/sampleAndAudioVoices");
-const voiceNotes = require("./configs/voiceNotes.json");
-const allNotes = require("./configs/allNotes.json");
-const scenes = require("./configs/scenes");
 
-let MUTE = {
+let mute = {
   VCO: 0,
-  "SAMPLE/AUDIO": 0,
+  sampleAndAudio: 0,
 };
 
-let SOLO = {
+let solo = {
   VCO: 79,
-  "SAMPLE/AUDIO": 127,
+  sampleAndAudio: 127,
 };
 
 //number of VCO's
@@ -30,9 +27,9 @@ let state = JSON.parse(JSON.stringify(presetTemplate));
 
 //listens to changes coming from the UI
 //and relays the changed value to the ER-1
-maxApi.addHandler("paramChanged", (voice, param, val) => {
-  var outputVal;
-  var nrpn;
+maxApi.addHandler("paramChanged", (voiceName, param, val) => {
+  const outputVal;
+  const nrpn;
   if (voice !== "GLOBAL" && voiceMap[voice][param]) {
     nrpn = voiceMap[voice][param].nrpn;
     if (param === "WAVE" && val === 1) {
@@ -107,7 +104,6 @@ maxApi.addHandler("paramChanged", (voice, param, val) => {
     maxApi.outlet("nrpnOut", outlet1Val, globalParams["SOLO"]["VCO"]);
     maxApi.outlet("nrpnOut", outlet2Val, globalParams["SOLO"]["SAMPLE/AUDIO"]);
   }
-  maxApi.post(state);
 });
 
 //update the UI when the ER-1 changes
