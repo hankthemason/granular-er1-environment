@@ -40,6 +40,17 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-12",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 125.0, 307.0, 32.0, 22.0 ],
+					"text" : "print"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-10",
 					"maxclass" : "comment",
 					"numinlets" : 1,
@@ -2022,7 +2033,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1093.0, 61.0, 241.0, 62.0 ],
-					"text" : "read \"Macintosh HD:/Users/hankthemason/Code/Max/granular-er1-environment/er1-chord-generator/presets/chords.json\""
+					"text" : "readStateFromDisk \"Macintosh HD:/Users/hankthemason/Code/Max/granular-er1-environment/er1-chord-generator/presets/chords.json\""
 				}
 
 			}
@@ -3548,6 +3559,8 @@
 					"saved_object_attributes" : 					{
 						"autostart" : 0,
 						"defer" : 0,
+						"node_bin_path" : "",
+						"npm_bin_path" : "",
 						"watch" : 0
 					}
 ,
@@ -3650,7 +3663,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 57.0, 106.0, 1093.0, 480.0 ],
+						"rect" : [ 703.0, -823.0, 1093.0, 480.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -3678,6 +3691,7 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
+						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"comment" : "",
@@ -3829,8 +3843,8 @@
 									"numinlets" : 14,
 									"numoutlets" : 14,
 									"outlettype" : [ "", "", "", "", "", "", "", "", "", "", "", "", "", "" ],
-									"patching_rect" : [ 50.0, 100.0, 641.0, 22.0 ],
-									"text" : "route VCO-1 VCO-2 VCO-3 VCO-4 HH-CLOSE HH-OPEN CRASH CLAP AUDIO-IN-1 AUDIO-IN-2 GLOBAL mute solo"
+									"patching_rect" : [ 50.0, 100.0, 491.0, 22.0 ],
+									"text" : "route vco1 vco2 vco3 vco4 hhClose hhOpen crash clap audioIn1 audioIn2 global mute solo"
 								}
 
 							}
@@ -4115,14 +4129,16 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 195.0, 225.0, 146.0, 22.0 ],
+					"patching_rect" : [ 195.0, 217.0, 123.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"autostart" : 0,
 						"defer" : 0,
+						"node_bin_path" : "",
+						"npm_bin_path" : "",
 						"watch" : 0
 					}
 ,
-					"text" : "node.script make-chord.js"
+					"text" : "node.script er1-API.js"
 				}
 
 			}
@@ -4131,6 +4147,14 @@
 				"patchline" : 				{
 					"destination" : [ "obj-118", 0 ],
 					"order" : 0,
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-12", 0 ],
+					"order" : 2,
 					"source" : [ "obj-1", 0 ]
 				}
 
@@ -4195,7 +4219,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-9", 0 ],
+					"destination" : [ "obj-1", 0 ],
 					"source" : [ "obj-107", 0 ]
 				}
 

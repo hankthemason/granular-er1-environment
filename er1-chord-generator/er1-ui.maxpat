@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 375.0, -644.0, 1027.0, 642.0 ],
+		"rect" : [ 341.0, -866.0, 1027.0, 642.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -190,8 +190,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 3832.919102263061177, -139.0, 89.0, 22.0 ],
-					"text" : "GLOBAL $1 $2"
+					"patching_rect" : [ 3832.919102263061177, -139.0, 74.0, 22.0 ],
+					"text" : "global $1 $2"
 				}
 
 			}
@@ -250,8 +250,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 3530.48556599999938, -145.0, 107.0, 22.0 ],
-					"text" : "AUDIO-IN-2 $1 $2"
+					"patching_rect" : [ 3530.48556599999938, -145.0, 88.0, 22.0 ],
+					"text" : "audioIn2 $1 $2"
 				}
 
 			}
@@ -322,9 +322,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 3228.714293999999882, -145.0, 107.0, 22.0 ],
-					"presentation_linecount" : 2,
-					"text" : "AUDIO-IN-1 $1 $2"
+					"patching_rect" : [ 3228.714293999999882, -145.0, 88.0, 22.0 ],
+					"text" : "audioIn1 $1 $2"
 				}
 
 			}
@@ -649,8 +648,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1510.50006099999996, -102.0, 79.0, 22.0 ],
-					"text" : "VCO-4 $1 $2"
+					"patching_rect" : [ 1510.50006099999996, -102.0, 67.0, 22.0 ],
+					"text" : "vco4 $1 $2"
 				}
 
 			}
@@ -769,8 +768,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1006.500368999999637, -102.0, 79.0, 22.0 ],
-					"text" : "VCO-3 $1 $2"
+					"patching_rect" : [ 1006.500368999999637, -102.0, 67.0, 22.0 ],
+					"text" : "vco3 $1 $2"
 				}
 
 			}
@@ -889,8 +888,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 508.5, -102.0, 79.0, 22.0 ],
-					"text" : "VCO-2 $1 $2"
+					"patching_rect" : [ 508.5, -102.0, 67.0, 22.0 ],
+					"text" : "vco2 $1 $2"
 				}
 
 			}
@@ -2437,8 +2436,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 2922.714293999999882, -145.0, 73.0, 22.0 ],
-					"text" : "CLAP $1 $2"
+					"patching_rect" : [ 2922.714293999999882, -145.0, 64.0, 22.0 ],
+					"text" : "clap $1 $2"
 				}
 
 			}
@@ -2449,8 +2448,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 2623.214293999999882, -145.0, 84.0, 22.0 ],
-					"text" : "CRASH $1 $2"
+					"patching_rect" : [ 2623.214293999999882, -145.0, 71.0, 22.0 ],
+					"text" : "crash $1 $2"
 				}
 
 			}
@@ -2461,8 +2460,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 2320.713926000000356, -145.0, 97.0, 22.0 ],
-					"text" : "HH-OPEN $1 $2"
+					"patching_rect" : [ 2320.713926000000356, -145.0, 85.0, 22.0 ],
+					"text" : "hhOpen $1 $2"
 				}
 
 			}
@@ -2485,8 +2484,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 2022.857361999999739, -141.0, 104.0, 22.0 ],
-					"text" : "HH-CLOSE $1 $2"
+					"patching_rect" : [ 2022.857361999999739, -141.0, 86.0, 22.0 ],
+					"text" : "hhClose $1 $2"
 				}
 
 			}
@@ -2497,8 +2496,8 @@
 					"numinlets" : 11,
 					"numoutlets" : 11,
 					"outlettype" : [ "", "", "", "", "", "", "", "", "", "", "" ],
-					"patching_rect" : [ 609.428527999999915, 14.0, 534.0, 22.0 ],
-					"text" : "route VCO-1 VCO-2 VCO-3 VCO-4 HH-CLOSE HH-OPEN CRASH CLAP AUDIO-IN-1 AUDIO-IN-2"
+					"patching_rect" : [ 609.428527999999915, 14.0, 401.0, 22.0 ],
+					"text" : "route vco1 vco2 vco3 vco4 hhClose hhOpen crash clap audioIn1 audioIn2"
 				}
 
 			}
@@ -2522,8 +2521,8 @@
 					"numinlets" : 11,
 					"numoutlets" : 11,
 					"outlettype" : [ "", "", "", "", "", "", "", "", "", "", "" ],
-					"patching_rect" : [ 13.0, 14.0, 534.0, 22.0 ],
-					"text" : "route VCO-1 VCO-2 VCO-3 VCO-4 HH-CLOSE HH-OPEN CRASH CLAP AUDIO-IN-1 AUDIO-IN-2"
+					"patching_rect" : [ 13.0, 14.0, 401.0, 22.0 ],
+					"text" : "route vco1 vco2 vco3 vco4 hhClose hhOpen crash clap audioIn1 audioIn2"
 				}
 
 			}
@@ -2763,8 +2762,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 13.0, -102.0, 79.0, 22.0 ],
-					"text" : "VCO-1 $1 $2"
+					"patching_rect" : [ 13.0, -102.0, 67.0, 22.0 ],
+					"text" : "vco1 $1 $2"
 				}
 
 			}
@@ -9896,7 +9895,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-454", 0 ],
-					"midpoints" : [ 1090.666699171066284, 170.666671752929688, 618.928527999999915, 176.00000524520874 ],
+					"midpoints" : [ 1082.428527999999915, 170.666671752929688, 618.928527999999915, 170.666671752929688 ],
 					"source" : [ "obj-637", 0 ]
 				}
 

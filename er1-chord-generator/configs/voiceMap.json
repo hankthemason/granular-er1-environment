@@ -1,5 +1,5 @@
 {
-  "VCO-1": {
+  "vco1": {
     "lowBoost": { "nrpn": 256, "min": 0, "max": 127 },
     "pan": { "nrpn": 257, "min": 0, "max": 127 },
     "pitch": { "nrpn": 258, "min": 0, "max": 127 },
@@ -10,7 +10,7 @@
     "level": { "nrpn": 263, "min": 0, "max": 127 },
     "decay": { "nrpn": 264, "min": 0, "max": 127 }
   },
-  "VCO-2": {
+  "vco2": {
     "lowBoost": { "nrpn": 266, "min": 0, "max": 127 },
     "pan": { "nrpn": 267, "min": 0, "max": 127 },
     "pitch": { "nrpn": 268, "min": 0, "max": 127 },
@@ -21,7 +21,7 @@
     "level": { "nrpn": 273, "min": 0, "max": 127 },
     "decay": { "nrpn": 274, "min": 0, "max": 127 }
   },
-  "VCO-3": {
+  "vco3": {
     "lowBoost": { "nrpn": 276, "min": 0, "max": 127 },
     "pan": { "nrpn": 277, "min": 0, "max": 127 },
     "pitch": { "nrpn": 278, "min": 0, "max": 127 },
@@ -32,7 +32,7 @@
     "level": { "nrpn": 283, "min": 0, "max": 127 },
     "decay": { "nrpn": 284, "min": 0, "max": 127 }
   },
-  "VCO-4": {
+  "vco4": {
     "lowBoost": { "nrpn": 286, "min": 0, "max": 127 },
     "pan": { "nrpn": 287, "min": 0, "max": 127 },
     "pitch": { "nrpn": 288, "min": 0, "max": 127 },
@@ -43,42 +43,42 @@
     "level": { "nrpn": 293, "min": 0, "max": 127 },
     "decay": { "nrpn": 294, "min": 0, "max": 127 }
   },
-  "HH-CLOSE": {
+  "hhClose": {
     "lowBoost": { "nrpn": 296, "min": 0, "max": 127 },
     "pan": { "nrpn": 297, "min": 0, "max": 127 },
     "pitch": { "nrpn": 298, "min": 0, "max": 127 },
     "level": { "nrpn": 303, "min": 0, "max": 127 },
     "decay": { "nrpn": 304, "min": 0, "max": 127 }
   },
-  "HH-OPEN": {
+  "hhOpen": {
     "lowBoost": { "nrpn": 306, "min": 0, "max": 127 },
     "pan": { "nrpn": 307, "min": 0, "max": 127 },
     "pitch": { "nrpn": 308, "min": 0, "max": 127 },
     "level": { "nrpn": 313, "min": 0, "max": 127 },
     "decay": { "nrpn": 314, "min": 0, "max": 127 }
   },
-  "CRASH": {
+  "crash": {
     "lowBoost": { "nrpn": 316, "min": 0, "max": 127 },
     "pan": { "nrpn": 317, "min": 0, "max": 127 },
     "pitch": { "nrpn": 318, "min": 0, "max": 127 },
     "level": { "nrpn": 323, "min": 0, "max": 127 },
     "decay": { "nrpn": 324, "min": 0, "max": 127 }
   },
-  "CLAP": {
+  "clap": {
     "lowBoost": { "nrpn": 326, "min": 0, "max": 127 },
     "pan": { "nrpn": 327, "min": 0, "max": 127 },
     "pitch": { "nrpn": 328, "min": 0, "max": 127 },
     "level": { "nrpn": 333, "min": 0, "max": 127 },
     "decay": { "nrpn": 334, "min": 0, "max": 127 }
   },
-  "AUDIO-IN-1": {
+  "audioIn1": {
     "lowBoost": { "nrpn": 336, "min": 0, "max": 127 },
     "pan": { "nrpn": 337, "min": 0, "max": 127 },
     "level": { "nrpn": 343, "min": 0, "max": 127 },
     "decay": { "nrpn": 344, "min": 0, "max": 127 },
     "gain": { "nrpn": 360, "min": 0, "max": 100 }
   },
-  "AUDIO-IN-2": {
+  "audioIn2": {
     "lowBoost": { "nrpn": 346, "min": 0, "max": 127 },
     "pan": { "nrpn": 347, "min": 0, "max": 127 },
     "level": { "nrpn": 353, "min": 0, "max": 127 },

@@ -1,10 +1,10 @@
 {
   "mute": {
-    "VCO": 365,
+    "vco": 365,
     "sampleAndAudio": 366
   },
   "solo": {
-    "VCO": 365,
+    "vco": 365,
     "sampleAndAudio": 366
   },
   "delayDepth": 356,

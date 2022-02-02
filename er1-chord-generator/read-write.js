@@ -361,8 +361,7 @@ const readNotesObj = () => {
   return JSON.parse(rawData);
 };
 
-maxApi.addHandler("write", (filepath) => {
-  filepath = filepath.slice(13).concat(".json");
-  maxApi.post(filepath);
-  fs.writeFileSync(filepath, JSON.stringify(state));
+maxApi.addHandler("write", (filePath) => {
+  filePath = filePath.slice(13).concat(".json");
+  fs.writeFileSync(filePath, JSON.stringify(state));
 });

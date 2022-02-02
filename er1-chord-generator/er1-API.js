@@ -4,14 +4,20 @@ const fs = require("fs");
 const voiceMap = require("./configs/voiceMap");
 const presetTemplate = require("./configs/presetTemplate.json");
 const globalParams = require("./configs/globalParams.json");
-//list of sample/audio voices
-
-let chordsFromWrite = require("./configs/chordsFromWrite.json");
 
 const pitchCollection1 = require("./configs/pitchCollection1.json");
 const pitchCollection2 = require("./configs/pitchCollection2.json");
 const pitchCollection1Map = require("./configs/pitchCollection1Map.json");
 const pitchCollection2Map = require("./configs/pitchCollection2Map.json");
+
+const { updateUI, updateState } = require("./utils/handleEr1Change");
+
+const {
+  writeChordToDisk,
+  updateAllAfterRead,
+  writeStateToDisk,
+  readStateFromDisk,
+} = require("./readAndWrite");
 
 let pitchCollectionIndex = 0;
 const pitchArrays = [pitchCollection1, pitchCollection2];
@@ -57,12 +63,12 @@ maxApi.addHandler("setPitchCollection", (newPitchCollectionIdx) => {
 });
 
 let muteState = {
-  VCO: 0,
+  vco: 0,
   sampleAndAudio: 0,
 };
 
 let soloState = {
-  VCO: 79,
+  vco: 79,
   sampleAndAudio: 127,
 };
 
@@ -82,7 +88,6 @@ const makeSequentialNoteArray = () => {
 makeSequentialNoteArray();
 
 let state = JSON.parse(JSON.stringify(presetTemplate));
-chordsFromWrite = JSON.parse(JSON.stringify(chordsFromWrite));
 
 let globalDecay = 127;
 
@@ -115,24 +120,6 @@ maxApi.addHandler("makeChord", () => {
     (pitch) => midiNoteNumbersByEr1Pitch[pitch].midiNoteNumber
   );
   maxApi.outlet("midiNoteNumbers", midiNoteNumbers);
-});
-
-maxApi.addHandler("writeChord", () => {
-  let chord = {};
-  for (let i = 0; i < numVCOs; i++) {
-    let note = {};
-    const voiceName = "VCO-".concat(i + 1);
-    const pitch = state[voiceName].pitch;
-    const modDepth = state[voiceName].modDepth;
-    note.pitch = pitch;
-    note.modDepth = modDepth;
-    chord[voiceName] = note;
-  }
-  chordsFromWrite.push(chord);
-  fs.writeFileSync(
-    "./configs/chordsFromWrite.json",
-    JSON.stringify(chordsFromWrite)
-  );
 });
 
 let sequenceIndex = 0;
@@ -438,4 +425,28 @@ maxApi.addHandler("restoreDefaultNoteValues", () => {
     maxApi.outlet("updateUI", voiceName, "modDepth", modDepth);
     state[voiceName].modDepth = modDepth;
   }
+});
+
+//HANDLE INCOMING CHANGES FROM THE ER-1
+//UPDATE UI
+maxApi.addHandler("incomingFromEr1", (val, nrpn) => {
+  updateUI(val, nrpn);
+  state = { ...updateState(val, nrpn, state) };
+  maxApi.post(state);
+});
+
+//READ/WRITE OPERATIONS
+maxApi.addHandler("writeChordToDisk", () => {
+  writeChordToDisk(chords, state);
+});
+
+maxApi.addHandler("writeStateToDisk", (filePath) => {
+  writeStateToDisk(state, filePath);
+});
+
+maxApi.addHandler("readStateFromDisk", (filePath) => {
+  state = { ...readStateFromDisk(filePath) };
+  updateAllAfterRead(state);
+  muteState = state.mute;
+  soloState = state.solo;
 });

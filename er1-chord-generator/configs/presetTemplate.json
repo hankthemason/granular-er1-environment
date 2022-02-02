@@ -1,5 +1,5 @@
 {
-  "VCO-1": {
+  "vco1": {
     "lowBoost": 0,
     "pan": 0,
     "pitch": 0,
@@ -10,7 +10,7 @@
     "level": 0,
     "decay": 0
   },
-  "VCO-2": {
+  "vco2": {
     "lowBoost": 0,
     "pan": 0,
     "pitch": 0,
@@ -21,7 +21,7 @@
     "level": 0,
     "decay": 0
   },
-  "VCO-3": {
+  "vco3": {
     "lowBoost": 0,
     "pan": 0,
     "pitch": 0,
@@ -32,7 +32,7 @@
     "level": 0,
     "decay": 0
   },
-  "VCO-4": {
+  "vco4": {
     "lowBoost": 0,
     "pan": 0,
     "pitch": 0,
@@ -43,13 +43,13 @@
     "level": 0,
     "decay": 0
   },
-  "HH-CLOSE": { "lowBoost": 0, "pan": 0, "pitch": 0, "level": 0, "decay": 0 },
-  "HH-OPEN": { "lowBoost": 0, "pan": 0, "pitch": 0, "level": 0, "decay": 0 },
-  "CRASH": { "lowBoost": 0, "pan": 0, "pitch": 0, "level": 0, "decay": 0 },
-  "CLAP": { "lowBoost": 0, "pan": 0, "pitch": 0, "level": 0, "decay": 0 },
-  "AUDIO-IN-1": { "lowBoost": 0, "pan": 0, "level": 0, "decay": 0, "gain": 0 },
-  "AUDIO-IN-2": { "lowBoost": 0, "pan": 0, "level": 0, "decay": 0, "gain": 0 },
-  "MUTE": { "vco": 0, "sampleAndAudio": 0 },
-  "SOLO": { "vco": 79, "sampleAndAudio": 127 },
-  "GLOBAL": { "delayDepth": 0, "delayTime": 0, "ringMod1": 0, "ringMod2": 0 }
+  "hhClose": { "lowBoost": 0, "pan": 0, "pitch": 0, "level": 0, "decay": 0 },
+  "hhOpen": { "lowBoost": 0, "pan": 0, "pitch": 0, "level": 0, "decay": 0 },
+  "crash": { "lowBoost": 0, "pan": 0, "pitch": 0, "level": 0, "decay": 0 },
+  "clap": { "lowBoost": 0, "pan": 0, "pitch": 0, "level": 0, "decay": 0 },
+  "audioIn1": { "lowBoost": 0, "pan": 0, "level": 0, "decay": 0, "gain": 0 },
+  "audioIn2": { "lowBoost": 0, "pan": 0, "level": 0, "decay": 0, "gain": 0 },
+  "mute": { "vco": 0, "sampleAndAudio": 0 },
+  "solo": { "vco": 79, "sampleAndAudio": 127 },
+  "global": { "delayDepth": 0, "delayTime": 0, "ringMod1": 0, "ringMod2": 0 }
 }
