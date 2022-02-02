@@ -3,6 +3,8 @@ const nrpnMap = require("../../configs/nrpnMap.json");
 const sampleAndAudioVoices = require("../../configs/sampleAndAudioVoices.json");
 const handleIncomingMuteOrSolo = require("./handleIncomingMuteOrSolo");
 
+const numVCOs = 4;
+
 //update the UI when the ER-1 changes
 const updateUI = (val, nrpn) => {
   //get the parameter's name from its NRPN
@@ -32,7 +34,7 @@ const updateUI = (val, nrpn) => {
   //incoming NRPN's can only be "mute"
   //because "mute" and "solo" use the same NRPN #'s
   if (paramName.slice(0, 4) === "mute") {
-    const param = paramName.split(" ")[0];
+    let param = paramName.split(" ")[0];
     const type = paramName.split(" ")[1];
     if (val > 63) {
       param = "solo";

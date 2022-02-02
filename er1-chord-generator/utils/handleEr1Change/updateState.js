@@ -11,7 +11,7 @@ const updateState = (val, nrpn, state) => {
   //incoming NRPN's can only be "mute"
   //because "mute" and "solo" use the same NRPN #'s
   if (paramName.slice(0, 4) === "mute") {
-    const param = paramName.split(" ")[0];
+    let param = paramName.split(" ")[0];
     const type = paramName.split(" ")[1];
     if (val > 63) {
       param = "solo";
