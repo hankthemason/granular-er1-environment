@@ -1,14 +1,33 @@
 const maxApi = require("max-api");
-const fs = require("fs");
 
 const voiceMap = require("./configs/voiceMap");
 const presetTemplate = require("./configs/presetTemplate.json");
 const globalParams = require("./configs/globalParams.json");
+const sampleAndAudioVoices = require("./configs/sampleAndAudioVoices.json");
 
 const pitchCollection1 = require("./configs/pitchCollection1.json");
 const pitchCollection2 = require("./configs/pitchCollection2.json");
 const pitchCollection1Map = require("./configs/pitchCollection1Map.json");
 const pitchCollection2Map = require("./configs/pitchCollection2Map.json");
+
+const {
+  sendSingleVoiceNrpn,
+  sendMultipleVoiceNrpns,
+  sendMuteNrpns,
+  sendSoloNrpns,
+  sendSingleGlobalNrpn,
+  sendAllVoicesNrpns,
+} = require("./utils/sendNrpn");
+
+const {
+  setNote,
+  noiseBlast,
+  setWaveType,
+  spreadModDepth,
+  restoreDefaultNoteValues,
+} = require("./utils/actions");
+
+const checkSoloStateAndMuteState = require("./utils/checkSoloStateAndMuteState");
 
 const { updateUI, updateState } = require("./utils/handleEr1Change");
 
@@ -44,19 +63,17 @@ const makeEr1PitchMap = () => {
 makeEr1PitchMap();
 
 maxApi.addHandler("setPitchCollection", (newPitchCollectionIdx) => {
-  if (newPitchCollectionIdx > 1) return;
+  if (newPitchCollectionIdx > 1 || newPitchCollectionIdx < 0) return;
   pitchCollectionIndex = newPitchCollectionIdx;
   currentPitchArray = pitchArrays[pitchCollectionIndex];
   currentPitchMap = pitchArrays[pitchCollectionIndex];
   makeEr1PitchMap();
   makeSequentialNoteArray();
   for (let i = 0; i < numVCOs; i++) {
-    const voiceName = "VCO-".concat(i + 1);
+    const voiceName = "vco".concat(i + 1);
     const pitch = state[voiceName].pitch;
     if (midiNoteNumbersByEr1Pitch[pitch]) {
-      const modDepth = midiNoteNumbersByEr1Pitch[pitch].modDepth;
-      const modDepthNrpn = voiceMap[voiceName].modDepth.nrpn;
-      maxApi.outlet("nrpnOut", modDepth, modDepthNrpn);
+      sendSingleVoiceNrpn(voiceName, modDepth, "modDepth");
       maxApi.outlet("updateUI", voiceName, "modDepth", modDepth);
     }
   }
@@ -94,7 +111,7 @@ let globalDecay = 127;
 maxApi.addHandler("makeChord", () => {
   let pitches = [];
   for (let i = 0; i < numVCOs; i++) {
-    const voiceName = `VCO-${i + 1}`;
+    const voiceName = `vco${i + 1}`;
     let randomIdx, randomNote;
     randomIdx = Math.floor(Math.random() * currentPitchArray.length);
     randomNote = currentPitchArray[randomIdx];
@@ -107,10 +124,8 @@ maxApi.addHandler("makeChord", () => {
       modDepth += randomNum;
     }
     pitches.push(pitch);
-    const pitchNrpn = voiceMap[voiceName].pitch.nrpn;
-    const modDepthNrpn = voiceMap[voiceName].modDepth.nrpn;
-    maxApi.outlet("nrpnOut", pitch, pitchNrpn);
-    maxApi.outlet("nrpnOut", modDepth, modDepthNrpn);
+    const params = { pitch: pitch, modDepth: modDepth };
+    sendMultipleVoiceNrpns(voiceName, params);
     maxApi.outlet("updateUI", voiceName, "pitch", pitch);
     maxApi.outlet("updateUI", voiceName, "modDepth", modDepth);
     state[voiceName].pitch = pitch;
@@ -128,33 +143,27 @@ maxApi.addHandler("getNote", (voiceNum, sequence) => {
   if (sequence === "random") {
     const randomIdx = Math.floor(Math.random() * currentPitchArray.length);
     const note = currentPitchArray[randomIdx];
-    const voiceName = `VCO-${voiceNum}`;
-    const pitchNrpn = voiceMap[voice].pitch.nrpn;
-    const modDepthNrpn = voiceMap[voice].modDepth.nrpn;
-    maxApi.outlet("nrpnOut", note.pitch, pitchNrpn);
-    maxApi.outlet("nrpnOut", note.modDepth, modDepthNrpn);
+    const voiceName = `vco${voiceNum}`;
+    const params = { pitch: note.pitch, modDepth: note.modDepth };
+    sendMultipleVoiceNrpns(voiceName, params);
     maxApi.outlet("updateUI", voiceName, "pitch", note.pitch);
     maxApi.outlet("updateUI", voiceName, "modDepth", note.modDepth);
   } else if (sequence === "up") {
     const note = notesAscending[sequenceIndex];
-    const voice = `VCO-${voiceNum}`;
-    const pitchNrpn = voiceMap[voice].pitch.nrpn;
-    const modDepthNrpn = voiceMap[voice].modDepth.nrpn;
-    maxApi.outlet("nrpnOut", note.pitch, pitchNrpn);
-    maxApi.outlet("nrpnOut", note.modDepth, modDepthNrpn);
-    maxApi.outlet("updateUI", voice, "pitch", note.pitch);
-    maxApi.outlet("updateUI", voice, "modDepth", note.modDepth);
+    const voiceName = `vco${voiceNum}`;
+    const params = { pitch: note.pitch, modDepth: note.modDepth };
+    sendMultipleVoiceNrpns(voiceName, params);
+    maxApi.outlet("updateUI", voiceName, "pitch", note.pitch);
+    maxApi.outlet("updateUI", voiceName, "modDepth", note.modDepth);
     sequenceIndex++;
     if (sequenceIndex === notesAscending.length) {
       sequenceIndex = 0;
     }
   } else if (sequence === "down") {
     const note = notesAscending[sequenceIndex];
-    const voiceName = `VCO-${voiceNum}`;
-    const pitchNrpn = voiceMap[voiceName].pitch.nrpn;
-    const modDepthNrpn = voiceMap[voiceName].modDepth.nrpn;
-    maxApi.outlet("nrpnOut", note.pitch, pitchNrpn);
-    maxApi.outlet("nrpnOut", note.modDepth, modDepthNrpn);
+    const voiceName = `vco${voiceNum}`;
+    const params = { pitch: note.pitch, modDepth: note.modDepth };
+    sendMultipleVoiceNrpns(voiceName, params);
     maxApi.outlet("updateUI", voiceName, "pitch", note.pitch);
     maxApi.outlet("updateUI", voiceName, "modDepth", note.modDepth);
     sequenceIndex--;
@@ -163,11 +172,9 @@ maxApi.addHandler("getNote", (voiceNum, sequence) => {
     }
   } else if (sequence === "upDown") {
     const note = notesAscending[sequenceIndex];
-    const voiceName = `VCO-${voiceNum}`;
-    const pitchNrpn = voiceMap[voiceName].pitch.nrpn;
-    const modDepthNrpn = voiceMap[voiceName].modDepth.nrpn;
-    maxApi.outlet("nrpnOut", note.pitch, pitchNrpn);
-    maxApi.outlet("nrpnOut", note.modDepth, modDepthNrpn);
+    const voiceName = `vco${voiceNum}`;
+    const params = { pitch: note.pitch, modDepth: note.modDepth };
+    sendMultipleVoiceNrpns(voiceName, params);
     maxApi.outlet("updateUI", voiceName, "pitch", note.pitch);
     maxApi.outlet("updateUI", voiceName, "modDepth", note.modDepth);
     if (ascending) {
@@ -189,28 +196,26 @@ maxApi.addHandler("getNote", (voiceNum, sequence) => {
 maxApi.addHandler("setDecay", (decay) => {
   globalDecay = decay;
   for (let i = 0; i < numVCOs; i++) {
-    const voiceName = `VCO-${i + 1}`;
-    const nrpn = voiceMap[voiceName].decay.nrpn;
-    maxApi.outlet("nrpnOut", decay, nrpn);
+    const voiceName = `vco${i + 1}`;
+    sendSingleVoiceNrpn(voiceName, decay, "decay");
     maxApi.outlet("updateUI", voiceName, "decay", decay);
   }
 });
 
 maxApi.addHandler("setLevel", (level) => {
   for (let i = 0; i < numVCOs; i++) {
-    const voiceName = `VCO-${i + 1}`;
-    const nrpn = voiceMap[voiceName].level.nrpn;
-    maxApi.outlet("nrpnOut", level, nrpn);
+    const voiceName = `vco${i + 1}`;
+    sendSingleVoiceNrpn(voiceName, level, "level");
     maxApi.outlet("updateUI", voiceName, "level", level);
   }
 });
 
 //listens to changes coming from the UI
 //and relays the changed value to the ER-1
-maxApi.addHandler("paramChanged", (voiceName, param, val) => {
+maxApi.addHandler("handleUIChange", (voiceName, param, val) => {
   let outputVal;
   let nrpn;
-  if (voiceName !== "GLOBAL" && voiceMap[voiceName][param]) {
+  if (voiceName !== "global" && voiceMap[voiceName][param]) {
     nrpn = voiceMap[voiceName][param].nrpn;
     if (param === "wave" && val === 1) {
       //wave toggles between values of 0 & 127
@@ -219,7 +224,7 @@ maxApi.addHandler("paramChanged", (voiceName, param, val) => {
       outputVal = val;
     }
     state[voiceName][param] = outputVal;
-    maxApi.outlet("nrpnOut", outputVal, nrpn);
+    sendSingleVoiceNrpn(voiceName, outputVal, param);
   } else {
     //mute/solo are separated because they need to output 2 different nrpn/value pairs
     if (param === "mute" || param === "solo") {
@@ -227,31 +232,16 @@ maxApi.addHandler("paramChanged", (voiceName, param, val) => {
         //get the mute state that has changed
         const voiceType = getVoiceType(voiceName);
 
-        //break out the two nrpn values and put them in an array for output
-        const nrpnPairKeys = Object.keys(globalParams[param]);
-        let nrpnPair = [];
-        for (let i = 0; i < nrpnPairKeys.length; i++) {
-          nrpnPair[i] = globalParams[param][nrpnPairKeys[i]];
-        }
-
         //update the mute state so that it can be output
         handleUIMuteChange(voiceName, val, voiceType);
 
-        maxApi.outlet("nrpnOut", muteState.VCO, nrpnPair[0]);
-        maxApi.outlet("nrpnOut", muteState.sampleAndAudio, nrpnPair[1]);
-        maxApi.outlet("nrpnOut", soloState.VCO, nrpnPair[0]);
-        maxApi.outlet("nrpnOut", soloState.sampleAndAudio, nrpnPair[1]);
-      } else if (param === "SOLO") {
+        sendMuteNrpns(muteState);
+        sendSoloNrpns(soloState);
+      } else if (param === "solo") {
         const voiceType = getVoiceType(voiceName);
-        //break out the two nrpn values and put them in an array for output
-        const nrpnPairKeys = Object.keys(globalParams[param]);
-        let nrpnPair = [];
-        for (let i = 0; i < nrpnPairKeys.length; i++) {
-          nrpnPair[i] = globalParams[param][nrpnPairKeys[i]];
-        }
+
         handleUISoloChange(voiceName, val, voiceType);
-        maxApi.outlet("nrpnOut", soloState.VCO, nrpnPair[0]);
-        maxApi.outlet("nrpnOut", soloState.sampleAndAudio, nrpnPair[1]);
+        sendSoloNrpns(soloState);
       }
     } else {
       if (param === "ringMod1" || param === "ringMod2") {
@@ -261,12 +251,12 @@ maxApi.addHandler("paramChanged", (voiceName, param, val) => {
         outputVal = val;
         nrpn = globalParams[param];
       }
-      maxApi.outlet("nrpnOut", outputVal, nrpn);
+      sendSingleGlobalNrpn(outputVal, param);
     }
 
     //update state
     if (param === "solo" || param === "mute") {
-      const voiceType = getVoiceType(voiceType);
+      const voiceType = getVoiceType(voiceName);
       if (param === "mute") {
         state[param][voiceType] = muteState[voiceType];
       } else {
@@ -278,134 +268,55 @@ maxApi.addHandler("paramChanged", (voiceName, param, val) => {
   }
 
   //if all solo's are off, let everything be audible again
-  if (soloState.VCO === 79 && soloState.sampleAndAudio === 127) {
-    var outlet1Val = 0 | muteState.VCO;
-    var outlet2Val = 0 | muteState.sampleAndAudio;
-    maxApi.outlet("nrpnOut", outlet1Val, globalParams.solo.VCO);
-    maxApi.outlet("nrpnOut", outlet2Val, globalParams.solo.sampleAndAudio);
-  }
+  checkSoloStateAndMuteState(soloState, muteState);
 });
 
-/* possible pitchCollections are:
-  - allNotesByMidiNoteNumber
-  - notesByMidiNoteNumber
-*/
+//ACTIONS
 
 maxApi.addHandler("setNote", (noteNumber, voiceNum) => {
   if (!currentPitchMap[noteNumber]) {
     return;
   }
-  setNote(noteNumber, voiceNum);
+  const note = currentPitchMap[noteNumber];
+  const voiceName = "vco".concat(voiceNum);
+  setNote(note, voiceName);
+  state[voiceName].pitch = note.pitch;
+  state[voiceName].modDepth = note.Depth;
 });
 
 maxApi.addHandler("playNote", (noteNumber, voiceNum) => {
   if (!currentPitchMap[noteNumber]) {
     return;
   }
-  setNote(noteNumber, voiceNum);
+  const note = currentPitchMap[noteNumber];
+  const voiceName = "vco".concat(voiceNum);
+  setNote(note, voiceName);
 
   maxApi.outlet("playNote", midiNotes[voiceNum - 1]);
 });
 
-const setNote = (noteNumber, voiceNum) => {
-  const voiceName = "VCO-".concat(voiceNum);
-  const note = currentPitchMap[noteNumber];
-  const pitch = note.pitch;
-  const modDepth = note.modDepth;
-  const pitchNrpn = voiceMap[voiceName].pitch.nrpn;
-  const modDepthNrpn = voiceMap[voiceName].modDepth.nrpn;
-  maxApi.outlet("nrpnOut", pitch, pitchNrpn);
-  maxApi.outlet("nrpnOut", modDepth, modDepthNrpn);
-  maxApi.outlet("updateUI", voiceName, "pitch", pitch);
-  maxApi.outlet("updateUI", voiceName, "modDepth", modDepth);
-  state[voiceName].pitch = pitch;
-  state[voiceName].modDepth = modDepth;
-};
-
 maxApi.addHandler("setWaveType", (waveType) => {
-  const waveVal = waveType === "sine" ? 0 : 127;
-  for (let i = 0; i < numVCOs; i++) {
-    const voiceName = "VCO-".concat(i + 1);
-    const waveNrpn = voiceMap[voiceName].wave.nrpn;
-    maxApi.outlet("nrpnOut", waveVal, waveNrpn);
-    maxApi.outlet("updateUI", voiceName, "wave", waveVal);
-  }
+  setWaveType(waveType);
 });
 
 maxApi.addHandler("noiseBlast", () => {
-  const vco4PreviousState = state["VCO-4"];
-  const voiceName = "VCO-4";
-  const modType = 4;
-  const modDepth = 127;
-  const decay = 127;
-  const pitch = 0;
-  const modSpeed = 0;
-
-  const modTypeNrpn = voiceMap[voiceName].modType.nrpn;
-  const modDepthNrpn = voiceMap[voiceName].modDepth.nrpn;
-  const decayNrpn = voiceMap[voiceName].decay.nrpn;
-  const pitchNrpn = voiceMap[voiceName].pitch.nrpn;
-  const modSpeedNrpn = voiceMap[voiceName].modSpeed.nrpn;
-
-  maxApi.outlet("nrpnOut", modType, modTypeNrpn);
-  maxApi.outlet("nrpnOut", modDepth, modDepthNrpn);
-  maxApi.outlet("nrpnOut", decay, decayNrpn);
-  maxApi.outlet("nrpnOut", pitch, pitchNrpn);
-  maxApi.outlet("nrpnOut", modSpeed, modSpeedNrpn);
-  maxApi.outlet("updateUI", voiceName, "modType", modType);
-  maxApi.outlet("updateUI", voiceName, "modDepth", modDepth);
-  maxApi.outlet("updateUI", voiceName, "decay", decay);
-  maxApi.outlet("updateUI", voiceName, "pitch", pitch);
-  maxApi.outlet("updateUI", voiceName, "modSpeed", modSpeedNrpn);
-  maxApi.outlet("noiseBlast", midiNotes[midiNotes.length - 1]);
-  setTimeout(() => {
-    maxApi.outlet("nrpnOut", vco4PreviousState.modType, modTypeNrpn);
-    maxApi.outlet("nrpnOut", vco4PreviousState.modDepth, modDepthNrpn);
-    maxApi.outlet("nrpnOut", globalDecay, decayNrpn);
-    maxApi.outlet("nrpnOut", vco4PreviousState.pitch, pitchNrpn);
-    maxApi.outlet("nrpnOut", vco4PreviousState.modSpeed, modSpeedNrpn);
-    maxApi.outlet("updateUI", voiceName, "modType", vco4PreviousState.modType);
-    maxApi.outlet(
-      "updateUI",
-      voiceName,
-      "modDepth",
-      vco4PreviousState.modDepth
-    );
-    maxApi.outlet("updateUI", voiceName, "decay", globalDecay);
-    maxApi.outlet("updateUI", voiceName, "pitch", vco4PreviousState.pitch);
-    maxApi.outlet(
-      "updateUI",
-      voiceName,
-      "modSpeed",
-      vco4PreviousState.modSpeed
-    );
-  }, 7525);
-});
-
-maxApi.addHandler("stateAfterRead", (stateInput) => {
-  state = stateInput;
-  let pitches = [];
-  for (let i = 0; i < numVCOs; i++) {
-    const voiceName = "VCO-".concat(i + 1);
-    const voice = state[voiceName];
-    pitches.push(voice.pitch);
-  }
-  const midiNoteNumbers = pitches.map(
-    (pitch) => midiNoteNumbersByEr1Pitch[pitch].midiNoteNumber
-  );
-  maxApi.outlet("midiNoteNumbers", midiNoteNumbers);
+  const vco4PreviousState = state.vco4;
+  noiseBlast("vco4", vco4PreviousState);
 });
 
 maxApi.addHandler("spreadModDepth", () => {
+  let modDepthArray = [
+    state.vco1.modDepth,
+    state.vco2.modDepth,
+    state.vco3.modDepth,
+    state.vco4.modDepth,
+  ];
+  modDepthArray = spreadModDepth(modDepthArray);
+  const params = { modDepth: modDepthArray };
+  sendAllVoicesNrpns(params);
   for (let i = 0; i < numVCOs; i++) {
-    const voiceName = "VCO-".concat(i + 1);
-    let modDepth = state.voiceName.modDepth;
-    const toAdd = Math.floor(Math.random() * 3) - 1;
-    modDepth += toAdd;
-    const modDepthNrpn = voiceMap.voiceName.modDepth.nrpn;
-    state.voiceName.modDepth = modDepth;
-    maxApi.outlet("nrpnOut", modDepth, modDepthNrpn);
-    maxApi.outlet("updateUI", voiceName, "modDepth", modDepth);
+    const voiceName = "vco".concat(i + 1);
+    maxApi.outlet("updateUI", voiceName, "modDepth", modDepthArray[i]);
   }
 });
 
@@ -417,7 +328,7 @@ maxApi.addHandler("restoreDefaultNoteValues", () => {
     };
   }, {});
   for (let i = 0; i < numVCOs; i++) {
-    const voiceName = "VCO-".concat(i + 1);
+    const voiceName = "vco".concat(i + 1);
     const pitch = state[voiceName].pitch;
     const modDepth = modDepthsByPitch[pitch];
     const modDepthNrpn = voiceMap[voiceName].modDepth.nrpn;
@@ -432,7 +343,6 @@ maxApi.addHandler("restoreDefaultNoteValues", () => {
 maxApi.addHandler("incomingFromEr1", (val, nrpn) => {
   updateUI(val, nrpn);
   state = { ...updateState(val, nrpn, state) };
-  maxApi.post(state);
 });
 
 //READ/WRITE OPERATIONS
@@ -450,3 +360,73 @@ maxApi.addHandler("readStateFromDisk", (filePath) => {
   muteState = state.mute;
   soloState = state.solo;
 });
+
+//takes an input and returns whether that input is a "VCO" or "SAMPLE/AUDIO" voice
+const getVoiceType = (voiceName) => {
+  if (
+    voiceName === "vco1" ||
+    voiceName === "vco2" ||
+    voiceName === "vco3" ||
+    voiceName === "vco4"
+  ) {
+    return "vco";
+  }
+  return "sampleAndAudio";
+};
+
+//this function needs to take an incoming change
+//and update global mute state based on that change
+const handleUIMuteChange = (voiceName, val, type) => {
+  //which bit do we need to change?
+  const voiceNum =
+    type === "vco"
+      ? voiceName.slice(voiceName.length - 1)
+      : sampleAndAudioVoices.indexOf(voiceName) + 1;
+
+  //which muteState are we changing?
+  let muteStateToChange = muteState[type];
+  //which bit are we turning on/off?
+  if (val === 1) {
+    const bitwise = Math.pow(2, voiceNum) >> 1;
+    muteStateToChange = muteStateToChange | bitwise;
+  } else {
+    muteStateToChange = muteStateToChange & ~(1 << (voiceNum - 1));
+  }
+
+  //update global mute state
+  muteState[type] = muteStateToChange;
+};
+
+const handleUISoloChange = (voiceName, val, type) => {
+  //which bit do we need to change?
+  const voiceNum =
+    type === "vco"
+      ? voiceName.slice(voiceName.length - 1)
+      : sampleAndAudioVoices.indexOf(voiceName) + 1;
+
+  //solo values are expressed as 7 bit numbers
+  //the first 3 bits are always >= 64 (bn100)
+  const addToSolo = 64;
+
+  let soloStateToChange = soloState[type];
+
+  if (val === 1) {
+    //turn on every bit except for voiceNum
+    soloStateToChange = soloStateToChange & ~(1 << (voiceNum - 1));
+  } else {
+    const bitwise = (Math.pow(2, voiceNum) >> 1) + addToSolo;
+    soloStateToChange = soloStateToChange | bitwise;
+  }
+
+  const soloKeys = Object.keys(soloState);
+
+  for (let i = 0; i < soloKeys.length; i++) {
+    const key = soloKeys[i];
+    if (key === type) {
+      soloState[key] =
+        muteState[key] > 0
+          ? soloStateToChange | muteState[key]
+          : soloStateToChange;
+    }
+  }
+};

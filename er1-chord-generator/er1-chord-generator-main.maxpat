@@ -3691,7 +3691,6 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"comment" : "",
@@ -3994,8 +3993,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 373.0, 139.5, 104.0, 22.0 ],
-					"text" : "prepend incoming"
+					"patching_rect" : [ 373.0, 139.5, 151.0, 22.0 ],
+					"text" : "prepend incomingFromEr1"
 				}
 
 			}
@@ -4449,6 +4448,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-46", 0 ],
+					"source" : [ "obj-29", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-92", 0 ],
 					"source" : [ "obj-29", 4 ]
 				}
@@ -4519,8 +4525,8 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-9", 0 ],
-					"midpoints" : [ 382.5, 197.0, 426.5, 197.0 ],
+					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 382.5, 197.0, 204.5, 197.0 ],
 					"source" : [ "obj-39", 0 ]
 				}
 

@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 341.0, -866.0, 1027.0, 642.0 ],
+		"rect" : [ 343.0, 197.0, 1027.0, 642.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -45,8 +45,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 609.428527999999915, 174.666671872138977, 139.0, 22.0 ],
-					"text" : "prepend paramChanged"
+					"patching_rect" : [ 609.428527999999915, 174.666671872138977, 146.0, 22.0 ],
+					"text" : "prepend handleUIChange"
 				}
 
 			}
@@ -2196,8 +2196,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 763.928527999999915, 141.0, 87.0, 22.0 ],
-					"text" : "VCO-4 solo $1"
+					"patching_rect" : [ 763.928527999999915, 141.0, 76.0, 22.0 ],
+					"text" : "vco4 solo $1"
 				}
 
 			}
@@ -2208,8 +2208,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 172.0, 141.0, 92.0, 22.0 ],
-					"text" : "VCO-4 mute $1"
+					"patching_rect" : [ 172.0, 141.0, 81.0, 22.0 ],
+					"text" : "vco4 mute $1"
 				}
 
 			}
@@ -2220,8 +2220,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 712.428527999999915, 116.5, 87.0, 22.0 ],
-					"text" : "VCO-3 solo $1"
+					"patching_rect" : [ 712.428527999999915, 116.5, 76.0, 22.0 ],
+					"text" : "vco3 solo $1"
 				}
 
 			}
@@ -2232,8 +2232,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 123.035827500000011, 117.0, 92.0, 22.0 ],
-					"text" : "VCO-3 mute $1"
+					"patching_rect" : [ 123.035827500000011, 117.0, 81.0, 22.0 ],
+					"text" : "vco3 mute $1"
 				}
 
 			}
@@ -2244,8 +2244,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 660.928527999999915, 141.0, 87.0, 22.0 ],
-					"text" : "VCO-2 solo $1"
+					"patching_rect" : [ 660.928527999999915, 141.0, 76.0, 22.0 ],
+					"text" : "vco2 solo $1"
 				}
 
 			}
@@ -2256,8 +2256,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 67.964172500000004, 141.0, 92.0, 22.0 ],
-					"text" : "VCO-2 mute $1"
+					"patching_rect" : [ 67.964172500000004, 141.0, 81.0, 22.0 ],
+					"text" : "vco2 mute $1"
 				}
 
 			}
@@ -2268,8 +2268,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 609.428527999999915, 116.5, 87.0, 22.0 ],
-					"text" : "VCO-1 solo $1"
+					"patching_rect" : [ 609.428527999999915, 116.5, 76.0, 22.0 ],
+					"text" : "vco1 solo $1"
 				}
 
 			}
@@ -2280,8 +2280,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 13.0, 117.0, 92.0, 22.0 ],
-					"text" : "VCO-1 mute $1"
+					"patching_rect" : [ 13.0, 117.0, 81.0, 22.0 ],
+					"text" : "vco1 mute $1"
 				}
 
 			}
@@ -2292,8 +2292,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1039.071902999999793, 117.0, 115.0, 22.0 ],
-					"text" : "AUDIO-IN-1 solo $1"
+					"patching_rect" : [ 1039.071902999999793, 117.0, 97.0, 22.0 ],
+					"text" : "audioIn1 solo $1"
 				}
 
 			}
@@ -2304,8 +2304,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 425.0, 141.0, 120.0, 22.0 ],
-					"text" : "AUDIO-IN-1 mute $1"
+					"patching_rect" : [ 425.0, 141.0, 101.0, 22.0 ],
+					"text" : "audioIn1 mute $1"
 				}
 
 			}
@@ -2316,8 +2316,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1072.928527999999915, 141.0, 115.0, 22.0 ],
-					"text" : "AUDIO-IN-2 solo $1"
+					"patching_rect" : [ 1072.928527999999915, 141.0, 97.0, 22.0 ],
+					"text" : "audioIn2 solo $1"
 				}
 
 			}
@@ -2328,8 +2328,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 476.5, 116.5, 120.0, 22.0 ],
-					"text" : "AUDIO-IN-2 mute $1"
+					"patching_rect" : [ 476.5, 116.5, 101.0, 22.0 ],
+					"text" : "audioIn2 mute $1"
 				}
 
 			}
@@ -2340,8 +2340,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 981.500368999999637, 141.0, 82.0, 22.0 ],
-					"text" : "CLAP solo $1"
+					"patching_rect" : [ 981.500368999999637, 141.0, 73.0, 22.0 ],
+					"text" : "clap solo $1"
 				}
 
 			}
@@ -2352,8 +2352,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 373.5, 116.199996999999939, 86.0, 22.0 ],
-					"text" : "CLAP mute $1"
+					"patching_rect" : [ 373.5, 116.199996999999939, 77.0, 22.0 ],
+					"text" : "clap mute $1"
 				}
 
 			}
@@ -2364,8 +2364,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 937.928527999999915, 116.5, 93.0, 22.0 ],
-					"text" : "CRASH solo $1"
+					"patching_rect" : [ 937.928527999999915, 116.5, 80.0, 22.0 ],
+					"text" : "crash solo $1"
 				}
 
 			}
@@ -2376,8 +2376,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 322.0, 141.0, 97.0, 22.0 ],
-					"text" : "CRASH mute $1"
+					"patching_rect" : [ 322.0, 141.0, 81.0, 22.0 ],
+					"text" : "crashmute $1"
 				}
 
 			}
@@ -2388,8 +2388,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 862.500368999999637, 141.0, 106.0, 22.0 ],
-					"text" : "HH-OPEN solo $1"
+					"patching_rect" : [ 862.500368999999637, 141.0, 93.0, 22.0 ],
+					"text" : "hhOpen solo $1"
 				}
 
 			}
@@ -2400,8 +2400,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 260.333333333333371, 141.0, 111.0, 22.0 ],
-					"text" : "HH-OPEN mute $1"
+					"patching_rect" : [ 260.333333333333371, 141.0, 98.0, 22.0 ],
+					"text" : "hhOpen mute $1"
 				}
 
 			}
@@ -2412,8 +2412,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 815.428527999999915, 116.5, 113.0, 22.0 ],
-					"text" : "HH-CLOSE solo $1"
+					"patching_rect" : [ 815.428527999999915, 116.5, 95.0, 22.0 ],
+					"text" : "hhClose solo $1"
 				}
 
 			}
@@ -2424,8 +2424,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 225.571533999999929, 119.199996999999939, 117.0, 22.0 ],
-					"text" : "HH-CLOSE mute $1"
+					"patching_rect" : [ 225.571533999999929, 119.199996999999939, 99.0, 22.0 ],
+					"text" : "hhClose mute $1"
 				}
 
 			}
@@ -2472,8 +2472,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 13.0, 193.0, 139.0, 22.0 ],
-					"text" : "prepend paramChanged"
+					"patching_rect" : [ 13.0, 193.0, 146.0, 22.0 ],
+					"text" : "prepend handleUIChange"
 				}
 
 			}

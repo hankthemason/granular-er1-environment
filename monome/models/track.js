@@ -102,10 +102,6 @@ class Track {
 
     //if numPages decreased, don't do anything: keep the extra sequence parts in memory
     if (prevNumPages > this.numPages) {
-      maxApi.post("");
-      maxApi.post(prevNumPages);
-      maxApi.post(this.numPages);
-      maxApi.post(this.page);
       //if the page switch renders the current page 'out of bounds'
       //make the current page the last page
       if (this.page >= this.numPages) {

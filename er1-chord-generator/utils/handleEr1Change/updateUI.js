@@ -40,12 +40,9 @@ const updateUI = (val, nrpn) => {
       param = "solo";
     }
     handleIncomingMuteOrSolo(param, type, val);
-
-    //state[param][type] = val;
   } else {
     const voiceName = paramName.split(" ")[0];
     const param = paramName.split(" ")[1];
-    //state[voiceName][param] = val;
     maxApi.outlet("updateUI", voiceName, param, val);
   }
 };
