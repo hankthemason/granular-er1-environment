@@ -5,6 +5,8 @@ const {
   spreadModDepth,
   restoreDefaultModDepths,
 } = require("./spreadAndRestoreValues");
+const arpeggiate = require("./arpeggiate");
+const makeChord = require("./makeChord");
 
 module.exports = {
   setNote,
@@ -12,4 +14,6 @@ module.exports = {
   setWaveType,
   spreadModDepth,
   restoreDefaultModDepths,
+  arpeggiate,
+  makeChord,
 };

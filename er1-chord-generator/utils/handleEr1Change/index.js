@@ -1,4 +1,4 @@
-const updateUI = require("./updateUI");
+const receiveNrpn = require("./receiveNrpn");
 const updateState = require("./updateState");
 
-module.exports = { updateUI, updateState };
+module.exports = { receiveNrpn, updateState };

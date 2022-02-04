@@ -1,5 +1,5 @@
 const maxApi = require("max-api");
-const { sendAllVoicesNrpns } = require("../sendNrpn");
+const { sendAllVoicesNrpns } = require("../../api/ER1");
 const { updateAllVoicesInUI } = require("../updateUIFromInternalChange");
 
 const numVCOs = 4;

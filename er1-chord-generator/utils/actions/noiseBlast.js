@@ -1,5 +1,5 @@
 const maxApi = require("max-api");
-const { sendMultipleVoiceNrpns } = require("../sendNrpn");
+const { sendMultipleVoiceNrpns } = require("../../api/ER1");
 
 const noiseBlast = (voiceName, vco4PreviousState) => {
   let params = {

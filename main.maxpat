@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 115.0, -854.0, 1239.0, 809.0 ],
+		"rect" : [ 847.0, -993.0, 1669.0, 809.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -1562,7 +1562,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1133.0, 481.0, 70.0, 22.0 ],
+					"patching_rect" : [ 1162.0, 481.0, 70.0, 22.0 ],
 					"text" : "loadmess 0"
 				}
 
@@ -1574,7 +1574,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1084.0, 481.0, 70.0, 22.0 ],
+					"patching_rect" : [ 1090.0, 481.0, 70.0, 22.0 ],
 					"text" : "loadmess 1"
 				}
 
@@ -1644,15 +1644,15 @@
 					"presentation_rect" : [ 540.079165750000129, 298.0, 34.399170749999939, 13.0 ],
 					"rounded" : 5.0,
 					"saved_attribute_attributes" : 					{
-						"activebgcolor" : 						{
-							"expression" : ""
-						}
-,
-						"textoffcolor" : 						{
-							"expression" : ""
-						}
-,
 						"activebgoncolor" : 						{
+							"expression" : ""
+						}
+,
+						"bgcolor" : 						{
+							"expression" : ""
+						}
+,
+						"activebgcolor" : 						{
 							"expression" : ""
 						}
 ,
@@ -1660,15 +1660,15 @@
 							"expression" : ""
 						}
 ,
-						"textcolor" : 						{
-							"expression" : ""
-						}
-,
 						"bgoncolor" : 						{
 							"expression" : ""
 						}
 ,
-						"bgcolor" : 						{
+						"textoffcolor" : 						{
+							"expression" : ""
+						}
+,
+						"textcolor" : 						{
 							"expression" : ""
 						}
 ,
@@ -2713,14 +2713,7 @@
 					"outlettype" : [ "float", "int" ],
 					"patching_rect" : [ 248.0, 629.0, 5.0, 100.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 782.399999999999864, 77.0, 4.0, 140.0 ],
-					"saved_attribute_attributes" : 					{
-						"slidercolor" : 						{
-							"expression" : ""
-						}
-
-					}
-
+					"presentation_rect" : [ 782.399999999999864, 77.0, 4.0, 140.0 ]
 				}
 
 			}
@@ -3284,11 +3277,11 @@
 					"presentation_rect" : [ 563.0, 85.200000000000003, 46.0, 22.0 ],
 					"rounded" : 10.0,
 					"saved_attribute_attributes" : 					{
-						"activebgcolor" : 						{
+						"activebgoncolor" : 						{
 							"expression" : ""
 						}
 ,
-						"activebgoncolor" : 						{
+						"activebgcolor" : 						{
 							"expression" : ""
 						}
 ,
@@ -3331,11 +3324,11 @@
 					"presentation_rect" : [ 511.0, 85.200000000000003, 50.0, 22.0 ],
 					"rounded" : 10.0,
 					"saved_attribute_attributes" : 					{
-						"activebgcolor" : 						{
+						"activebgoncolor" : 						{
 							"expression" : ""
 						}
 ,
-						"activebgoncolor" : 						{
+						"activebgcolor" : 						{
 							"expression" : ""
 						}
 ,
@@ -3623,15 +3616,15 @@
 					"presentation_rect" : [ 509.450410750000174, 148.199991000000011, 49.399170749999939, 21.0 ],
 					"rounded" : 10.0,
 					"saved_attribute_attributes" : 					{
-						"activebgcolor" : 						{
-							"expression" : ""
-						}
-,
-						"textoffcolor" : 						{
-							"expression" : ""
-						}
-,
 						"activebgoncolor" : 						{
+							"expression" : ""
+						}
+,
+						"bgcolor" : 						{
+							"expression" : ""
+						}
+,
+						"activebgcolor" : 						{
 							"expression" : ""
 						}
 ,
@@ -3639,15 +3632,15 @@
 							"expression" : ""
 						}
 ,
-						"textcolor" : 						{
-							"expression" : ""
-						}
-,
 						"bgoncolor" : 						{
 							"expression" : ""
 						}
 ,
-						"bgcolor" : 						{
+						"textoffcolor" : 						{
+							"expression" : ""
+						}
+,
+						"textcolor" : 						{
 							"expression" : ""
 						}
 ,
@@ -3789,8 +3782,6 @@
 					"saved_object_attributes" : 					{
 						"autostart" : 0,
 						"defer" : 0,
-						"node_bin_path" : "",
-						"npm_bin_path" : "",
 						"watch" : 0
 					}
 ,
@@ -5461,8 +5452,8 @@
 												"name" : "Default M4L",
 												"default" : 												{
 													"fontsize" : [ 11.0 ],
-													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-													"fontname" : [ "Arial Bold" ]
+													"fontname" : [ "Arial Bold" ],
+													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
 												"parentstyle" : "",
@@ -5472,8 +5463,8 @@
 												"name" : "Default M4L Poletti",
 												"default" : 												{
 													"fontsize" : [ 10.0 ],
-													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-													"fontname" : [ "Arial Bold" ]
+													"fontname" : [ "Arial Bold" ],
+													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
 												"parentstyle" : "",
@@ -5482,7 +5473,7 @@
 , 											{
 												"name" : "Default M4L-1",
 												"default" : 												{
-													"fontface" : [ 1 ],
+													"fontsize" : [ 11.0 ],
 													"bgfillcolor" : 													{
 														"type" : "gradient",
 														"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -5492,8 +5483,8 @@
 														"proportion" : 0.39
 													}
 ,
-													"fontsize" : [ 11.0 ],
-													"fontname" : [ "Arial" ]
+													"fontname" : [ "Arial" ],
+													"fontface" : [ 1 ]
 												}
 ,
 												"parentstyle" : "",
@@ -5740,8 +5731,8 @@
 								"name" : "Default M4L",
 								"default" : 								{
 									"fontsize" : [ 11.0 ],
-									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-									"fontname" : [ "Arial Bold" ]
+									"fontname" : [ "Arial Bold" ],
+									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
 								"parentstyle" : "",
@@ -5751,8 +5742,8 @@
 								"name" : "Default M4L Poletti",
 								"default" : 								{
 									"fontsize" : [ 10.0 ],
-									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-									"fontname" : [ "Arial Bold" ]
+									"fontname" : [ "Arial Bold" ],
+									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
 								"parentstyle" : "",
@@ -5761,7 +5752,7 @@
 , 							{
 								"name" : "Default M4L-1",
 								"default" : 								{
-									"fontface" : [ 1 ],
+									"fontsize" : [ 11.0 ],
 									"bgfillcolor" : 									{
 										"type" : "gradient",
 										"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -5771,8 +5762,8 @@
 										"proportion" : 0.39
 									}
 ,
-									"fontsize" : [ 11.0 ],
-									"fontname" : [ "Arial" ]
+									"fontname" : [ "Arial" ],
+									"fontface" : [ 1 ]
 								}
 ,
 								"parentstyle" : "",
@@ -6120,7 +6111,7 @@
 									"outlettype" : [ "", "", "", "" ],
 									"patching_rect" : [ 240.0, 210.0, 149.0, 22.0 ],
 									"restore" : 									{
-										"output" : [ 2.0 ]
+										"output" : [ 1.0 ]
 									}
 ,
 									"text" : "autopattr @autorestore 0",
@@ -6931,8 +6922,8 @@
 												"name" : "Default M4L",
 												"default" : 												{
 													"fontsize" : [ 11.0 ],
-													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-													"fontname" : [ "Arial Bold" ]
+													"fontname" : [ "Arial Bold" ],
+													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
 												"parentstyle" : "",
@@ -6942,8 +6933,8 @@
 												"name" : "Default M4L Poletti",
 												"default" : 												{
 													"fontsize" : [ 10.0 ],
-													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-													"fontname" : [ "Arial Bold" ]
+													"fontname" : [ "Arial Bold" ],
+													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
 												"parentstyle" : "",
@@ -6952,7 +6943,7 @@
 , 											{
 												"name" : "Default M4L-1",
 												"default" : 												{
-													"fontface" : [ 1 ],
+													"fontsize" : [ 11.0 ],
 													"bgfillcolor" : 													{
 														"type" : "gradient",
 														"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -6962,8 +6953,8 @@
 														"proportion" : 0.39
 													}
 ,
-													"fontsize" : [ 11.0 ],
-													"fontname" : [ "Arial" ]
+													"fontname" : [ "Arial" ],
+													"fontface" : [ 1 ]
 												}
 ,
 												"parentstyle" : "",
@@ -7188,8 +7179,8 @@
 								"name" : "Default M4L",
 								"default" : 								{
 									"fontsize" : [ 11.0 ],
-									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-									"fontname" : [ "Arial Bold" ]
+									"fontname" : [ "Arial Bold" ],
+									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
 								"parentstyle" : "",
@@ -7199,8 +7190,8 @@
 								"name" : "Default M4L Poletti",
 								"default" : 								{
 									"fontsize" : [ 10.0 ],
-									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-									"fontname" : [ "Arial Bold" ]
+									"fontname" : [ "Arial Bold" ],
+									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
 								"parentstyle" : "",
@@ -7209,7 +7200,7 @@
 , 							{
 								"name" : "Default M4L-1",
 								"default" : 								{
-									"fontface" : [ 1 ],
+									"fontsize" : [ 11.0 ],
 									"bgfillcolor" : 									{
 										"type" : "gradient",
 										"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -7219,8 +7210,8 @@
 										"proportion" : 0.39
 									}
 ,
-									"fontsize" : [ 11.0 ],
-									"fontname" : [ "Arial" ]
+									"fontname" : [ "Arial" ],
+									"fontface" : [ 1 ]
 								}
 ,
 								"parentstyle" : "",
@@ -8383,8 +8374,8 @@
 												"name" : "Default M4L",
 												"default" : 												{
 													"fontsize" : [ 11.0 ],
-													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-													"fontname" : [ "Arial Bold" ]
+													"fontname" : [ "Arial Bold" ],
+													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
 												"parentstyle" : "",
@@ -8394,8 +8385,8 @@
 												"name" : "Default M4L Poletti",
 												"default" : 												{
 													"fontsize" : [ 10.0 ],
-													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-													"fontname" : [ "Arial Bold" ]
+													"fontname" : [ "Arial Bold" ],
+													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
 												"parentstyle" : "",
@@ -8404,7 +8395,7 @@
 , 											{
 												"name" : "Default M4L-1",
 												"default" : 												{
-													"fontface" : [ 1 ],
+													"fontsize" : [ 11.0 ],
 													"bgfillcolor" : 													{
 														"type" : "gradient",
 														"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -8414,8 +8405,8 @@
 														"proportion" : 0.39
 													}
 ,
-													"fontsize" : [ 11.0 ],
-													"fontname" : [ "Arial" ]
+													"fontname" : [ "Arial" ],
+													"fontface" : [ 1 ]
 												}
 ,
 												"parentstyle" : "",
@@ -9041,8 +9032,8 @@
 								"name" : "Default M4L",
 								"default" : 								{
 									"fontsize" : [ 11.0 ],
-									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-									"fontname" : [ "Arial Bold" ]
+									"fontname" : [ "Arial Bold" ],
+									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
 								"parentstyle" : "",
@@ -9052,8 +9043,8 @@
 								"name" : "Default M4L Poletti",
 								"default" : 								{
 									"fontsize" : [ 10.0 ],
-									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-									"fontname" : [ "Arial Bold" ]
+									"fontname" : [ "Arial Bold" ],
+									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
 								"parentstyle" : "",
@@ -9062,7 +9053,7 @@
 , 							{
 								"name" : "Default M4L-1",
 								"default" : 								{
-									"fontface" : [ 1 ],
+									"fontsize" : [ 11.0 ],
 									"bgfillcolor" : 									{
 										"type" : "gradient",
 										"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -9072,8 +9063,8 @@
 										"proportion" : 0.39
 									}
 ,
-									"fontsize" : [ 11.0 ],
-									"fontname" : [ "Arial" ]
+									"fontname" : [ "Arial" ],
+									"fontface" : [ 1 ]
 								}
 ,
 								"parentstyle" : "",
@@ -10589,8 +10580,8 @@
 												"name" : "Default M4L",
 												"default" : 												{
 													"fontsize" : [ 11.0 ],
-													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-													"fontname" : [ "Arial Bold" ]
+													"fontname" : [ "Arial Bold" ],
+													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
 												"parentstyle" : "",
@@ -10600,8 +10591,8 @@
 												"name" : "Default M4L Poletti",
 												"default" : 												{
 													"fontsize" : [ 10.0 ],
-													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-													"fontname" : [ "Arial Bold" ]
+													"fontname" : [ "Arial Bold" ],
+													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
 												"parentstyle" : "",
@@ -10610,7 +10601,7 @@
 , 											{
 												"name" : "Default M4L-1",
 												"default" : 												{
-													"fontface" : [ 1 ],
+													"fontsize" : [ 11.0 ],
 													"bgfillcolor" : 													{
 														"type" : "gradient",
 														"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -10620,8 +10611,8 @@
 														"proportion" : 0.39
 													}
 ,
-													"fontsize" : [ 11.0 ],
-													"fontname" : [ "Arial" ]
+													"fontname" : [ "Arial" ],
+													"fontface" : [ 1 ]
 												}
 ,
 												"parentstyle" : "",
@@ -10868,8 +10859,8 @@
 								"name" : "Default M4L",
 								"default" : 								{
 									"fontsize" : [ 11.0 ],
-									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-									"fontname" : [ "Arial Bold" ]
+									"fontname" : [ "Arial Bold" ],
+									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
 								"parentstyle" : "",
@@ -10879,8 +10870,8 @@
 								"name" : "Default M4L Poletti",
 								"default" : 								{
 									"fontsize" : [ 10.0 ],
-									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-									"fontname" : [ "Arial Bold" ]
+									"fontname" : [ "Arial Bold" ],
+									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
 								"parentstyle" : "",
@@ -10889,7 +10880,7 @@
 , 							{
 								"name" : "Default M4L-1",
 								"default" : 								{
-									"fontface" : [ 1 ],
+									"fontsize" : [ 11.0 ],
 									"bgfillcolor" : 									{
 										"type" : "gradient",
 										"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -10899,8 +10890,8 @@
 										"proportion" : 0.39
 									}
 ,
-									"fontsize" : [ 11.0 ],
-									"fontname" : [ "Arial" ]
+									"fontname" : [ "Arial" ],
+									"fontface" : [ 1 ]
 								}
 ,
 								"parentstyle" : "",
@@ -11962,8 +11953,8 @@
 												"name" : "Default M4L",
 												"default" : 												{
 													"fontsize" : [ 11.0 ],
-													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-													"fontname" : [ "Arial Bold" ]
+													"fontname" : [ "Arial Bold" ],
+													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
 												"parentstyle" : "",
@@ -11973,8 +11964,8 @@
 												"name" : "Default M4L Poletti",
 												"default" : 												{
 													"fontsize" : [ 10.0 ],
-													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-													"fontname" : [ "Arial Bold" ]
+													"fontname" : [ "Arial Bold" ],
+													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
 												"parentstyle" : "",
@@ -11983,7 +11974,7 @@
 , 											{
 												"name" : "Default M4L-1",
 												"default" : 												{
-													"fontface" : [ 1 ],
+													"fontsize" : [ 11.0 ],
 													"bgfillcolor" : 													{
 														"type" : "gradient",
 														"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -11993,8 +11984,8 @@
 														"proportion" : 0.39
 													}
 ,
-													"fontsize" : [ 11.0 ],
-													"fontname" : [ "Arial" ]
+													"fontname" : [ "Arial" ],
+													"fontface" : [ 1 ]
 												}
 ,
 												"parentstyle" : "",
@@ -12205,8 +12196,8 @@
 								"name" : "Default M4L",
 								"default" : 								{
 									"fontsize" : [ 11.0 ],
-									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-									"fontname" : [ "Arial Bold" ]
+									"fontname" : [ "Arial Bold" ],
+									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
 								"parentstyle" : "",
@@ -12216,8 +12207,8 @@
 								"name" : "Default M4L Poletti",
 								"default" : 								{
 									"fontsize" : [ 10.0 ],
-									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-									"fontname" : [ "Arial Bold" ]
+									"fontname" : [ "Arial Bold" ],
+									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
 								"parentstyle" : "",
@@ -12226,7 +12217,7 @@
 , 							{
 								"name" : "Default M4L-1",
 								"default" : 								{
-									"fontface" : [ 1 ],
+									"fontsize" : [ 11.0 ],
 									"bgfillcolor" : 									{
 										"type" : "gradient",
 										"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -12236,8 +12227,8 @@
 										"proportion" : 0.39
 									}
 ,
-									"fontsize" : [ 11.0 ],
-									"fontname" : [ "Arial" ]
+									"fontname" : [ "Arial" ],
+									"fontface" : [ 1 ]
 								}
 ,
 								"parentstyle" : "",
@@ -13262,8 +13253,8 @@
 												"name" : "Default M4L",
 												"default" : 												{
 													"fontsize" : [ 11.0 ],
-													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-													"fontname" : [ "Arial Bold" ]
+													"fontname" : [ "Arial Bold" ],
+													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
 												"parentstyle" : "",
@@ -13273,8 +13264,8 @@
 												"name" : "Default M4L Poletti",
 												"default" : 												{
 													"fontsize" : [ 10.0 ],
-													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-													"fontname" : [ "Arial Bold" ]
+													"fontname" : [ "Arial Bold" ],
+													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
 												"parentstyle" : "",
@@ -13283,7 +13274,7 @@
 , 											{
 												"name" : "Default M4L-1",
 												"default" : 												{
-													"fontface" : [ 1 ],
+													"fontsize" : [ 11.0 ],
 													"bgfillcolor" : 													{
 														"type" : "gradient",
 														"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -13293,8 +13284,8 @@
 														"proportion" : 0.39
 													}
 ,
-													"fontsize" : [ 11.0 ],
-													"fontname" : [ "Arial" ]
+													"fontname" : [ "Arial" ],
+													"fontface" : [ 1 ]
 												}
 ,
 												"parentstyle" : "",
@@ -13505,8 +13496,8 @@
 								"name" : "Default M4L",
 								"default" : 								{
 									"fontsize" : [ 11.0 ],
-									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-									"fontname" : [ "Arial Bold" ]
+									"fontname" : [ "Arial Bold" ],
+									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
 								"parentstyle" : "",
@@ -13516,8 +13507,8 @@
 								"name" : "Default M4L Poletti",
 								"default" : 								{
 									"fontsize" : [ 10.0 ],
-									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-									"fontname" : [ "Arial Bold" ]
+									"fontname" : [ "Arial Bold" ],
+									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
 								"parentstyle" : "",
@@ -13526,7 +13517,7 @@
 , 							{
 								"name" : "Default M4L-1",
 								"default" : 								{
-									"fontface" : [ 1 ],
+									"fontsize" : [ 11.0 ],
 									"bgfillcolor" : 									{
 										"type" : "gradient",
 										"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -13536,8 +13527,8 @@
 										"proportion" : 0.39
 									}
 ,
-									"fontsize" : [ 11.0 ],
-									"fontname" : [ "Arial" ]
+									"fontname" : [ "Arial" ],
+									"fontface" : [ 1 ]
 								}
 ,
 								"parentstyle" : "",
@@ -14379,7 +14370,7 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 247.640533447265625, 41.838638305664062, 47.0, 36.0 ],
 													"saved_attribute_attributes" : 													{
-														"textcolor" : 														{
+														"activeneedlecolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -14391,7 +14382,7 @@
 															"expression" : ""
 														}
 ,
-														"activeneedlecolor" : 														{
+														"textcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -14458,6 +14449,10 @@
 													"presentation_rect" : [ 2.0, 41.838638305664062, 44.0, 48.0 ],
 													"prototypename" : "freq",
 													"saved_attribute_attributes" : 													{
+														"activeneedlecolor" : 														{
+															"expression" : ""
+														}
+,
 														"focusbordercolor" : 														{
 															"expression" : ""
 														}
@@ -14466,7 +14461,7 @@
 															"expression" : ""
 														}
 ,
-														"textcolor" : 														{
+														"bordercolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -14478,11 +14473,7 @@
 															"expression" : ""
 														}
 ,
-														"bordercolor" : 														{
-															"expression" : ""
-														}
-,
-														"activeneedlecolor" : 														{
+														"textcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -15019,6 +15010,18 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 43.0, 41.838638305664062, 33.0, 15.0 ],
 													"saved_attribute_attributes" : 													{
+														"activetextoncolor" : 														{
+															"expression" : ""
+														}
+,
+														"activebgoncolor" : 														{
+															"expression" : ""
+														}
+,
+														"bgcolor" : 														{
+															"expression" : ""
+														}
+,
 														"focusbordercolor" : 														{
 															"expression" : ""
 														}
@@ -15027,7 +15030,7 @@
 															"expression" : ""
 														}
 ,
-														"activebgoncolor" : 														{
+														"bordercolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -15036,18 +15039,6 @@
 														}
 ,
 														"textcolor" : 														{
-															"expression" : ""
-														}
-,
-														"bordercolor" : 														{
-															"expression" : ""
-														}
-,
-														"bgcolor" : 														{
-															"expression" : ""
-														}
-,
-														"activetextoncolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -15093,6 +15084,10 @@
 													"presentation_rect" : [ 2.0, 41.838638305664062, 44.0, 48.0 ],
 													"prototypename" : "freq",
 													"saved_attribute_attributes" : 													{
+														"activeneedlecolor" : 														{
+															"expression" : ""
+														}
+,
 														"focusbordercolor" : 														{
 															"expression" : ""
 														}
@@ -15101,7 +15096,7 @@
 															"expression" : ""
 														}
 ,
-														"textcolor" : 														{
+														"bordercolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -15113,11 +15108,7 @@
 															"expression" : ""
 														}
 ,
-														"bordercolor" : 														{
-															"expression" : ""
-														}
-,
-														"activeneedlecolor" : 														{
+														"textcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -15734,7 +15725,7 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 159.640533447265625, 41.838638305664062, 44.0, 48.0 ],
 													"saved_attribute_attributes" : 													{
-														"textcolor" : 														{
+														"activeneedlecolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -15746,7 +15737,7 @@
 															"expression" : ""
 														}
 ,
-														"activeneedlecolor" : 														{
+														"textcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -15794,7 +15785,7 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 71.640533447265625, 41.838638305664062, 44.0, 48.0 ],
 													"saved_attribute_attributes" : 													{
-														"textcolor" : 														{
+														"activeneedlecolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -15806,7 +15797,7 @@
 															"expression" : ""
 														}
 ,
-														"activeneedlecolor" : 														{
+														"textcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -15840,7 +15831,7 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 115.640533447265625, 41.838638305664062, 44.0, 48.0 ],
 													"saved_attribute_attributes" : 													{
-														"textcolor" : 														{
+														"activeneedlecolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -15852,7 +15843,7 @@
 															"expression" : ""
 														}
 ,
-														"activeneedlecolor" : 														{
+														"textcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -16122,7 +16113,7 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 203.640533447265625, 41.838638305664062, 44.0, 48.0 ],
 													"saved_attribute_attributes" : 													{
-														"textcolor" : 														{
+														"activeneedlecolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -16134,7 +16125,7 @@
 															"expression" : ""
 														}
 ,
-														"activeneedlecolor" : 														{
+														"textcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -16202,11 +16193,23 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 347.9093017578125, 19.0, 73.767135620117188, 17.0 ],
 													"saved_attribute_attributes" : 													{
-														"activebgcolor" : 														{
+														"activetextoncolor" : 														{
 															"expression" : ""
 														}
 ,
 														"activebgoncolor" : 														{
+															"expression" : ""
+														}
+,
+														"bgcolor" : 														{
+															"expression" : ""
+														}
+,
+														"activebgcolor" : 														{
+															"expression" : ""
+														}
+,
+														"bordercolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -16215,18 +16218,6 @@
 														}
 ,
 														"textcolor" : 														{
-															"expression" : ""
-														}
-,
-														"bordercolor" : 														{
-															"expression" : ""
-														}
-,
-														"bgcolor" : 														{
-															"expression" : ""
-														}
-,
-														"activetextoncolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -17264,7 +17255,7 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 247.640533447265625, 41.838638305664062, 47.0, 36.0 ],
 													"saved_attribute_attributes" : 													{
-														"textcolor" : 														{
+														"activeneedlecolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -17276,7 +17267,7 @@
 															"expression" : ""
 														}
 ,
-														"activeneedlecolor" : 														{
+														"textcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -17343,6 +17334,10 @@
 													"presentation_rect" : [ 2.0, 41.838638305664062, 44.0, 48.0 ],
 													"prototypename" : "freq",
 													"saved_attribute_attributes" : 													{
+														"activeneedlecolor" : 														{
+															"expression" : ""
+														}
+,
 														"focusbordercolor" : 														{
 															"expression" : ""
 														}
@@ -17351,7 +17346,7 @@
 															"expression" : ""
 														}
 ,
-														"textcolor" : 														{
+														"bordercolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -17363,11 +17358,7 @@
 															"expression" : ""
 														}
 ,
-														"bordercolor" : 														{
-															"expression" : ""
-														}
-,
-														"activeneedlecolor" : 														{
+														"textcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -17904,6 +17895,18 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 43.0, 41.838638305664062, 33.0, 15.0 ],
 													"saved_attribute_attributes" : 													{
+														"activetextoncolor" : 														{
+															"expression" : ""
+														}
+,
+														"activebgoncolor" : 														{
+															"expression" : ""
+														}
+,
+														"bgcolor" : 														{
+															"expression" : ""
+														}
+,
 														"focusbordercolor" : 														{
 															"expression" : ""
 														}
@@ -17912,7 +17915,7 @@
 															"expression" : ""
 														}
 ,
-														"activebgoncolor" : 														{
+														"bordercolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -17921,18 +17924,6 @@
 														}
 ,
 														"textcolor" : 														{
-															"expression" : ""
-														}
-,
-														"bordercolor" : 														{
-															"expression" : ""
-														}
-,
-														"bgcolor" : 														{
-															"expression" : ""
-														}
-,
-														"activetextoncolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -17978,6 +17969,10 @@
 													"presentation_rect" : [ 2.0, 41.838638305664062, 44.0, 48.0 ],
 													"prototypename" : "freq",
 													"saved_attribute_attributes" : 													{
+														"activeneedlecolor" : 														{
+															"expression" : ""
+														}
+,
 														"focusbordercolor" : 														{
 															"expression" : ""
 														}
@@ -17986,7 +17981,7 @@
 															"expression" : ""
 														}
 ,
-														"textcolor" : 														{
+														"bordercolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -17998,11 +17993,7 @@
 															"expression" : ""
 														}
 ,
-														"bordercolor" : 														{
-															"expression" : ""
-														}
-,
-														"activeneedlecolor" : 														{
+														"textcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -18619,7 +18610,7 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 159.640533447265625, 41.838638305664062, 44.0, 48.0 ],
 													"saved_attribute_attributes" : 													{
-														"textcolor" : 														{
+														"activeneedlecolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -18631,7 +18622,7 @@
 															"expression" : ""
 														}
 ,
-														"activeneedlecolor" : 														{
+														"textcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -18679,7 +18670,7 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 71.640533447265625, 41.838638305664062, 44.0, 48.0 ],
 													"saved_attribute_attributes" : 													{
-														"textcolor" : 														{
+														"activeneedlecolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -18691,7 +18682,7 @@
 															"expression" : ""
 														}
 ,
-														"activeneedlecolor" : 														{
+														"textcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -18725,7 +18716,7 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 115.640533447265625, 41.838638305664062, 44.0, 48.0 ],
 													"saved_attribute_attributes" : 													{
-														"textcolor" : 														{
+														"activeneedlecolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -18737,7 +18728,7 @@
 															"expression" : ""
 														}
 ,
-														"activeneedlecolor" : 														{
+														"textcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -19007,7 +18998,7 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 203.640533447265625, 41.838638305664062, 44.0, 48.0 ],
 													"saved_attribute_attributes" : 													{
-														"textcolor" : 														{
+														"activeneedlecolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -19019,7 +19010,7 @@
 															"expression" : ""
 														}
 ,
-														"activeneedlecolor" : 														{
+														"textcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -19087,11 +19078,23 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 347.9093017578125, 19.0, 73.767135620117188, 17.0 ],
 													"saved_attribute_attributes" : 													{
-														"activebgcolor" : 														{
+														"activetextoncolor" : 														{
 															"expression" : ""
 														}
 ,
 														"activebgoncolor" : 														{
+															"expression" : ""
+														}
+,
+														"bgcolor" : 														{
+															"expression" : ""
+														}
+,
+														"activebgcolor" : 														{
+															"expression" : ""
+														}
+,
+														"bordercolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -19100,18 +19103,6 @@
 														}
 ,
 														"textcolor" : 														{
-															"expression" : ""
-														}
-,
-														"bordercolor" : 														{
-															"expression" : ""
-														}
-,
-														"bgcolor" : 														{
-															"expression" : ""
-														}
-,
-														"activetextoncolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -24246,7 +24237,7 @@
 			"obj-47::obj-14::obj-7::obj-131" : [ "none[59]", "Pan", 0 ],
 			"obj-47::obj-14::obj-7::obj-132" : [ "none[58]", "Level", 0 ],
 			"obj-47::obj-14::obj-7::obj-133" : [ "none[57]", "Decay", 0 ],
-			"obj-47::obj-14::obj-7::obj-134" : [ "none[51]", "Gain", 0 ],
+			"obj-47::obj-14::obj-7::obj-134" : [ "none[75]", "Gain", 0 ],
 			"obj-47::obj-14::obj-7::obj-14" : [ "VCO 1 - SOLO", "VCO 1 - SOLO", 0 ],
 			"obj-47::obj-14::obj-7::obj-161" : [ "live.button[10]", "live.button", 0 ],
 			"obj-47::obj-14::obj-7::obj-165" : [ "live.button[11]", "live.button", 0 ],
@@ -24258,7 +24249,7 @@
 			"obj-47::obj-14::obj-7::obj-197" : [ "none[10]", "Mod Speed", 0 ],
 			"obj-47::obj-14::obj-7::obj-198" : [ "none[16]", "Mod Depth", 0 ],
 			"obj-47::obj-14::obj-7::obj-202" : [ "none[17]", "Pitch", 0 ],
-			"obj-47::obj-14::obj-7::obj-204" : [ "none[72]", "Low Boost", 0 ],
+			"obj-47::obj-14::obj-7::obj-204" : [ "none[53]", "Low Boost", 0 ],
 			"obj-47::obj-14::obj-7::obj-205" : [ "none[21]", "Pan", 0 ],
 			"obj-47::obj-14::obj-7::obj-206" : [ "none[20]", "Level", 0 ],
 			"obj-47::obj-14::obj-7::obj-207" : [ "none[19]", "Decay", 0 ],
@@ -24296,10 +24287,10 @@
 			"obj-47::obj-14::obj-7::obj-274" : [ "none[43]", "Level", 0 ],
 			"obj-47::obj-14::obj-7::obj-275" : [ "none[44]", "Decay", 0 ],
 			"obj-47::obj-14::obj-7::obj-276" : [ "none[45]", "Pitch", 0 ],
-			"obj-47::obj-14::obj-7::obj-278" : [ "none[75]", "Low Boost", 0 ],
+			"obj-47::obj-14::obj-7::obj-278" : [ "none[51]", "Low Boost", 0 ],
 			"obj-47::obj-14::obj-7::obj-279" : [ "none[52]", "Pan", 0 ],
 			"obj-47::obj-14::obj-7::obj-28" : [ "VCO 4 - SOLO", "VCO 4 - SOLO", 0 ],
-			"obj-47::obj-14::obj-7::obj-280" : [ "none[53]", "Level", 0 ],
+			"obj-47::obj-14::obj-7::obj-280" : [ "none[72]", "Level", 0 ],
 			"obj-47::obj-14::obj-7::obj-281" : [ "none[54]", "Decay", 0 ],
 			"obj-47::obj-14::obj-7::obj-282" : [ "none[55]", "Pitch", 0 ],
 			"obj-47::obj-14::obj-7::obj-284" : [ "none[46]", "Low Boost", 0 ],
@@ -24530,28 +24521,16 @@
 					"parameter_longname" : "qlist[1]"
 				}
 ,
-				"obj-47::obj-14::obj-7::obj-117" : 				{
-					"parameter_longname" : "none[70]"
-				}
-,
 				"obj-47::obj-14::obj-7::obj-134" : 				{
-					"parameter_longname" : "none[51]"
+					"parameter_longname" : "none[75]"
 				}
 ,
 				"obj-47::obj-14::obj-7::obj-204" : 				{
+					"parameter_longname" : "none[53]"
+				}
+,
+				"obj-47::obj-14::obj-7::obj-280" : 				{
 					"parameter_longname" : "none[72]"
-				}
-,
-				"obj-47::obj-14::obj-7::obj-211" : 				{
-					"parameter_longname" : "none[69]"
-				}
-,
-				"obj-47::obj-14::obj-7::obj-212" : 				{
-					"parameter_longname" : "none[22]"
-				}
-,
-				"obj-47::obj-14::obj-7::obj-278" : 				{
-					"parameter_longname" : "none[75]"
 				}
 ,
 				"obj-6::obj-24" : 				{
@@ -24692,7 +24671,7 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "make-chord.js",
+				"name" : "er1-API.js",
 				"bootpath" : "~/Code/Max/granular-er1-environment/er1-chord-generator",
 				"patcherrelativepath" : "./er1-chord-generator",
 				"type" : "TEXT",
@@ -24859,8 +24838,8 @@
 				"name" : "Default M4L",
 				"default" : 				{
 					"fontsize" : [ 11.0 ],
-					"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-					"fontname" : [ "Arial Bold" ]
+					"fontname" : [ "Arial Bold" ],
+					"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 				}
 ,
 				"parentstyle" : "",
@@ -24870,8 +24849,8 @@
 				"name" : "Default M4L Poletti",
 				"default" : 				{
 					"fontsize" : [ 10.0 ],
-					"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-					"fontname" : [ "Arial Bold" ]
+					"fontname" : [ "Arial Bold" ],
+					"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 				}
 ,
 				"parentstyle" : "",
@@ -24880,7 +24859,7 @@
 , 			{
 				"name" : "Default M4L-1",
 				"default" : 				{
-					"fontface" : [ 1 ],
+					"fontsize" : [ 11.0 ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -24890,8 +24869,8 @@
 						"proportion" : 0.39
 					}
 ,
-					"fontsize" : [ 11.0 ],
-					"fontname" : [ "Arial" ]
+					"fontname" : [ "Arial" ],
+					"fontface" : [ 1 ]
 				}
 ,
 				"parentstyle" : "",
@@ -24975,6 +24954,8 @@
 				"default" : 				{
 					"clearcolor" : [ 1.0, 0.947758, 0.687073, 1.0 ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 12.0 ],
+					"color" : [ 0.952941, 0.564706, 0.098039, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color1" : [ 0.862745, 0.870588, 0.878431, 1.0 ],
@@ -24982,11 +24963,9 @@
 						"color" : [ 0.290196, 0.309804, 0.301961, 1.0 ]
 					}
 ,
-					"fontsize" : [ 12.0 ],
-					"accentcolor" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 					"bgcolor" : [ 0.901961, 0.901961, 0.901961, 1.0 ],
 					"fontname" : [ "Arial" ],
-					"color" : [ 0.952941, 0.564706, 0.098039, 1.0 ]
+					"accentcolor" : [ 0.65098, 0.666667, 0.662745, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
