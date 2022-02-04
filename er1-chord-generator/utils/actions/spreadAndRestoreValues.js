@@ -15,7 +15,6 @@ const restoreDefaultModDepths = (state, currentPitchMap) => {
   const currentPitches = Object.keys(state)
     .filter((key) => key.slice(0, 3) === "vco")
     .map((voiceName) => state[voiceName].pitch);
-  maxApi.post(currentPitchMap);
   const originalModDepths = currentPitches.map(
     (pitch) => currentPitchMap[pitch].modDepth
   );

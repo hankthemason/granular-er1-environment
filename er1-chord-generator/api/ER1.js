@@ -11,11 +11,17 @@ const updateSingleVoice = (voiceName, params) => {
   });
 };
 
-const sendMultipleVoiceNrpns = (voiceName, params) => {
-  Object.entries(params).map(([key, value]) => {
-    const nrpn = voiceMap[voiceName][key].nrpn;
-    maxApi.outlet("nrpnOut", value, nrpn);
-  });
+const updateAllVoices = (params) => {
+  for (let i = 0; i < numVCOs; i++) {
+    const voiceName = "vco".concat(i + 1);
+
+    Object.entries(params).map(([param, value]) => {
+      const nrpn = voiceMap[voiceName][param].nrpn;
+      !Array.isArray(value)
+        ? maxApi.outlet("nrpnOut", value, nrpn)
+        : maxApi.outlet("nrpnOut", value[i], nrpn);
+    });
+  }
 };
 
 const updateMute = (muteState) => {
@@ -30,11 +36,6 @@ const updateSolo = (soloState) => {
   maxApi.outlet("nrpnOut", soloState.sampleAndAudio, nrpnPair[1]);
 };
 
-const sendSingleGlobalNrpn = (value, param) => {
-  const nrpn = globalParams[param];
-  maxApi.outlet("nrpnOut", value, nrpn);
-};
-
 const updateGlobalSettings = (params) => {
   Object.entries(params).map(([param, value]) => {
     const nrpn = globalParams[param];
@@ -42,26 +43,10 @@ const updateGlobalSettings = (params) => {
   });
 };
 
-const sendAllVoicesNrpns = (params) => {
-  for (let i = 0; i < numVCOs; i++) {
-    const voiceName = "vco".concat(i + 1);
-    Object.entries(params).map(([key, value]) => {
-      const nrpn = voiceMap[voiceName][key].nrpn;
-      if (!Array.isArray(value)) {
-        maxApi.outlet("nrpnOut", value, nrpn);
-      } else {
-        maxApi.outlet("nrpnOut", value[i], nrpn);
-      }
-    });
-  }
-};
-
 module.exports = {
   updateSingleVoice,
-  sendMultipleVoiceNrpns,
-  sendSingleGlobalNrpn,
-  sendAllVoicesNrpns,
   updateGlobalSettings,
   updateSolo,
   updateMute,
+  updateAllVoices,
 };

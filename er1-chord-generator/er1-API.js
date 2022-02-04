@@ -1,23 +1,11 @@
 const maxApi = require("max-api");
 
-const voiceMap = require("./configs/voiceMap");
 const presetTemplate = require("./configs/presetTemplate.json");
-const globalParams = require("./configs/globalParams.json");
-const sampleAndAudioVoices = require("./configs/sampleAndAudioVoices.json");
 
 const pitchCollection1 = require("./configs/pitchCollection1.json");
 const pitchCollection2 = require("./configs/pitchCollection2.json");
 const pitchCollection1Map = require("./configs/pitchCollection1Map.json");
 const pitchCollection2Map = require("./configs/pitchCollection2Map.json");
-
-const {
-  updateSingleVoice,
-  sendMultipleVoiceNrpns,
-  sendMuteNrpns,
-  sendSoloNrpns,
-  sendSingleGlobalNrpn,
-  sendAllVoicesNrpns,
-} = require("./api/ER1");
 
 const ER1 = require("./api/ER1");
 
@@ -50,6 +38,8 @@ const {
   writeStateToDisk,
   readStateFromDisk,
 } = require("./readAndWrite");
+
+const makeVoiceName = require("./utils/makeVoiceName");
 
 let pitchCollectionIndex = 0;
 const pitchArrays = [pitchCollection1, pitchCollection2];
@@ -90,8 +80,6 @@ let muteAndSoloState = {
 const numVCOs = 4;
 
 const midiNotes = [36, 38, 40, 41];
-
-const variableDecayMode = false;
 
 let notesAscending;
 const makeSequentialNoteArray = () => {
@@ -142,10 +130,8 @@ maxApi.addHandler("handleUIChange", (voiceName, param, val) => {
 
 //ACTIONS
 
-let sequenceIndex = 0;
-let ascending = true;
 maxApi.addHandler("arpeggiate", (voiceNum, sequence) => {
-  arpeggiate(voiceNum, sequence);
+  arpeggiate(voiceNum, sequence, notesAscending);
 });
 
 maxApi.addHandler("setNote", (noteNumber, voiceNum) => {
@@ -153,8 +139,7 @@ maxApi.addHandler("setNote", (noteNumber, voiceNum) => {
     return;
   }
   const note = currentPitchMap[noteNumber];
-  const voiceName = "vco".concat(voiceNum);
-  maxApi.post(note);
+  const voiceName = makeVoiceName(voiceNum);
   setNote(note, voiceName);
   state[voiceName].pitch = note.pitch;
   state[voiceName].modDepth = note.Depth;
@@ -165,14 +150,18 @@ maxApi.addHandler("playNote", (noteNumber, voiceNum) => {
     return;
   }
   const note = currentPitchMap[noteNumber];
-  const voiceName = "vco".concat(voiceNum);
+  const voiceName = makeVoiceName(voiceNum);
   setNote(note, voiceName);
 
   maxApi.outlet("playNote", midiNotes[voiceNum - 1]);
 });
 
 maxApi.addHandler("setWaveType", (waveType) => {
-  setWaveType(waveType);
+  for (let i = 0; i < numVCOs; i++) {
+    const voiceName = makeVoiceName(i + 1);
+    setWaveType(voiceName, waveType);
+    state[voiceName].wave = waveType === "sine" ? 0 : 127;
+  }
 });
 
 maxApi.addHandler("noiseBlast", () => {
@@ -188,12 +177,12 @@ maxApi.addHandler("spreadModDepth", () => {
     state.vco4.modDepth,
   ];
   modDepthArray = spreadModDepth(modDepthArray);
-  const params = { modDepth: modDepthArray };
-  sendAllVoicesNrpns(params);
   for (let i = 0; i < numVCOs; i++) {
-    const voiceName = "vco".concat(i + 1);
+    const voiceName = makeVoiceName(i + 1);
+    const params = { modDepth: modDepthArray[i] };
+    ER1.updateSingleVoice(voiceName, params);
+    UI.updateSingleVoice(voiceName, params);
     state[voiceName].modDepth = modDepthArray[i];
-    maxApi.outlet("updateUI", voiceName, "modDepth", modDepthArray[i]);
   }
 });
 
@@ -202,31 +191,33 @@ maxApi.addHandler("restoreDefaultNoteValues", () => {
     state,
     midiNoteNumbersByEr1Pitch
   );
-  const params = { modDepth: defaultModDepths };
-  sendAllVoicesNrpns(params);
-  defaultModDepths.map((modDepth, index) => {
-    const voiceName = "vco".concat(index + 1);
-    maxApi.outlet("updateUI", voiceName, "modDepth", modDepth);
-    state[voiceName].modDepth = modDepth;
-  });
+  for (let i = 0; i < numVCOs; i++) {
+    const voiceName = makeVoiceName(i + 1);
+    const params = { modDepth: defaultModDepths[i] };
+    ER1.updateSingleVoice(voiceName, params);
+    UI.updateSingleVoice(voiceName, params);
+    state[voiceName].modDepth = defaultModDepths[i];
+  }
 });
 
 maxApi.addHandler("setDecay", (decay) => {
-  const params = { decay: decay };
-  sendAllVoicesNrpns(params);
   globalDecay = decay;
   for (let i = 0; i < numVCOs; i++) {
-    const voiceName = `vco${i + 1}`;
-    maxApi.outlet("updateUI", voiceName, "decay", decay);
+    const voiceName = makeVoiceName(i + 1);
+    const params = { decay: decay };
+    ER1.updateSingleVoice(voiceName, params);
+    UI.updateSingleVoice(voiceName, params);
+    state[voiceName].decay = decay;
   }
 });
 
 maxApi.addHandler("setLevel", (level) => {
-  const params = { level: level };
-  sendAllVoicesNrpns(params);
   for (let i = 0; i < numVCOs; i++) {
-    const voiceName = `vco${i + 1}`;
-    maxApi.outlet("updateUI", voiceName, "level", level);
+    const voiceName = makeVoiceName(i + 1);
+    const params = { level: level };
+    ER1.updateSingleVoice(voiceName, params);
+    UI.updateSingleVoice(voiceName, params);
+    state[voiceName].level = level;
   }
 });
 
@@ -246,7 +237,7 @@ maxApi.addHandler("setPitchCollection", (newPitchCollectionIdx) => {
   makeEr1PitchMap();
   makeSequentialNoteArray();
   for (let i = 0; i < numVCOs; i++) {
-    const voiceName = "vco".concat(i + 1);
+    const voiceName = makeVoiceName(i + 1);
     const pitch = state[voiceName].pitch;
     if (midiNoteNumbersByEr1Pitch[pitch]) {
       const modDepth = midiNoteNumbersByEr1Pitch[pitch].modDepth;
@@ -283,28 +274,3 @@ maxApi.addHandler("readStateFromDisk", (filePath) => {
     solo: state.solo,
   };
 });
-
-//////////
-
-//this function needs to take an incoming change
-//and update global mute state based on that change
-const handleUIMuteChange = (voiceName, val, type) => {
-  //which bit do we need to change?
-  const voiceNum =
-    type === "vco"
-      ? voiceName.slice(voiceName.length - 1)
-      : sampleAndAudioVoices.indexOf(voiceName) + 1;
-
-  //which muteState are we changing?
-  let muteStateToChange = muteState[type];
-  //which bit are we turning on/off?
-  if (val === 1) {
-    const bitwise = Math.pow(2, voiceNum) >> 1;
-    muteStateToChange = muteStateToChange | bitwise;
-  } else {
-    muteStateToChange = muteStateToChange & ~(1 << (voiceNum - 1));
-  }
-
-  //update global mute state
-  muteState[type] = muteStateToChange;
-};

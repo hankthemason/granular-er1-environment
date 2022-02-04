@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 847.0, -993.0, 1669.0, 809.0 ],
+		"rect" : [ 153.0, -993.0, 1264.0, 809.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -3782,6 +3782,8 @@
 					"saved_object_attributes" : 					{
 						"autostart" : 0,
 						"defer" : 0,
+						"node_bin_path" : "",
+						"npm_bin_path" : "",
 						"watch" : 0
 					}
 ,
@@ -24732,6 +24734,13 @@
 				"bootpath" : "~/Code/Max/granular-er1-environment/er1-chord-generator",
 				"patcherrelativepath" : "./er1-chord-generator",
 				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "makeSingleEnvelope.maxpat",
+				"bootpath" : "~/Code/Max/granular-er1-environment/er1-chord-generator/subpatches",
+				"patcherrelativepath" : "./er1-chord-generator/subpatches",
+				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{

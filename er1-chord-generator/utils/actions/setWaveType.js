@@ -1,13 +1,12 @@
 const maxApi = require("max-api");
-const { sendAllVoicesNrpns } = require("../../api/ER1");
-const { updateAllVoicesInUI } = require("../updateUIFromInternalChange");
+const { ER1, UI } = require("../../api");
 
 const numVCOs = 4;
-const setWaveType = (waveType) => {
+const setWaveType = (voiceName, waveType) => {
   const waveVal = waveType === "sine" ? 0 : 127;
   const params = { wave: waveVal };
-  sendAllVoicesNrpns(params);
-  updateAllVoicesInUI(params);
+  ER1.updateSingleVoice(voiceName, params);
+  UI.updateSingleVoice(voiceName, params);
 };
 
 module.exports = setWaveType;
