@@ -24,7 +24,7 @@ const {
   noiseBlast,
   setWaveType,
   spreadModDepth,
-  restoreDefaultNoteValues,
+  restoreDefaultModDepths,
 } = require("./utils/actions");
 
 const checkSoloStateAndMuteState = require("./utils/checkSoloStateAndMuteState");
@@ -316,26 +316,23 @@ maxApi.addHandler("spreadModDepth", () => {
   sendAllVoicesNrpns(params);
   for (let i = 0; i < numVCOs; i++) {
     const voiceName = "vco".concat(i + 1);
+    state[voiceName].modDepth = modDepthArray[i];
     maxApi.outlet("updateUI", voiceName, "modDepth", modDepthArray[i]);
   }
 });
 
 maxApi.addHandler("restoreDefaultNoteValues", () => {
-  const modDepthsByPitch = currentPitchArray.reduce((acc, note) => {
-    return {
-      ...acc,
-      [note.pitch]: note.modDepth,
-    };
-  }, {});
-  for (let i = 0; i < numVCOs; i++) {
-    const voiceName = "vco".concat(i + 1);
-    const pitch = state[voiceName].pitch;
-    const modDepth = modDepthsByPitch[pitch];
-    const modDepthNrpn = voiceMap[voiceName].modDepth.nrpn;
-    maxApi.outlet("nrpnOut", modDepth, modDepthNrpn);
+  const defaultModDepths = restoreDefaultModDepths(
+    state,
+    midiNoteNumbersByEr1Pitch
+  );
+  const params = { modDepth: defaultModDepths };
+  sendAllVoicesNrpns(params);
+  defaultModDepths.map((modDepth, index) => {
+    const voiceName = "vco".concat(index + 1);
     maxApi.outlet("updateUI", voiceName, "modDepth", modDepth);
     state[voiceName].modDepth = modDepth;
-  }
+  });
 });
 
 //HANDLE INCOMING CHANGES FROM THE ER-1

@@ -3,7 +3,7 @@ const noiseBlast = require("./noiseBlast");
 const setWaveType = require("./setWaveType");
 const {
   spreadModDepth,
-  restoreDefaultNoteValues,
+  restoreDefaultModDepths,
 } = require("./spreadAndRestoreValues");
 
 module.exports = {
@@ -11,5 +11,5 @@ module.exports = {
   noiseBlast,
   setWaveType,
   spreadModDepth,
-  restoreDefaultNoteValues,
+  restoreDefaultModDepths,
 };

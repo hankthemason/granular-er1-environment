@@ -4,7 +4,6 @@ const numVCOs = 4;
 
 const spreadModDepth = (modDepthArray) => {
   newModDepthArray = modDepthArray.map((modDepth, index) => {
-    const voiceName = "vco".concat(index + 1);
     const toAdd = Math.floor(Math.random() * 3) - 1;
     modDepth += toAdd;
     return modDepth;
@@ -12,6 +11,15 @@ const spreadModDepth = (modDepthArray) => {
   return newModDepthArray;
 };
 
-const restoreDefaultNoteValues = () => {};
+const restoreDefaultModDepths = (state, currentPitchMap) => {
+  const currentPitches = Object.keys(state)
+    .filter((key) => key.slice(0, 3) === "vco")
+    .map((voiceName) => state[voiceName].pitch);
+  maxApi.post(currentPitchMap);
+  const originalModDepths = currentPitches.map(
+    (pitch) => currentPitchMap[pitch].modDepth
+  );
+  return originalModDepths;
+};
 
-module.exports = { spreadModDepth, restoreDefaultNoteValues };
+module.exports = { spreadModDepth, restoreDefaultModDepths };
