@@ -131,7 +131,7 @@ maxApi.addHandler("handleUIChange", (voiceName, param, val) => {
 //ACTIONS
 
 maxApi.addHandler("arpeggiate", (voiceNum, sequence) => {
-  arpeggiate(voiceNum, sequence, notesAscending);
+  arpeggiate(voiceNum, sequence, notesAscending, currentPitchArray);
 });
 
 maxApi.addHandler("setNote", (noteNumber, voiceNum) => {
@@ -166,7 +166,7 @@ maxApi.addHandler("setWaveType", (waveType) => {
 
 maxApi.addHandler("noiseBlast", () => {
   const vco4PreviousState = state.vco4;
-  noiseBlast("vco4", vco4PreviousState);
+  noiseBlast("vco4", vco4PreviousState, globalDecay);
 });
 
 maxApi.addHandler("spreadModDepth", () => {
@@ -223,9 +223,11 @@ maxApi.addHandler("setLevel", (level) => {
 
 maxApi.addHandler("makeChord", () => {
   const pitches = makeChord(currentPitchArray);
-  midiNoteNumbers = pitches.map(
-    (pitch) => midiNoteNumbersByEr1Pitch[pitch].midiNoteNumber
-  );
+  midiNoteNumbers = pitches.map((pitch, index) => {
+    midiNoteNumbersByEr1Pitch[pitch].midiNoteNumber;
+    const voiceName = makeVoiceName(index + 1);
+    state[voiceName].pitch = pitch;
+  });
   maxApi.outlet("midiNoteNumbers", midiNoteNumbers);
 });
 

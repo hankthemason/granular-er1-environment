@@ -1,3 +1,6 @@
+const { ER1, UI } = require("../../api");
+
+const numVCOs = 4;
 const makeChord = (currentPitchArray) => {
   let pitches = [];
   for (let i = 0; i < numVCOs; i++) {
@@ -17,8 +20,6 @@ const makeChord = (currentPitchArray) => {
     const params = { pitch: pitch, modDepth: modDepth };
     ER1.updateSingleVoice(voiceName, params);
     UI.updateSingleVoice(voiceName, params);
-    state[voiceName].pitch = pitch;
-    state[voiceName].modDepth = modDepth;
   }
   return pitches;
 };

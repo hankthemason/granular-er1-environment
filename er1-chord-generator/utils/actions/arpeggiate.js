@@ -2,7 +2,10 @@ const maxApi = require("max-api");
 
 const { ER1, UI } = require("../../api");
 
-const arpeggiate = (voiceNum, sequence, notesAscending) => {
+let sequenceIndex = 0;
+let ascending = true;
+
+const arpeggiate = (voiceNum, sequence, notesAscending, currentPitchArray) => {
   if (sequence === "random") {
     const randomIdx = Math.floor(Math.random() * currentPitchArray.length);
     const note = currentPitchArray[randomIdx];

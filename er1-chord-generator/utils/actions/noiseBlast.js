@@ -1,7 +1,8 @@
 const maxApi = require("max-api");
-const { sendMultipleVoiceNrpns } = require("../../api/ER1");
+const { ER1, UI } = require("../../api");
+const midiNotes = [36, 38, 40, 41];
 
-const noiseBlast = (voiceName, vco4PreviousState) => {
+const noiseBlast = (voiceName, vco4PreviousState, globalDecay) => {
   let params = {
     modType: 4,
     modDepth: 127,
@@ -9,15 +10,9 @@ const noiseBlast = (voiceName, vco4PreviousState) => {
     pitch: 0,
     modSpeed: 0,
   };
-
-  sendMultipleVoiceNrpns(voiceName, params);
-
-  maxApi.outlet("updateUI", voiceName, "modType", modType);
-  maxApi.outlet("updateUI", voiceName, "modDepth", modDepth);
-  maxApi.outlet("updateUI", voiceName, "decay", decay);
-  maxApi.outlet("updateUI", voiceName, "pitch", pitch);
-  maxApi.outlet("updateUI", voiceName, "modSpeed", modSpeedNrpn);
   maxApi.outlet("noiseBlast", midiNotes[midiNotes.length - 1]);
+  ER1.updateSingleVoice(voiceName, params);
+  UI.updateSingleVoice(voiceName, params);
   setTimeout(() => {
     params = {
       modType: vco4PreviousState.modType,
@@ -26,22 +21,8 @@ const noiseBlast = (voiceName, vco4PreviousState) => {
       pitch: vco4PreviousState.pitch,
       modSpeed: vco4PreviousState.modSpeed,
     };
-    sendMultipleVoiceNrpns(voiceName, params);
-    maxApi.outlet("updateUI", voiceName, "modType", vco4PreviousState.modType);
-    maxApi.outlet(
-      "updateUI",
-      voiceName,
-      "modDepth",
-      vco4PreviousState.modDepth
-    );
-    maxApi.outlet("updateUI", voiceName, "decay", globalDecay);
-    maxApi.outlet("updateUI", voiceName, "pitch", vco4PreviousState.pitch);
-    maxApi.outlet(
-      "updateUI",
-      voiceName,
-      "modSpeed",
-      vco4PreviousState.modSpeed
-    );
+    ER1.updateSingleVoice(voiceName, params);
+    UI.updateSingleVoice(voiceName, params);
   }, 7525);
 };
 module.exports = noiseBlast;
