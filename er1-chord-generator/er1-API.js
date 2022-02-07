@@ -224,9 +224,9 @@ maxApi.addHandler("setLevel", (level) => {
 maxApi.addHandler("makeChord", () => {
   const pitches = makeChord(currentPitchArray);
   midiNoteNumbers = pitches.map((pitch, index) => {
-    midiNoteNumbersByEr1Pitch[pitch].midiNoteNumber;
     const voiceName = makeVoiceName(index + 1);
     state[voiceName].pitch = pitch;
+    return midiNoteNumbersByEr1Pitch[pitch].midiNoteNumber;
   });
   maxApi.outlet("midiNoteNumbers", midiNoteNumbers);
 });
