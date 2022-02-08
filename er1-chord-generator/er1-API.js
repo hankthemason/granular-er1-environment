@@ -152,7 +152,6 @@ maxApi.addHandler("playNote", (noteNumber, voiceNum) => {
   maxApi.outlet("playNote", midiNotes[voiceNum - 1]);
   const note = currentPitchMap[noteNumber];
   const voiceName = makeVoiceName(voiceNum);
-  maxApi.post(note);
   setNote(note, voiceName);
 });
 

@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 28.0, -935.0, 1164.0, 901.0 ],
+		"rect" : [ 28.0, -935.0, 1366.0, 901.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,29 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 195.0, 122.5, 67.0, 22.0 ],
+					"text" : "delay 1000"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-10",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 241.0, 326.0, 88.0, 22.0 ],
+					"text" : "print fromNode"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-15",
 					"maxclass" : "newobj",
@@ -122,7 +145,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 310.0, -740.0, 640.0, 480.0 ],
+						"rect" : [ 482.0, -650.0, 640.0, 480.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -150,7 +173,6 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-125",
@@ -1538,8 +1560,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 1093.0, 30.0, 61.0, 22.0 ],
-					"text" : "delay 100"
+					"patching_rect" : [ 1093.0, 30.0, 67.0, 22.0 ],
+					"text" : "delay 2000"
 				}
 
 			}
@@ -2003,7 +2025,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 50.0, 225.0, 74.0, 22.0 ],
-									"text" : "0, 127 390"
+									"text" : "0, 127 100"
 								}
 
 							}
@@ -2480,7 +2502,7 @@
 				"box" : 				{
 					"comment" : "attack",
 					"id" : "obj-121",
-					"index" : 5,
+					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -2493,7 +2515,7 @@
 				"box" : 				{
 					"comment" : "set note/play note",
 					"id" : "obj-86",
-					"index" : 4,
+					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -2541,7 +2563,7 @@
 				"box" : 				{
 					"comment" : "level",
 					"id" : "obj-54",
-					"index" : 3,
+					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -2578,7 +2600,7 @@
 				"box" : 				{
 					"comment" : "decay",
 					"id" : "obj-51",
-					"index" : 2,
+					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -2594,7 +2616,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 195.0, 115.5, 58.0, 22.0 ],
+					"patching_rect" : [ 195.0, 97.0, 58.0, 22.0 ],
 					"text" : "loadbang"
 				}
 
@@ -2615,7 +2637,7 @@
 				"box" : 				{
 					"comment" : "",
 					"id" : "obj-4",
-					"index" : 1,
+					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -3151,6 +3173,8 @@
 					"saved_object_attributes" : 					{
 						"autostart" : 0,
 						"defer" : 0,
+						"node_bin_path" : "",
+						"npm_bin_path" : "",
 						"watch" : 0
 					}
 ,
@@ -3213,6 +3237,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 1102.5, 131.0, 646.0, 131.0, 646.0, 204.0, 204.5, 204.0 ],
 					"source" : [ "obj-107", 0 ]
 				}
 
@@ -3370,6 +3395,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
 					"source" : [ "obj-20", 0 ]
 				}
@@ -3386,6 +3418,14 @@
 				"patchline" : 				{
 					"destination" : [ "obj-27", 3 ],
 					"source" : [ "obj-28", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-10", 0 ],
+					"order" : 0,
+					"source" : [ "obj-29", 1 ]
 				}
 
 			}
@@ -3416,6 +3456,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-46", 0 ],
 					"midpoints" : [ 269.300000000000011, 285.0, 174.0, 285.0, 174.0, 18.0, 192.5, 18.0 ],
+					"order" : 1,
 					"source" : [ "obj-29", 1 ]
 				}
 
@@ -3636,13 +3677,14 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 192.5, 210.0 ],
 					"source" : [ "obj-7", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-3", 0 ],
+					"destination" : [ "obj-2", 0 ],
 					"source" : [ "obj-8", 0 ]
 				}
 
@@ -3699,6 +3741,217 @@
 
 			}
  ],
+		"parameters" : 		{
+			"obj-7::obj-10" : [ "HH OPEN - MUTE", "HH OPEN - MUTE", 0 ],
+			"obj-7::obj-104" : [ "none[61]", "Low Boost", 0 ],
+			"obj-7::obj-105" : [ "none[63]", "Pan", 0 ],
+			"obj-7::obj-111" : [ "none[75]", "Level", 0 ],
+			"obj-7::obj-112" : [ "none[64]", "Decay", 0 ],
+			"obj-7::obj-117" : [ "none[70]", "Low Boost", 0 ],
+			"obj-7::obj-118" : [ "none[13]", "Pan", 0 ],
+			"obj-7::obj-12" : [ "CRASH - MUTE", "CRASH - MUTE", 0 ],
+			"obj-7::obj-123" : [ "none[65]", "Gain", 0 ],
+			"obj-7::obj-124" : [ "none[12]", "Level", 0 ],
+			"obj-7::obj-125" : [ "none[1]", "Mod Depth", 0 ],
+			"obj-7::obj-128" : [ "AUDIO IN 2 - SOLO", "AUDIO IN 2 - SOLO", 0 ],
+			"obj-7::obj-129" : [ "AUDIO IN 2 - MUTE", "AUDIO IN 2 - MUTE", 0 ],
+			"obj-7::obj-13" : [ "CLAP - MUTE", "CLAP - MUTE", 0 ],
+			"obj-7::obj-130" : [ "none[56]", "Low Boost", 0 ],
+			"obj-7::obj-131" : [ "none[59]", "Pan", 0 ],
+			"obj-7::obj-132" : [ "none[58]", "Level", 0 ],
+			"obj-7::obj-133" : [ "none[57]", "Decay", 0 ],
+			"obj-7::obj-134" : [ "none[62]", "Gain", 0 ],
+			"obj-7::obj-14" : [ "VCO 1 - SOLO", "VCO 1 - SOLO", 0 ],
+			"obj-7::obj-161" : [ "live.button[10]", "live.button", 0 ],
+			"obj-7::obj-165" : [ "live.button[11]", "live.button", 0 ],
+			"obj-7::obj-171" : [ "none[2]", "Mod Speed", 0 ],
+			"obj-7::obj-172" : [ "none[11]", "Decay", 0 ],
+			"obj-7::obj-173" : [ "none[74]", "live.tab", 0 ],
+			"obj-7::obj-186" : [ "live.button[8]", "live.button", 0 ],
+			"obj-7::obj-188" : [ "none[15]", "live.tab", 0 ],
+			"obj-7::obj-197" : [ "none[10]", "Mod Speed", 0 ],
+			"obj-7::obj-198" : [ "none[16]", "Mod Depth", 0 ],
+			"obj-7::obj-202" : [ "none[17]", "Pitch", 0 ],
+			"obj-7::obj-204" : [ "none[71]", "Low Boost", 0 ],
+			"obj-7::obj-205" : [ "none[21]", "Pan", 0 ],
+			"obj-7::obj-206" : [ "none[20]", "Level", 0 ],
+			"obj-7::obj-207" : [ "none[19]", "Decay", 0 ],
+			"obj-7::obj-208" : [ "none[18]", "live.tab", 0 ],
+			"obj-7::obj-211" : [ "none[69]", "live.tab", 0 ],
+			"obj-7::obj-212" : [ "none[22]", "Mod Speed", 0 ],
+			"obj-7::obj-213" : [ "none[9]", "Mod Depth", 0 ],
+			"obj-7::obj-218" : [ "none[72]", "Pitch", 0 ],
+			"obj-7::obj-220" : [ "none[3]", "live.tab", 0 ],
+			"obj-7::obj-221" : [ "none[30]", "Low Boost", 0 ],
+			"obj-7::obj-222" : [ "none[29]", "Pan", 0 ],
+			"obj-7::obj-223" : [ "none[28]", "Level", 0 ],
+			"obj-7::obj-230" : [ "live.button[9]", "live.button", 0 ],
+			"obj-7::obj-235" : [ "none[8]", "live.tab", 0 ],
+			"obj-7::obj-236" : [ "none[4]", "Decay", 0 ],
+			"obj-7::obj-237" : [ "none[5]", "Level", 0 ],
+			"obj-7::obj-238" : [ "none[6]", "Pan", 0 ],
+			"obj-7::obj-239" : [ "none[7]", "Low Boost", 0 ],
+			"obj-7::obj-244" : [ "none[31]", "Decay", 0 ],
+			"obj-7::obj-246" : [ "none[27]", "live.tab", 0 ],
+			"obj-7::obj-249" : [ "none[32]", "live.tab", 0 ],
+			"obj-7::obj-250" : [ "none[33]", "Mod Speed", 0 ],
+			"obj-7::obj-251" : [ "none[34]", "Mod Depth", 0 ],
+			"obj-7::obj-252" : [ "none[60]", "Pitch", 0 ],
+			"obj-7::obj-254" : [ "GLOBAL - RING MOD 2", "GLOBAL - RING MOD 2", 0 ],
+			"obj-7::obj-26" : [ "VCO 2 - SOLO", "VCO 2 - SOLO", 0 ],
+			"obj-7::obj-267" : [ "none[40]", "Pitch", 0 ],
+			"obj-7::obj-268" : [ "none[38]", "Decay", 0 ],
+			"obj-7::obj-269" : [ "none[39]", "Level", 0 ],
+			"obj-7::obj-27" : [ "VCO 3 - SOLO", "VCO 3 - SOLO", 0 ],
+			"obj-7::obj-270" : [ "none[37]", "Pan", 0 ],
+			"obj-7::obj-271" : [ "none[36]", "Low Boost", 0 ],
+			"obj-7::obj-272" : [ "none[41]", "Low Boost", 0 ],
+			"obj-7::obj-273" : [ "none[42]", "Pan", 0 ],
+			"obj-7::obj-274" : [ "none[43]", "Level", 0 ],
+			"obj-7::obj-275" : [ "none[44]", "Decay", 0 ],
+			"obj-7::obj-276" : [ "none[45]", "Pitch", 0 ],
+			"obj-7::obj-278" : [ "none[51]", "Low Boost", 0 ],
+			"obj-7::obj-279" : [ "none[52]", "Pan", 0 ],
+			"obj-7::obj-28" : [ "VCO 4 - SOLO", "VCO 4 - SOLO", 0 ],
+			"obj-7::obj-280" : [ "none[53]", "Level", 0 ],
+			"obj-7::obj-281" : [ "none[54]", "Decay", 0 ],
+			"obj-7::obj-282" : [ "none[55]", "Pitch", 0 ],
+			"obj-7::obj-284" : [ "none[46]", "Low Boost", 0 ],
+			"obj-7::obj-285" : [ "none[49]", "Pan", 0 ],
+			"obj-7::obj-286" : [ "none[48]", "Level", 0 ],
+			"obj-7::obj-287" : [ "none[47]", "Decay", 0 ],
+			"obj-7::obj-288" : [ "none[50]", "Pitch", 0 ],
+			"obj-7::obj-3" : [ "VCO 4 - MUTE", "VCO 4 - MUTE", 0 ],
+			"obj-7::obj-35" : [ "HH CLOSE - SOLO", "HH CLOSE - SOLO", 0 ],
+			"obj-7::obj-36" : [ "HH OPEN - SOLO", "HH OPEN - SOLO", 0 ],
+			"obj-7::obj-37" : [ "CRASH - SOLO", "CRASH - SOLO", 0 ],
+			"obj-7::obj-38" : [ "CLAP - SOLO", "CLAP - SOLO", 0 ],
+			"obj-7::obj-41" : [ "GLOBAL - RING MOD 1", "GLOBAL - RING MOD 1", 0 ],
+			"obj-7::obj-43" : [ "live.button", "live.button", 0 ],
+			"obj-7::obj-44" : [ "live.button[1]", "live.button", 0 ],
+			"obj-7::obj-45" : [ "live.button[2]", "live.button", 0 ],
+			"obj-7::obj-47" : [ "live.button[4]", "live.button", 0 ],
+			"obj-7::obj-48" : [ "live.button[5]", "live.button", 0 ],
+			"obj-7::obj-49" : [ "live.button[6]", "live.button", 0 ],
+			"obj-7::obj-5" : [ "VCO 3 - MUTE", "VCO 3 - MUTE", 0 ],
+			"obj-7::obj-54" : [ "none[67]", "Time", 0 ],
+			"obj-7::obj-55" : [ "none[68]", "Depth", 0 ],
+			"obj-7::obj-6" : [ "VCO 2 - MUTE", "VCO 2 - MUTE", 0 ],
+			"obj-7::obj-7" : [ "VCO 1 - MUTE", "VCO 1 - MUTE", 0 ],
+			"obj-7::obj-8" : [ "none", "Pitch", 0 ],
+			"obj-7::obj-9" : [ "HH CLOSE - MUTE", "HH CLOSE - MUTE", 0 ],
+			"obj-7::obj-97" : [ "AUDIO IN 1 - SOLO", "AUDIO IN 1 - SOLO", 0 ],
+			"obj-7::obj-98" : [ "AUDIO IN 1 - MUTE", "AUDIO IN 1 - MUTE", 0 ],
+			"parameterbanks" : 			{
+
+			}
+,
+			"parameter_overrides" : 			{
+				"obj-7::obj-111" : 				{
+					"parameter_longname" : "none[75]"
+				}
+,
+				"obj-7::obj-134" : 				{
+					"parameter_longname" : "none[62]"
+				}
+,
+				"obj-7::obj-204" : 				{
+					"parameter_longname" : "none[71]"
+				}
+,
+				"obj-7::obj-218" : 				{
+					"parameter_longname" : "none[72]"
+				}
+
+			}
+,
+			"inherited_shortname" : 1
+		}
+,
+		"dependency_cache" : [ 			{
+				"name" : "er1-API.js",
+				"bootpath" : "~/Code/Max/granular-er1-environment/er1-chord-generator",
+				"patcherrelativepath" : ".",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "er1-ui.maxpat",
+				"bootpath" : "~/Code/Max/granular-er1-environment/er1-chord-generator",
+				"patcherrelativepath" : ".",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "sine.svg",
+				"bootpath" : "C74:/media/max/picts/m4l-picts",
+				"type" : "svg",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "square.svg",
+				"bootpath" : "C74:/media/max/picts/m4l-picts",
+				"type" : "svg",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "saw.svg",
+				"bootpath" : "C74:/media/max/picts/m4l-picts",
+				"type" : "svg",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "updown.svg",
+				"bootpath" : "C74:/media/max/picts/m4l-picts",
+				"type" : "svg",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "random.svg",
+				"bootpath" : "C74:/media/max/picts/m4l-picts",
+				"type" : "svg",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "noise.png",
+				"bootpath" : "~/Code/Max/granular-er1-environment/er1-chord-generator",
+				"patcherrelativepath" : ".",
+				"type" : "PNG",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "down.svg",
+				"bootpath" : "C74:/media/max/picts/m4l-picts",
+				"type" : "svg",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "makeSingleEnvelope.maxpat",
+				"bootpath" : "~/Code/Max/granular-er1-environment/er1-chord-generator/subpatches",
+				"patcherrelativepath" : "./subpatches",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "n4m.monitor.maxpat",
+				"bootpath" : "C74:/packages/Node for Max/patchers/debug-monitor",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "resize_n4m_monitor_patcher.js",
+				"bootpath" : "C74:/packages/Node for Max/patchers/debug-monitor",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "fit_jweb_to_bounds.js",
+				"bootpath" : "C74:/packages/Node for Max/patchers/debug-monitor",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+ ],
+		"autosave" : 0,
 		"styles" : [ 			{
 				"name" : "PAt_style0",
 				"default" : 				{
