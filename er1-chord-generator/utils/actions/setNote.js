@@ -1,5 +1,5 @@
 const maxApi = require("max-api");
-const { sendMultipleVoiceNrpns } = require("../../api/ER1");
+const { ER1, UI } = require("../../api");
 
 const setNote = (note, voiceName) => {
   const pitch = note.pitch;
@@ -9,10 +9,8 @@ const setNote = (note, voiceName) => {
     modDepth: modDepth,
   };
 
-  sendMultipleVoiceNrpns(voiceName, params);
-
-  maxApi.outlet("updateUI", voiceName, "pitch", pitch);
-  maxApi.outlet("updateUI", voiceName, "modDepth", modDepth);
+  ER1.updateSingleVoice(voiceName, params);
+  UI.updateSingleVoice(voiceName, params);
 };
 
 module.exports = setNote;

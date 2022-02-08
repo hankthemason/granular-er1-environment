@@ -149,11 +149,11 @@ maxApi.addHandler("playNote", (noteNumber, voiceNum) => {
   if (!currentPitchMap[noteNumber]) {
     return;
   }
+  maxApi.outlet("playNote", midiNotes[voiceNum - 1]);
   const note = currentPitchMap[noteNumber];
   const voiceName = makeVoiceName(voiceNum);
+  maxApi.post(note);
   setNote(note, voiceName);
-
-  maxApi.outlet("playNote", midiNotes[voiceNum - 1]);
 });
 
 maxApi.addHandler("setWaveType", (waveType) => {
@@ -235,7 +235,7 @@ maxApi.addHandler("setPitchCollection", (newPitchCollectionIdx) => {
   if (newPitchCollectionIdx > 1 || newPitchCollectionIdx < 0) return;
   pitchCollectionIndex = newPitchCollectionIdx;
   currentPitchArray = pitchArrays[pitchCollectionIndex];
-  currentPitchMap = pitchArrays[pitchCollectionIndex];
+  currentPitchMap = pitchMaps[pitchCollectionIndex];
   makeEr1PitchMap();
   makeSequentialNoteArray();
   for (let i = 0; i < numVCOs; i++) {
