@@ -64,24 +64,12 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-105",
-					"maxclass" : "number",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "bang" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 51.0, 649.0, 50.0, 22.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-100",
 					"linecount" : 5,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 139.0, 622.567627000000016, 151.0, 74.0 ],
+					"patching_rect" : [ 139.0, 622.567627000000016, 158.0, 74.0 ],
 					"text" : "this is just so that the er-1's midi messages arrive before the note on's.  for the er-1, only the midi note number is important"
 				}
 
@@ -93,8 +81,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 87.5, 668.0, 48.0, 22.0 ],
-					"text" : "pipe 25"
+					"patching_rect" : [ 87.5, 668.0, 41.0, 22.0 ],
+					"text" : "pipe 0"
 				}
 
 			}
@@ -2376,8 +2364,6 @@
 					"saved_object_attributes" : 					{
 						"autostart" : 0,
 						"defer" : 0,
-						"node_bin_path" : "",
-						"npm_bin_path" : "",
 						"watch" : 0
 					}
 ,
@@ -2397,13 +2383,6 @@
 				"patchline" : 				{
 					"destination" : [ "obj-62", 0 ],
 					"source" : [ "obj-1", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-98", 1 ],
-					"source" : [ "obj-105", 0 ]
 				}
 
 			}
@@ -2975,17 +2954,17 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-184", 0 ],
-					"order" : 1,
+					"destination" : [ "obj-26", 0 ],
+					"midpoints" : [ 545.5, 500.0, 736.5, 500.0 ],
+					"order" : 0,
 					"source" : [ "obj-343", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-26", 0 ],
-					"midpoints" : [ 545.5, 500.0, 736.5, 500.0 ],
-					"order" : 0,
+					"destination" : [ "obj-91", 0 ],
+					"order" : 1,
 					"source" : [ "obj-343", 0 ]
 				}
 
