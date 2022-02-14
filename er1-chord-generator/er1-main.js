@@ -1,4 +1,5 @@
 const maxApi = require("max-api");
+const monomeGrid = require("monome-grid");
 
 const presetTemplate = require("./configs/presetTemplate.json");
 
@@ -7,7 +8,7 @@ const pitchCollection2 = require("./configs/pitchCollection2.json");
 const pitchCollection1Map = require("./configs/pitchCollection1Map.json");
 const pitchCollection2Map = require("./configs/pitchCollection2Map.json");
 
-const ER1 = require("./api/ER1");
+const { ER1, UI, Sequencer, Monome } = require("./api");
 
 const {
   setNote,
@@ -19,8 +20,6 @@ const {
   makeChord,
 } = require("./utils/actions");
 
-const UI = require("./api/UI");
-
 const checkSoloStateAndMuteState = require("./utils/checkSoloStateAndMuteState");
 
 const { receiveNrpn, updateState } = require("./utils/handleEr1Change");
@@ -28,7 +27,7 @@ const { receiveNrpn, updateState } = require("./utils/handleEr1Change");
 const {
   updateMuteAndSoloState,
   findAndSendNrpns,
-} = require("./utils/handleUIChange/");
+} = require("./utils/handleUIChange");
 
 const getVoiceType = require("./utils/getVoiceType");
 
@@ -275,3 +274,48 @@ maxApi.addHandler("readStateFromDisk", (filePath) => {
     solo: state.solo,
   };
 });
+
+//SEQUENCER
+let sequence;
+let currentTrack = 0;
+
+const runMonome = async () => {
+  let grid = await monomeGrid();
+  Sequencer.initialize();
+
+  maxApi.addHandler("refresh", () => {
+    grid.refresh(Monome.restore());
+  });
+
+  maxApi.addHandler("fromMonome", (x, y, s) => {
+    if (s === 1) {
+      const track = Sequencer.update(x, y);
+      grid.refresh(Monome.update(track));
+    }
+  });
+
+  maxApi.addHandler("test", (x, y) => {
+    grid.refresh(Monome.update(x, y));
+  });
+
+  maxApi.addHandler("tick", (trackNum) => {
+    const { output, grid: gridState } = Sequencer.play(trackNum);
+
+    if (output) {
+      maxApi.outlet("envBang", "bang");
+      if (output.step === 0) {
+        const pitches = makeChord(currentPitchArray);
+        midiNoteNumbers = pitches.map((pitch, index) => {
+          const voiceName = makeVoiceName(index + 1);
+          state[voiceName].pitch = pitch;
+          return midiNoteNumbersByEr1Pitch[pitch].midiNoteNumber;
+        });
+        maxApi.outlet("midiNoteNumbers", midiNoteNumbers);
+      }
+      maxApi.outlet("sequencerOutput", output);
+    }
+    grid.refresh(gridState);
+  });
+};
+
+runMonome();

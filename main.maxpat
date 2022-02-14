@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 2,
-			"revision" : 1,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 59.0, -954.0, 1020.0, 809.0 ],
+		"rect" : [ 179.0, 156.0, 1020.0, 809.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -121,7 +121,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 2,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -212,7 +212,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 50.0, 180.0, 50.0, 35.0 ],
-									"text" : "0, 127 0"
+									"text" : "0, 127 100"
 								}
 
 							}
@@ -621,7 +621,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 2,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -700,7 +700,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 191.0, 227.0, 50.0, 35.0 ],
-									"text" : "0, 127 0"
+									"text" : "0, 127 100"
 								}
 
 							}
@@ -713,7 +713,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 144.0, 227.0, 50.0, 35.0 ],
-									"text" : "0, 127 0"
+									"text" : "0, 127 100"
 								}
 
 							}
@@ -726,7 +726,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 97.0, 227.0, 50.0, 35.0 ],
-									"text" : "0, 127 0"
+									"text" : "0, 127 100"
 								}
 
 							}
@@ -799,7 +799,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 50.0, 227.0, 50.0, 35.0 ],
-									"text" : "0, 127 0"
+									"text" : "0, 127 100"
 								}
 
 							}
@@ -1418,7 +1418,8 @@
 					"numinlets" : 5,
 					"numoutlets" : 0,
 					"patching_rect" : [ 1075.0, 704.0, 145.0, 22.0 ],
-					"text" : "er1-chord-generator-main"
+					"text" : "er1-chord-generator-main",
+					"varname" : "er1-chord-generator-main"
 				}
 
 			}
@@ -1434,7 +1435,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 2,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1859,7 +1860,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 2,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -2099,7 +2100,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 2,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -2361,7 +2362,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 2,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -2620,7 +2621,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 2,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -4033,16 +4034,16 @@
 					"presentation_rect" : [ 507.0, 298.0, 31.079165750000129, 13.0 ],
 					"rounded" : 5.0,
 					"saved_attribute_attributes" : 					{
-						"bgoncolor" : 						{
-							"expression" : "themecolor.live_surface_frame"
-						}
-,
 						"activebgcolor" : 						{
 							"expression" : ""
 						}
 ,
 						"activetextcolor" : 						{
 							"expression" : ""
+						}
+,
+						"bgoncolor" : 						{
+							"expression" : "themecolor.live_surface_frame"
 						}
 ,
 						"valueof" : 						{
@@ -4080,15 +4081,7 @@
 					"presentation_rect" : [ 540.079165750000129, 298.0, 34.399170749999939, 13.0 ],
 					"rounded" : 5.0,
 					"saved_attribute_attributes" : 					{
-						"bgoncolor" : 						{
-							"expression" : ""
-						}
-,
-						"textoffcolor" : 						{
-							"expression" : ""
-						}
-,
-						"bgcolor" : 						{
+						"activebgcolor" : 						{
 							"expression" : ""
 						}
 ,
@@ -4096,15 +4089,23 @@
 							"expression" : ""
 						}
 ,
-						"activebgcolor" : 						{
-							"expression" : ""
-						}
-,
 						"activetextcolor" : 						{
 							"expression" : ""
 						}
 ,
+						"bgcolor" : 						{
+							"expression" : ""
+						}
+,
+						"bgoncolor" : 						{
+							"expression" : ""
+						}
+,
 						"textcolor" : 						{
+							"expression" : ""
+						}
+,
+						"textoffcolor" : 						{
 							"expression" : ""
 						}
 ,
@@ -4258,7 +4259,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 2,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -4835,11 +4836,11 @@
 					"presentation_rect" : [ 908.534082413767919, 79.199999999999989, 28.0, 15.0 ],
 					"rounded" : 10.0,
 					"saved_attribute_attributes" : 					{
-						"lcdcolor" : 						{
+						"activebgoncolor" : 						{
 							"expression" : ""
 						}
 ,
-						"activebgoncolor" : 						{
+						"lcdcolor" : 						{
 							"expression" : ""
 						}
 ,
@@ -5713,11 +5714,11 @@
 					"presentation_rect" : [ 563.0, 85.200000000000003, 46.0, 22.0 ],
 					"rounded" : 10.0,
 					"saved_attribute_attributes" : 					{
-						"activebgoncolor" : 						{
+						"activebgcolor" : 						{
 							"expression" : ""
 						}
 ,
-						"activebgcolor" : 						{
+						"activebgoncolor" : 						{
 							"expression" : ""
 						}
 ,
@@ -5760,20 +5761,20 @@
 					"presentation_rect" : [ 511.0, 85.200000000000003, 50.0, 22.0 ],
 					"rounded" : 10.0,
 					"saved_attribute_attributes" : 					{
-						"bgoncolor" : 						{
-							"expression" : "themecolor.live_surface_frame"
+						"activebgcolor" : 						{
+							"expression" : ""
 						}
 ,
 						"activebgoncolor" : 						{
 							"expression" : ""
 						}
 ,
-						"activebgcolor" : 						{
+						"activetextcolor" : 						{
 							"expression" : ""
 						}
 ,
-						"activetextcolor" : 						{
-							"expression" : ""
+						"bgoncolor" : 						{
+							"expression" : "themecolor.live_surface_frame"
 						}
 ,
 						"valueof" : 						{
@@ -5933,16 +5934,16 @@
 					"presentation_rect" : [ 563.0, 148.199991000000011, 46.079165750000129, 21.0 ],
 					"rounded" : 10.0,
 					"saved_attribute_attributes" : 					{
-						"bgoncolor" : 						{
-							"expression" : "themecolor.live_surface_frame"
-						}
-,
 						"activebgcolor" : 						{
 							"expression" : ""
 						}
 ,
 						"activetextcolor" : 						{
 							"expression" : ""
+						}
+,
+						"bgoncolor" : 						{
+							"expression" : "themecolor.live_surface_frame"
 						}
 ,
 						"valueof" : 						{
@@ -5980,15 +5981,7 @@
 					"presentation_rect" : [ 509.450410750000174, 148.199991000000011, 49.399170749999939, 21.0 ],
 					"rounded" : 10.0,
 					"saved_attribute_attributes" : 					{
-						"bgoncolor" : 						{
-							"expression" : ""
-						}
-,
-						"textoffcolor" : 						{
-							"expression" : ""
-						}
-,
-						"bgcolor" : 						{
+						"activebgcolor" : 						{
 							"expression" : ""
 						}
 ,
@@ -5996,15 +5989,23 @@
 							"expression" : ""
 						}
 ,
-						"activebgcolor" : 						{
-							"expression" : ""
-						}
-,
 						"activetextcolor" : 						{
 							"expression" : ""
 						}
 ,
+						"bgcolor" : 						{
+							"expression" : ""
+						}
+,
+						"bgoncolor" : 						{
+							"expression" : ""
+						}
+,
 						"textcolor" : 						{
+							"expression" : ""
+						}
+,
+						"textoffcolor" : 						{
 							"expression" : ""
 						}
 ,
@@ -6122,6 +6123,8 @@
 					"saved_object_attributes" : 					{
 						"autostart" : 0,
 						"defer" : 0,
+						"node_bin_path" : "",
+						"npm_bin_path" : "",
 						"watch" : 0
 					}
 ,
@@ -6334,7 +6337,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 2,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -6891,7 +6894,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 2,
-											"revision" : 1,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -7792,8 +7795,8 @@
 , 											{
 												"name" : "Default M4L",
 												"default" : 												{
-													"fontsize" : [ 11.0 ],
 													"fontname" : [ "Arial Bold" ],
+													"fontsize" : [ 11.0 ],
 													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
@@ -7803,8 +7806,8 @@
 , 											{
 												"name" : "Default M4L Poletti",
 												"default" : 												{
-													"fontsize" : [ 10.0 ],
 													"fontname" : [ "Arial Bold" ],
+													"fontsize" : [ 10.0 ],
 													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
@@ -7814,7 +7817,6 @@
 , 											{
 												"name" : "Default M4L-1",
 												"default" : 												{
-													"fontsize" : [ 11.0 ],
 													"bgfillcolor" : 													{
 														"type" : "gradient",
 														"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -7824,8 +7826,9 @@
 														"proportion" : 0.39
 													}
 ,
+													"fontface" : [ 1 ],
 													"fontname" : [ "Arial" ],
-													"fontface" : [ 1 ]
+													"fontsize" : [ 11.0 ]
 												}
 ,
 												"parentstyle" : "",
@@ -8071,8 +8074,8 @@
 , 							{
 								"name" : "Default M4L",
 								"default" : 								{
-									"fontsize" : [ 11.0 ],
 									"fontname" : [ "Arial Bold" ],
+									"fontsize" : [ 11.0 ],
 									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
@@ -8082,8 +8085,8 @@
 , 							{
 								"name" : "Default M4L Poletti",
 								"default" : 								{
-									"fontsize" : [ 10.0 ],
 									"fontname" : [ "Arial Bold" ],
+									"fontsize" : [ 10.0 ],
 									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
@@ -8093,7 +8096,6 @@
 , 							{
 								"name" : "Default M4L-1",
 								"default" : 								{
-									"fontsize" : [ 11.0 ],
 									"bgfillcolor" : 									{
 										"type" : "gradient",
 										"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -8103,8 +8105,9 @@
 										"proportion" : 0.39
 									}
 ,
+									"fontface" : [ 1 ],
 									"fontname" : [ "Arial" ],
-									"fontface" : [ 1 ]
+									"fontsize" : [ 11.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -8162,7 +8165,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 2,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -8644,7 +8647,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 2,
-											"revision" : 1,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -9262,8 +9265,8 @@
 , 											{
 												"name" : "Default M4L",
 												"default" : 												{
-													"fontsize" : [ 11.0 ],
 													"fontname" : [ "Arial Bold" ],
+													"fontsize" : [ 11.0 ],
 													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
@@ -9273,8 +9276,8 @@
 , 											{
 												"name" : "Default M4L Poletti",
 												"default" : 												{
-													"fontsize" : [ 10.0 ],
 													"fontname" : [ "Arial Bold" ],
+													"fontsize" : [ 10.0 ],
 													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
@@ -9284,7 +9287,6 @@
 , 											{
 												"name" : "Default M4L-1",
 												"default" : 												{
-													"fontsize" : [ 11.0 ],
 													"bgfillcolor" : 													{
 														"type" : "gradient",
 														"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -9294,8 +9296,9 @@
 														"proportion" : 0.39
 													}
 ,
+													"fontface" : [ 1 ],
 													"fontname" : [ "Arial" ],
-													"fontface" : [ 1 ]
+													"fontsize" : [ 11.0 ]
 												}
 ,
 												"parentstyle" : "",
@@ -9519,8 +9522,8 @@
 , 							{
 								"name" : "Default M4L",
 								"default" : 								{
-									"fontsize" : [ 11.0 ],
 									"fontname" : [ "Arial Bold" ],
+									"fontsize" : [ 11.0 ],
 									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
@@ -9530,8 +9533,8 @@
 , 							{
 								"name" : "Default M4L Poletti",
 								"default" : 								{
-									"fontsize" : [ 10.0 ],
 									"fontname" : [ "Arial Bold" ],
+									"fontsize" : [ 10.0 ],
 									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
@@ -9541,7 +9544,6 @@
 , 							{
 								"name" : "Default M4L-1",
 								"default" : 								{
-									"fontsize" : [ 11.0 ],
 									"bgfillcolor" : 									{
 										"type" : "gradient",
 										"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -9551,8 +9553,9 @@
 										"proportion" : 0.39
 									}
 ,
+									"fontface" : [ 1 ],
 									"fontname" : [ "Arial" ],
-									"fontface" : [ 1 ]
+									"fontsize" : [ 11.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -9609,7 +9612,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 2,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -9766,7 +9769,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 2,
-											"revision" : 1,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -10714,8 +10717,8 @@
 , 											{
 												"name" : "Default M4L",
 												"default" : 												{
-													"fontsize" : [ 11.0 ],
 													"fontname" : [ "Arial Bold" ],
+													"fontsize" : [ 11.0 ],
 													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
@@ -10725,8 +10728,8 @@
 , 											{
 												"name" : "Default M4L Poletti",
 												"default" : 												{
-													"fontsize" : [ 10.0 ],
 													"fontname" : [ "Arial Bold" ],
+													"fontsize" : [ 10.0 ],
 													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
@@ -10736,7 +10739,6 @@
 , 											{
 												"name" : "Default M4L-1",
 												"default" : 												{
-													"fontsize" : [ 11.0 ],
 													"bgfillcolor" : 													{
 														"type" : "gradient",
 														"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -10746,8 +10748,9 @@
 														"proportion" : 0.39
 													}
 ,
+													"fontface" : [ 1 ],
 													"fontname" : [ "Arial" ],
-													"fontface" : [ 1 ]
+													"fontsize" : [ 11.0 ]
 												}
 ,
 												"parentstyle" : "",
@@ -11372,8 +11375,8 @@
 , 							{
 								"name" : "Default M4L",
 								"default" : 								{
-									"fontsize" : [ 11.0 ],
 									"fontname" : [ "Arial Bold" ],
+									"fontsize" : [ 11.0 ],
 									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
@@ -11383,8 +11386,8 @@
 , 							{
 								"name" : "Default M4L Poletti",
 								"default" : 								{
-									"fontsize" : [ 10.0 ],
 									"fontname" : [ "Arial Bold" ],
+									"fontsize" : [ 10.0 ],
 									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
@@ -11394,7 +11397,6 @@
 , 							{
 								"name" : "Default M4L-1",
 								"default" : 								{
-									"fontsize" : [ 11.0 ],
 									"bgfillcolor" : 									{
 										"type" : "gradient",
 										"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -11404,8 +11406,9 @@
 										"proportion" : 0.39
 									}
 ,
+									"fontface" : [ 1 ],
 									"fontname" : [ "Arial" ],
-									"fontface" : [ 1 ]
+									"fontsize" : [ 11.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -11462,7 +11465,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 2,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -12019,7 +12022,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 2,
-											"revision" : 1,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -12920,8 +12923,8 @@
 , 											{
 												"name" : "Default M4L",
 												"default" : 												{
-													"fontsize" : [ 11.0 ],
 													"fontname" : [ "Arial Bold" ],
+													"fontsize" : [ 11.0 ],
 													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
@@ -12931,8 +12934,8 @@
 , 											{
 												"name" : "Default M4L Poletti",
 												"default" : 												{
-													"fontsize" : [ 10.0 ],
 													"fontname" : [ "Arial Bold" ],
+													"fontsize" : [ 10.0 ],
 													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
@@ -12942,7 +12945,6 @@
 , 											{
 												"name" : "Default M4L-1",
 												"default" : 												{
-													"fontsize" : [ 11.0 ],
 													"bgfillcolor" : 													{
 														"type" : "gradient",
 														"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -12952,8 +12954,9 @@
 														"proportion" : 0.39
 													}
 ,
+													"fontface" : [ 1 ],
 													"fontname" : [ "Arial" ],
-													"fontface" : [ 1 ]
+													"fontsize" : [ 11.0 ]
 												}
 ,
 												"parentstyle" : "",
@@ -13199,8 +13202,8 @@
 , 							{
 								"name" : "Default M4L",
 								"default" : 								{
-									"fontsize" : [ 11.0 ],
 									"fontname" : [ "Arial Bold" ],
+									"fontsize" : [ 11.0 ],
 									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
@@ -13210,8 +13213,8 @@
 , 							{
 								"name" : "Default M4L Poletti",
 								"default" : 								{
-									"fontsize" : [ 10.0 ],
 									"fontname" : [ "Arial Bold" ],
+									"fontsize" : [ 10.0 ],
 									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
@@ -13221,7 +13224,6 @@
 , 							{
 								"name" : "Default M4L-1",
 								"default" : 								{
-									"fontsize" : [ 11.0 ],
 									"bgfillcolor" : 									{
 										"type" : "gradient",
 										"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -13231,8 +13233,9 @@
 										"proportion" : 0.39
 									}
 ,
+									"fontface" : [ 1 ],
 									"fontname" : [ "Arial" ],
-									"fontface" : [ 1 ]
+									"fontsize" : [ 11.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -13327,7 +13330,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 2,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -13759,7 +13762,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 2,
-											"revision" : 1,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -14293,8 +14296,8 @@
 , 											{
 												"name" : "Default M4L",
 												"default" : 												{
-													"fontsize" : [ 11.0 ],
 													"fontname" : [ "Arial Bold" ],
+													"fontsize" : [ 11.0 ],
 													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
@@ -14304,8 +14307,8 @@
 , 											{
 												"name" : "Default M4L Poletti",
 												"default" : 												{
-													"fontsize" : [ 10.0 ],
 													"fontname" : [ "Arial Bold" ],
+													"fontsize" : [ 10.0 ],
 													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
@@ -14315,7 +14318,6 @@
 , 											{
 												"name" : "Default M4L-1",
 												"default" : 												{
-													"fontsize" : [ 11.0 ],
 													"bgfillcolor" : 													{
 														"type" : "gradient",
 														"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -14325,8 +14327,9 @@
 														"proportion" : 0.39
 													}
 ,
+													"fontface" : [ 1 ],
 													"fontname" : [ "Arial" ],
-													"fontface" : [ 1 ]
+													"fontsize" : [ 11.0 ]
 												}
 ,
 												"parentstyle" : "",
@@ -14536,8 +14539,8 @@
 , 							{
 								"name" : "Default M4L",
 								"default" : 								{
-									"fontsize" : [ 11.0 ],
 									"fontname" : [ "Arial Bold" ],
+									"fontsize" : [ 11.0 ],
 									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
@@ -14547,8 +14550,8 @@
 , 							{
 								"name" : "Default M4L Poletti",
 								"default" : 								{
-									"fontsize" : [ 10.0 ],
 									"fontname" : [ "Arial Bold" ],
+									"fontsize" : [ 10.0 ],
 									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
@@ -14558,7 +14561,6 @@
 , 							{
 								"name" : "Default M4L-1",
 								"default" : 								{
-									"fontsize" : [ 11.0 ],
 									"bgfillcolor" : 									{
 										"type" : "gradient",
 										"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -14568,8 +14570,9 @@
 										"proportion" : 0.39
 									}
 ,
+									"fontface" : [ 1 ],
 									"fontname" : [ "Arial" ],
-									"fontface" : [ 1 ]
+									"fontsize" : [ 11.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -14627,7 +14630,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 2,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -15059,7 +15062,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 2,
-											"revision" : 1,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -15593,8 +15596,8 @@
 , 											{
 												"name" : "Default M4L",
 												"default" : 												{
-													"fontsize" : [ 11.0 ],
 													"fontname" : [ "Arial Bold" ],
+													"fontsize" : [ 11.0 ],
 													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
@@ -15604,8 +15607,8 @@
 , 											{
 												"name" : "Default M4L Poletti",
 												"default" : 												{
-													"fontsize" : [ 10.0 ],
 													"fontname" : [ "Arial Bold" ],
+													"fontsize" : [ 10.0 ],
 													"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 												}
 ,
@@ -15615,7 +15618,6 @@
 , 											{
 												"name" : "Default M4L-1",
 												"default" : 												{
-													"fontsize" : [ 11.0 ],
 													"bgfillcolor" : 													{
 														"type" : "gradient",
 														"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -15625,8 +15627,9 @@
 														"proportion" : 0.39
 													}
 ,
+													"fontface" : [ 1 ],
 													"fontname" : [ "Arial" ],
-													"fontface" : [ 1 ]
+													"fontsize" : [ 11.0 ]
 												}
 ,
 												"parentstyle" : "",
@@ -15836,8 +15839,8 @@
 , 							{
 								"name" : "Default M4L",
 								"default" : 								{
-									"fontsize" : [ 11.0 ],
 									"fontname" : [ "Arial Bold" ],
+									"fontsize" : [ 11.0 ],
 									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
@@ -15847,8 +15850,8 @@
 , 							{
 								"name" : "Default M4L Poletti",
 								"default" : 								{
-									"fontsize" : [ 10.0 ],
 									"fontname" : [ "Arial Bold" ],
+									"fontsize" : [ 10.0 ],
 									"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 								}
 ,
@@ -15858,7 +15861,6 @@
 , 							{
 								"name" : "Default M4L-1",
 								"default" : 								{
-									"fontsize" : [ 11.0 ],
 									"bgfillcolor" : 									{
 										"type" : "gradient",
 										"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -15868,8 +15870,9 @@
 										"proportion" : 0.39
 									}
 ,
+									"fontface" : [ 1 ],
 									"fontname" : [ "Arial" ],
-									"fontface" : [ 1 ]
+									"fontsize" : [ 11.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -15965,7 +15968,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 2,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -16129,7 +16132,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 1,
-									"outlettype" : [ "multichannelsignal" ],
+									"outlettype" : [ "signal" ],
 									"patching_rect" : [ 124.0, 102.95635986328125, 64.0, 22.0 ],
 									"text" : "r~ grainsR"
 								}
@@ -16141,7 +16144,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 1,
-									"outlettype" : [ "multichannelsignal" ],
+									"outlettype" : [ "signal" ],
 									"patching_rect" : [ 58.0, 102.95635986328125, 62.0, 22.0 ],
 									"text" : "r~ grainsL"
 								}
@@ -16462,7 +16465,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 2,
-											"revision" : 1,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -16711,6 +16714,10 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 247.640533447265625, 41.838638305664062, 47.0, 36.0 ],
 													"saved_attribute_attributes" : 													{
+														"activedialcolor" : 														{
+															"expression" : ""
+														}
+,
 														"activefgdialcolor" : 														{
 															"expression" : ""
 														}
@@ -16720,10 +16727,6 @@
 														}
 ,
 														"textcolor" : 														{
-															"expression" : ""
-														}
-,
-														"activedialcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -16790,6 +16793,10 @@
 													"presentation_rect" : [ 2.0, 41.838638305664062, 44.0, 48.0 ],
 													"prototypename" : "freq",
 													"saved_attribute_attributes" : 													{
+														"activedialcolor" : 														{
+															"expression" : ""
+														}
+,
 														"activefgdialcolor" : 														{
 															"expression" : ""
 														}
@@ -16802,19 +16809,15 @@
 															"expression" : ""
 														}
 ,
-														"needlecolor" : 														{
-															"expression" : ""
-														}
-,
 														"focusbordercolor" : 														{
 															"expression" : ""
 														}
 ,
-														"textcolor" : 														{
+														"needlecolor" : 														{
 															"expression" : ""
 														}
 ,
-														"activedialcolor" : 														{
+														"textcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -16851,7 +16854,7 @@
 														"appversion" : 														{
 															"major" : 8,
 															"minor" : 2,
-															"revision" : 1,
+															"revision" : 2,
 															"architecture" : "x64",
 															"modernui" : 1
 														}
@@ -17351,6 +17354,18 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 43.0, 41.838638305664062, 33.0, 15.0 ],
 													"saved_attribute_attributes" : 													{
+														"activebgcolor" : 														{
+															"expression" : ""
+														}
+,
+														"activebgoncolor" : 														{
+															"expression" : ""
+														}
+,
+														"activetextcolor" : 														{
+															"expression" : ""
+														}
+,
 														"activetextoncolor" : 														{
 															"expression" : ""
 														}
@@ -17363,19 +17378,7 @@
 															"expression" : ""
 														}
 ,
-														"activebgoncolor" : 														{
-															"expression" : ""
-														}
-,
 														"focusbordercolor" : 														{
-															"expression" : ""
-														}
-,
-														"activebgcolor" : 														{
-															"expression" : ""
-														}
-,
-														"activetextcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -17425,6 +17428,10 @@
 													"presentation_rect" : [ 2.0, 41.838638305664062, 44.0, 48.0 ],
 													"prototypename" : "freq",
 													"saved_attribute_attributes" : 													{
+														"activedialcolor" : 														{
+															"expression" : ""
+														}
+,
 														"activefgdialcolor" : 														{
 															"expression" : ""
 														}
@@ -17437,19 +17444,15 @@
 															"expression" : ""
 														}
 ,
-														"needlecolor" : 														{
-															"expression" : ""
-														}
-,
 														"focusbordercolor" : 														{
 															"expression" : ""
 														}
 ,
-														"textcolor" : 														{
+														"needlecolor" : 														{
 															"expression" : ""
 														}
 ,
-														"activedialcolor" : 														{
+														"textcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -18066,6 +18069,10 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 159.640533447265625, 41.838638305664062, 44.0, 48.0 ],
 													"saved_attribute_attributes" : 													{
+														"activedialcolor" : 														{
+															"expression" : ""
+														}
+,
 														"activefgdialcolor" : 														{
 															"expression" : ""
 														}
@@ -18075,10 +18082,6 @@
 														}
 ,
 														"textcolor" : 														{
-															"expression" : ""
-														}
-,
-														"activedialcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -18126,6 +18129,10 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 71.640533447265625, 41.838638305664062, 44.0, 48.0 ],
 													"saved_attribute_attributes" : 													{
+														"activedialcolor" : 														{
+															"expression" : ""
+														}
+,
 														"activefgdialcolor" : 														{
 															"expression" : ""
 														}
@@ -18135,10 +18142,6 @@
 														}
 ,
 														"textcolor" : 														{
-															"expression" : ""
-														}
-,
-														"activedialcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -18172,6 +18175,10 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 115.640533447265625, 41.838638305664062, 44.0, 48.0 ],
 													"saved_attribute_attributes" : 													{
+														"activedialcolor" : 														{
+															"expression" : ""
+														}
+,
 														"activefgdialcolor" : 														{
 															"expression" : ""
 														}
@@ -18181,10 +18188,6 @@
 														}
 ,
 														"textcolor" : 														{
-															"expression" : ""
-														}
-,
-														"activedialcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -18454,6 +18457,10 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 203.640533447265625, 41.838638305664062, 44.0, 48.0 ],
 													"saved_attribute_attributes" : 													{
+														"activedialcolor" : 														{
+															"expression" : ""
+														}
+,
 														"activefgdialcolor" : 														{
 															"expression" : ""
 														}
@@ -18463,10 +18470,6 @@
 														}
 ,
 														"textcolor" : 														{
-															"expression" : ""
-														}
-,
-														"activedialcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -18534,6 +18537,18 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 347.9093017578125, 19.0, 73.767135620117188, 17.0 ],
 													"saved_attribute_attributes" : 													{
+														"activebgcolor" : 														{
+															"expression" : ""
+														}
+,
+														"activebgoncolor" : 														{
+															"expression" : ""
+														}
+,
+														"activetextcolor" : 														{
+															"expression" : ""
+														}
+,
 														"activetextoncolor" : 														{
 															"expression" : ""
 														}
@@ -18543,18 +18558,6 @@
 														}
 ,
 														"bordercolor" : 														{
-															"expression" : ""
-														}
-,
-														"activebgoncolor" : 														{
-															"expression" : ""
-														}
-,
-														"activebgcolor" : 														{
-															"expression" : ""
-														}
-,
-														"activetextcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -19359,7 +19362,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 2,
-											"revision" : 1,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -19596,6 +19599,10 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 247.640533447265625, 41.838638305664062, 47.0, 36.0 ],
 													"saved_attribute_attributes" : 													{
+														"activedialcolor" : 														{
+															"expression" : ""
+														}
+,
 														"activefgdialcolor" : 														{
 															"expression" : ""
 														}
@@ -19605,10 +19612,6 @@
 														}
 ,
 														"textcolor" : 														{
-															"expression" : ""
-														}
-,
-														"activedialcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -19675,6 +19678,10 @@
 													"presentation_rect" : [ 2.0, 41.838638305664062, 44.0, 48.0 ],
 													"prototypename" : "freq",
 													"saved_attribute_attributes" : 													{
+														"activedialcolor" : 														{
+															"expression" : ""
+														}
+,
 														"activefgdialcolor" : 														{
 															"expression" : ""
 														}
@@ -19687,19 +19694,15 @@
 															"expression" : ""
 														}
 ,
-														"needlecolor" : 														{
-															"expression" : ""
-														}
-,
 														"focusbordercolor" : 														{
 															"expression" : ""
 														}
 ,
-														"textcolor" : 														{
+														"needlecolor" : 														{
 															"expression" : ""
 														}
 ,
-														"activedialcolor" : 														{
+														"textcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -19736,7 +19739,7 @@
 														"appversion" : 														{
 															"major" : 8,
 															"minor" : 2,
-															"revision" : 1,
+															"revision" : 2,
 															"architecture" : "x64",
 															"modernui" : 1
 														}
@@ -20236,6 +20239,18 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 43.0, 41.838638305664062, 33.0, 15.0 ],
 													"saved_attribute_attributes" : 													{
+														"activebgcolor" : 														{
+															"expression" : ""
+														}
+,
+														"activebgoncolor" : 														{
+															"expression" : ""
+														}
+,
+														"activetextcolor" : 														{
+															"expression" : ""
+														}
+,
 														"activetextoncolor" : 														{
 															"expression" : ""
 														}
@@ -20248,19 +20263,7 @@
 															"expression" : ""
 														}
 ,
-														"activebgoncolor" : 														{
-															"expression" : ""
-														}
-,
 														"focusbordercolor" : 														{
-															"expression" : ""
-														}
-,
-														"activebgcolor" : 														{
-															"expression" : ""
-														}
-,
-														"activetextcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -20310,6 +20313,10 @@
 													"presentation_rect" : [ 2.0, 41.838638305664062, 44.0, 48.0 ],
 													"prototypename" : "freq",
 													"saved_attribute_attributes" : 													{
+														"activedialcolor" : 														{
+															"expression" : ""
+														}
+,
 														"activefgdialcolor" : 														{
 															"expression" : ""
 														}
@@ -20322,19 +20329,15 @@
 															"expression" : ""
 														}
 ,
-														"needlecolor" : 														{
-															"expression" : ""
-														}
-,
 														"focusbordercolor" : 														{
 															"expression" : ""
 														}
 ,
-														"textcolor" : 														{
+														"needlecolor" : 														{
 															"expression" : ""
 														}
 ,
-														"activedialcolor" : 														{
+														"textcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -20951,6 +20954,10 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 159.640533447265625, 41.838638305664062, 44.0, 48.0 ],
 													"saved_attribute_attributes" : 													{
+														"activedialcolor" : 														{
+															"expression" : ""
+														}
+,
 														"activefgdialcolor" : 														{
 															"expression" : ""
 														}
@@ -20960,10 +20967,6 @@
 														}
 ,
 														"textcolor" : 														{
-															"expression" : ""
-														}
-,
-														"activedialcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -21011,6 +21014,10 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 71.640533447265625, 41.838638305664062, 44.0, 48.0 ],
 													"saved_attribute_attributes" : 													{
+														"activedialcolor" : 														{
+															"expression" : ""
+														}
+,
 														"activefgdialcolor" : 														{
 															"expression" : ""
 														}
@@ -21020,10 +21027,6 @@
 														}
 ,
 														"textcolor" : 														{
-															"expression" : ""
-														}
-,
-														"activedialcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -21057,6 +21060,10 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 115.640533447265625, 41.838638305664062, 44.0, 48.0 ],
 													"saved_attribute_attributes" : 													{
+														"activedialcolor" : 														{
+															"expression" : ""
+														}
+,
 														"activefgdialcolor" : 														{
 															"expression" : ""
 														}
@@ -21066,10 +21073,6 @@
 														}
 ,
 														"textcolor" : 														{
-															"expression" : ""
-														}
-,
-														"activedialcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -21339,6 +21342,10 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 203.640533447265625, 41.838638305664062, 44.0, 48.0 ],
 													"saved_attribute_attributes" : 													{
+														"activedialcolor" : 														{
+															"expression" : ""
+														}
+,
 														"activefgdialcolor" : 														{
 															"expression" : ""
 														}
@@ -21348,10 +21355,6 @@
 														}
 ,
 														"textcolor" : 														{
-															"expression" : ""
-														}
-,
-														"activedialcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -21419,6 +21422,18 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 347.9093017578125, 19.0, 73.767135620117188, 17.0 ],
 													"saved_attribute_attributes" : 													{
+														"activebgcolor" : 														{
+															"expression" : ""
+														}
+,
+														"activebgoncolor" : 														{
+															"expression" : ""
+														}
+,
+														"activetextcolor" : 														{
+															"expression" : ""
+														}
+,
 														"activetextoncolor" : 														{
 															"expression" : ""
 														}
@@ -21428,18 +21443,6 @@
 														}
 ,
 														"bordercolor" : 														{
-															"expression" : ""
-														}
-,
-														"activebgoncolor" : 														{
-															"expression" : ""
-														}
-,
-														"activebgcolor" : 														{
-															"expression" : ""
-														}
-,
-														"activetextcolor" : 														{
 															"expression" : ""
 														}
 ,
@@ -27049,6 +27052,13 @@
 		}
 ,
 		"dependency_cache" : [ 			{
+				"name" : "AudioEQ.maxpat",
+				"bootpath" : "~/Documents/Max 8/Packages/AudioMix/patchers",
+				"patcherrelativepath" : "../../../Documents/Max 8/Packages/AudioMix/patchers",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "AudioMix.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/AudioMix/patchers",
 				"patcherrelativepath" : "../../../Documents/Max 8/Packages/AudioMix/patchers",
@@ -27056,104 +27066,9 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "monome-main.maxpat",
-				"bootpath" : "~/Code/Max/granular-er1-environment/monome",
-				"patcherrelativepath" : "./monome",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "index.js",
-				"bootpath" : "~/Code/Max/granular-er1-environment/monome",
-				"patcherrelativepath" : "./monome",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "n4m.monitor.maxpat",
-				"bootpath" : "C74:/packages/Node for Max/patchers/debug-monitor",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "resize_n4m_monitor_patcher.js",
-				"bootpath" : "C74:/packages/Node for Max/patchers/debug-monitor",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "fit_jweb_to_bounds.js",
-				"bootpath" : "C74:/packages/Node for Max/patchers/debug-monitor",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "trackClock.maxpat",
-				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
-				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "edgeDetect.maxpat",
-				"bootpath" : "~/Code/Max/er1-chords/monome",
-				"patcherrelativepath" : "../er1-chords/monome",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
 				"name" : "abletonSync.maxpat",
 				"bootpath" : "~/Documents/Max 8/Library",
 				"patcherrelativepath" : "../../../Documents/Max 8/Library",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "processPolyNoteEffects.maxpat",
-				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
-				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "processRepeatsForMultipleNotes.maxpat",
-				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
-				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "polyNoteRepeat.maxpat",
-				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
-				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "reduceNoteLength.maxpat",
-				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
-				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "processMonoNoteEffects.maxpat",
-				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
-				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "monoNoteRepeat.maxpat",
-				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
-				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "monoNoteHold.maxpat",
-				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
-				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
@@ -27165,9 +27080,63 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "waveform.js",
-				"bootpath" : "~/Code/Max/granular-er1-environment/ancient-grains-mc",
-				"patcherrelativepath" : "./ancient-grains-mc",
+				"name" : "bobs-red-mill.png",
+				"bootpath" : "~/Code/Max/sample-granulator-with-ui",
+				"patcherrelativepath" : "../sample-granulator-with-ui",
+				"type" : "PNG",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "detectevent.maxpat",
+				"bootpath" : "~/Code/Max/internet_examples",
+				"patcherrelativepath" : "../internet_examples",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "down-arrow.png",
+				"bootpath" : "~/Code/Max/granular-er1-environment",
+				"patcherrelativepath" : ".",
+				"type" : "PNG",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "down.svg",
+				"bootpath" : "C74:/media/max/picts/m4l-picts",
+				"type" : "svg",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "edgeDetect.maxpat",
+				"bootpath" : "~/Code/Max/er1-chords/monome",
+				"patcherrelativepath" : "../er1-chords/monome",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "er1-chord-generator-main.maxpat",
+				"bootpath" : "~/Code/Max/granular-er1-environment/er1-chord-generator",
+				"patcherrelativepath" : "./er1-chord-generator",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "er1-main.js",
+				"bootpath" : "~/Code/Max/granular-er1-environment/er1-chord-generator",
+				"patcherrelativepath" : "./er1-chord-generator",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "er1-ui.maxpat",
+				"bootpath" : "~/Code/Max/granular-er1-environment/er1-chord-generator",
+				"patcherrelativepath" : "./er1-chord-generator",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "fit_jweb_to_bounds.js",
+				"bootpath" : "C74:/packages/Node for Max/patchers/debug-monitor",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
@@ -27186,31 +27155,120 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "bobs-red-mill.png",
-				"bootpath" : "~/Code/Max/sample-granulator-with-ui",
-				"patcherrelativepath" : "../sample-granulator-with-ui",
+				"name" : "index.js",
+				"bootpath" : "~/Code/Max/granular-er1-environment/monome",
+				"patcherrelativepath" : "./monome",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "makeSingleEnvelope.maxpat",
+				"bootpath" : "~/Code/Max/granular-er1-environment/er1-chord-generator/subpatches",
+				"patcherrelativepath" : "./er1-chord-generator/subpatches",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "monoNoteHold.maxpat",
+				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
+				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "monoNoteRepeat.maxpat",
+				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
+				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "monome-main.maxpat",
+				"bootpath" : "~/Code/Max/granular-er1-environment/monome",
+				"patcherrelativepath" : "./monome",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "mxj.mxo",
+				"type" : "iLaX"
+			}
+, 			{
+				"name" : "n4m.monitor.maxpat",
+				"bootpath" : "C74:/packages/Node for Max/patchers/debug-monitor",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "noise.png",
+				"bootpath" : "~/Code/Max/granular-er1-environment/er1-chord-generator",
+				"patcherrelativepath" : "./er1-chord-generator",
 				"type" : "PNG",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "detectevent.maxpat",
-				"bootpath" : "~/Code/Max/internet_examples",
-				"patcherrelativepath" : "../internet_examples",
+				"name" : "polyNoteRepeat.maxpat",
+				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
+				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "AudioEQ.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/AudioMix/patchers",
-				"patcherrelativepath" : "../../../Documents/Max 8/Packages/AudioMix/patchers",
+				"name" : "processMonoNoteEffects.maxpat",
+				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
+				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "top-level-controls.js",
-				"bootpath" : "~/Code/Max/granular-er1-environment",
-				"patcherrelativepath" : ".",
+				"name" : "processPolyNoteEffects.maxpat",
+				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
+				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "processRepeatsForMultipleNotes.maxpat",
+				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
+				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "random.svg",
+				"bootpath" : "C74:/media/max/picts/m4l-picts",
+				"type" : "svg",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "reduceNoteLength.maxpat",
+				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
+				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "resize_n4m_monitor_patcher.js",
+				"bootpath" : "C74:/packages/Node for Max/patchers/debug-monitor",
 				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "saw.svg",
+				"bootpath" : "C74:/media/max/picts/m4l-picts",
+				"type" : "svg",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "serialosc.js",
+				"bootpath" : "C74:/packages/BEAP/patchers",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "serialosc.maxpat",
+				"bootpath" : "C74:/packages/BEAP/patchers",
+				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
@@ -27226,14 +27284,21 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "up-arrow.png",
+				"name" : "top-level-controls.js",
 				"bootpath" : "~/Code/Max/granular-er1-environment",
 				"patcherrelativepath" : ".",
-				"type" : "PNG",
+				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "down-arrow.png",
+				"name" : "trackClock.maxpat",
+				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
+				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "up-arrow.png",
 				"bootpath" : "~/Code/Max/granular-er1-environment",
 				"patcherrelativepath" : ".",
 				"type" : "PNG",
@@ -27247,67 +27312,17 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "er1-chord-generator-main.maxpat",
-				"bootpath" : "~/Code/Max/granular-er1-environment/er1-chord-generator",
-				"patcherrelativepath" : "./er1-chord-generator",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "er1-API.js",
-				"bootpath" : "~/Code/Max/granular-er1-environment/er1-chord-generator",
-				"patcherrelativepath" : "./er1-chord-generator",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "er1-ui.maxpat",
-				"bootpath" : "~/Code/Max/granular-er1-environment/er1-chord-generator",
-				"patcherrelativepath" : "./er1-chord-generator",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "saw.svg",
-				"bootpath" : "C74:/media/max/picts/m4l-picts",
-				"type" : "svg",
-				"implicit" : 1
-			}
-, 			{
 				"name" : "updown.svg",
 				"bootpath" : "C74:/media/max/picts/m4l-picts",
 				"type" : "svg",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "random.svg",
-				"bootpath" : "C74:/media/max/picts/m4l-picts",
-				"type" : "svg",
+				"name" : "waveform.js",
+				"bootpath" : "~/Code/Max/granular-er1-environment/ancient-grains-mc",
+				"patcherrelativepath" : "./ancient-grains-mc",
+				"type" : "TEXT",
 				"implicit" : 1
-			}
-, 			{
-				"name" : "noise.png",
-				"bootpath" : "~/Code/Max/granular-er1-environment/er1-chord-generator",
-				"patcherrelativepath" : "./er1-chord-generator",
-				"type" : "PNG",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "down.svg",
-				"bootpath" : "C74:/media/max/picts/m4l-picts",
-				"type" : "svg",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "makeSingleEnvelope.maxpat",
-				"bootpath" : "~/Code/Max/granular-er1-environment/er1-chord-generator/subpatches",
-				"patcherrelativepath" : "./er1-chord-generator/subpatches",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "mxj.mxo",
-				"type" : "iLaX"
 			}
  ],
 		"autosave" : 0,
@@ -27331,8 +27346,8 @@
 , 			{
 				"name" : "Default M4L",
 				"default" : 				{
-					"fontsize" : [ 11.0 ],
 					"fontname" : [ "Arial Bold" ],
+					"fontsize" : [ 11.0 ],
 					"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 				}
 ,
@@ -27342,8 +27357,8 @@
 , 			{
 				"name" : "Default M4L Poletti",
 				"default" : 				{
-					"fontsize" : [ 10.0 ],
 					"fontname" : [ "Arial Bold" ],
+					"fontsize" : [ 10.0 ],
 					"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 				}
 ,
@@ -27353,7 +27368,6 @@
 , 			{
 				"name" : "Default M4L-1",
 				"default" : 				{
-					"fontsize" : [ 11.0 ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -27363,8 +27377,9 @@
 						"proportion" : 0.39
 					}
 ,
+					"fontface" : [ 1 ],
 					"fontname" : [ "Arial" ],
-					"fontface" : [ 1 ]
+					"fontsize" : [ 11.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -27446,8 +27461,8 @@
 , 			{
 				"name" : "PAt_style0",
 				"default" : 				{
-					"fontsize" : [ 12.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
+					"bgcolor" : [ 0.901961, 0.901961, 0.901961, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color1" : [ 0.862745, 0.870588, 0.878431, 1.0 ],
@@ -27456,10 +27471,10 @@
 					}
 ,
 					"clearcolor" : [ 1.0, 0.947758, 0.687073, 1.0 ],
-					"bgcolor" : [ 0.901961, 0.901961, 0.901961, 1.0 ],
+					"color" : [ 0.952941, 0.564706, 0.098039, 1.0 ],
 					"fontname" : [ "Arial" ],
-					"accentcolor" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-					"color" : [ 0.952941, 0.564706, 0.098039, 1.0 ]
+					"fontsize" : [ 12.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
