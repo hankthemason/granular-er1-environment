@@ -40,6 +40,8 @@ const {
 
 const makeVoiceName = require("./utils/makeVoiceName");
 
+const includesVCO = require("./utils/includesVCO");
+
 let pitchCollectionIndex = 0;
 const pitchArrays = [pitchCollection1, pitchCollection2];
 const pitchMaps = [pitchCollection1Map, pitchCollection2Map];
@@ -278,6 +280,8 @@ maxApi.addHandler("readStateFromDisk", (filePath) => {
 //SEQUENCER
 let sequence;
 let currentTrack = 0;
+let chordModes = ["first step", "every step"];
+let chordMode = chordModes[0];
 
 const runMonome = async () => {
   let grid = await monomeGrid();
@@ -290,7 +294,7 @@ const runMonome = async () => {
   maxApi.addHandler("fromMonome", (x, y, s) => {
     if (s === 1) {
       const track = Sequencer.update(x, y);
-      grid.refresh(Monome.update(track));
+      grid.refresh(Monome.draw(track));
     }
   });
 
@@ -302,19 +306,39 @@ const runMonome = async () => {
     const { output, grid: gridState } = Sequencer.play(trackNum);
 
     if (output) {
-      maxApi.outlet("envBang", "bang");
-      if (output.step === 0) {
-        const pitches = makeChord(currentPitchArray);
-        midiNoteNumbers = pitches.map((pitch, index) => {
-          const voiceName = makeVoiceName(index + 1);
-          state[voiceName].pitch = pitch;
-          return midiNoteNumbersByEr1Pitch[pitch].midiNoteNumber;
-        });
-        maxApi.outlet("midiNoteNumbers", midiNoteNumbers);
+      if (includesVCO(output.pitches)) {
+        ER1.updateAllVoices({ level: 0 });
+        maxApi.outlet("envBang", "bang");
+      }
+      if (chordMode === "first step") {
+        if (output.step === 0 && includesVCO(output.pitches)) {
+          const pitches = makeChord(currentPitchArray);
+          midiNoteNumbers = pitches.map((pitch, index) => {
+            const voiceName = makeVoiceName(index + 1);
+            state[voiceName].pitch = pitch;
+            return midiNoteNumbersByEr1Pitch[pitch].midiNoteNumber;
+          });
+          maxApi.outlet("midiNoteNumbers", midiNoteNumbers);
+        }
+      } else {
+        if (includesVCO(output.pitches)) {
+          const pitches = makeChord(currentPitchArray);
+          midiNoteNumbers = pitches.map((pitch, index) => {
+            const voiceName = makeVoiceName(index + 1);
+            state[voiceName].pitch = pitch;
+            return midiNoteNumbersByEr1Pitch[pitch].midiNoteNumber;
+          });
+          maxApi.outlet("midiNoteNumbers", midiNoteNumbers);
+        }
       }
       maxApi.outlet("sequencerOutput", output);
     }
     grid.refresh(gridState);
+  });
+
+  maxApi.addHandler("stop", () => {
+    const track = Sequencer.reset();
+    grid.refresh(Monome.draw(track));
   });
 };
 

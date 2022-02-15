@@ -1,5 +1,7 @@
 const monomeGrid = require("monome-grid");
 
+const yToColumn = require("../utils/yToColumn");
+
 const WIDTH = 16;
 const HEIGHT = 16;
 const OCTAVE = 8;
@@ -28,6 +30,11 @@ const restore = () => {
 };
 
 const update = (track) => {
+  //control panel
+  const controlPanel = drawControlPanel(track);
+  grid[0] = controlPanel[0];
+  grid[1] = controlPanel[1];
+  //sequence settings
   let seq = track.sequence;
   seq.map((step, index) => {
     if (step.on === true) {
@@ -51,15 +58,20 @@ const update = (track) => {
 
 const draw = (track, playhead = false) => {
   const currentStep = track.sequence[track.step];
-  for (let y = 0; y < HEIGHT; y++) {
+  const controlPanel = drawControlPanel(track);
+  grid[0] = controlPanel[0];
+  grid[1] = controlPanel[1];
+  for (let y = 2; y < HEIGHT; y++) {
     let row = [];
     for (let x = 0; x < WIDTH; x++) {
+      const xToCurrentPage = x + track.currentPage * 16;
+      const currentStep = track.sequence[xToCurrentPage];
       if (y < onOffRow) {
         row[x] = 0;
       }
       //on/off row
       else if (y === onOffRow) {
-        if (track.sequence[x].on === true) {
+        if (currentStep.on === true) {
           row[x] = 1;
         } else {
           row[x] = 0;
@@ -67,14 +79,45 @@ const draw = (track, playhead = false) => {
       }
       //step input area
       else {
-        if (x === track.step && playhead === true) {
+        if (xToCurrentPage === track.step && playhead === true) {
           row[x] = 1;
         } else {
-          const yTranslatedToPitch = HEIGHT - 1 - y + currentStep.octave * 8;
-          if (track.sequence[x].pitches[yTranslatedToPitch] !== null) {
-            row[x] = 1;
-          } else {
-            row[x] = 0;
+          //pitch
+          if (track.view === 0) {
+            const yTranslatedToPitch = HEIGHT - 1 - y + currentStep.octave * 8;
+            if (
+              currentStep.pitches[yTranslatedToPitch] &&
+              currentStep.pitches !== null &&
+              currentStep.on === true
+            ) {
+              row[x] = 1;
+            } else {
+              row[x] = 0;
+            }
+          }
+          //octave
+          else if (track.view === 1) {
+            if (currentStep.on === true) {
+              const octave = currentStep.octave;
+              const yToOctaveColumn = yToColumn(y) - 1;
+              row[x] = yToOctaveColumn <= octave ? 1 : 0;
+            }
+          }
+          //velocity
+          else if (track.view === 2) {
+            const factor = 127 / 8;
+            if (currentStep.on === true) {
+              const velocityColumnHeight = currentStep.velocity / factor;
+              const yToVelocityColumn = yToColumn(y);
+              row[x] = yToVelocityColumn <= velocityColumnHeight ? 1 : 0;
+            }
+          }
+          //probability
+          else if (track.view === 3) {
+            if (currentStep.on === true) {
+              const yToProbabilityColumn = yToColumn(y);
+              row[x] = yToProbabilityColumn <= currentStep.probability ? 1 : 0;
+            }
           }
         }
       }
@@ -82,6 +125,19 @@ const draw = (track, playhead = false) => {
     grid[y] = row;
   }
   return grid;
+};
+
+const drawControlPanel = (track) => {
+  const controlPanel = new Array(2);
+  const currentPageToX = track.currentPage + 12;
+  const viewToX = track.view;
+  const numPagesToX = track.numPages + 11;
+  controlPanel[0] = new Array(16).fill(0);
+  controlPanel[1] = new Array(16).fill(0);
+  controlPanel[0][currentPageToX] = 1;
+  controlPanel[1][viewToX] = 1;
+  controlPanel[1][numPagesToX] = 1;
+  return controlPanel;
 };
 
 module.exports = { restore, update, draw };
