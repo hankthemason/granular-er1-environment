@@ -130,11 +130,15 @@ const draw = (track, playhead = false) => {
 const drawControlPanel = (track) => {
   const controlPanel = new Array(2);
   const currentPageToX = track.currentPage + 12;
+  const noteValueToX = track.noteValue + 6;
   const viewToX = track.view;
   const numPagesToX = track.numPages + 11;
+  const currentTrackToX = track.trackNum;
   controlPanel[0] = new Array(16).fill(0);
   controlPanel[1] = new Array(16).fill(0);
+  controlPanel[0][currentTrackToX] = 1;
   controlPanel[0][currentPageToX] = 1;
+  controlPanel[0][noteValueToX] = 1;
   controlPanel[1][viewToX] = 1;
   controlPanel[1][numPagesToX] = 1;
   return controlPanel;

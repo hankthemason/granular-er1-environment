@@ -1,3 +1,5 @@
+const maxApi = require("max-api");
+
 const PAGE_LENGTH = 16;
 const HEIGHT = 16;
 const OCTAVE = 8; //notes available for view in each octave
@@ -6,10 +8,12 @@ const ON_OFF = 7;
 const CONTROL_PANEL = 2;
 const PAGE_SETTINGS = 12;
 const VIEW_SETTINGS = 5;
+const NOTE_VALUES = 6;
 
 const makePlayhead = require("../utils/makePlayhead");
 const yToColumn = require("../utils/yToColumn");
 const Monome = require("./Monome");
+const noteValues = require("../configs/noteValues.json");
 
 const step = {
   pitches: [],
@@ -29,6 +33,8 @@ const track = {
   step: 0,
   view: 0,
   numOctaves: 2,
+  noteValue: 3,
+  trackNum: 0,
 };
 
 let tracks = new Array(1).fill(track);
@@ -37,6 +43,7 @@ let currentTrack = 0;
 
 const initialize = () => {
   for (const t of tracks) {
+    //initialize sequence
     let sequence = t.sequence;
     for (let i = 0; i < sequence.length; i++) {
       sequence[i] = { ...step };
@@ -44,6 +51,8 @@ const initialize = () => {
         sequence[i].pitches = new Array(t.pitchMapping.length).fill(null);
       }
     }
+    //output track rates
+    maxApi.outlet("noteValue", t.trackNum, t.noteValue);
   }
   return tracks;
 };
@@ -51,7 +60,29 @@ const initialize = () => {
 const update = (x, y) => {
   const stepNum = track.currentPage * PAGE_LENGTH + x;
   const currentStep = track.sequence[stepNum];
-  if (y >= STEP_SETTINGS) {
+  if (y < CONTROL_PANEL) {
+    if (y === 0) {
+      if (x >= NOTE_VALUES && x < PAGE_SETTINGS) {
+        track.noteValue = x - NOTE_VALUES;
+        maxApi.outlet("noteValue", noteValues[track.noteValue].coefficient);
+      } else if (x >= PAGE_SETTINGS) {
+        track.currentPage = x - 12;
+      }
+    } else {
+      if (x <= VIEW_SETTINGS) {
+        track.view = x;
+      } else if (x >= PAGE_SETTINGS) {
+        track.numPages = x - 11;
+        if (track.currentPage >= track.numPages) {
+          track.currentPage = track.numPages - 1;
+        }
+        track.seqLength = track.numPages * 16;
+        track.step = track.step % 16;
+      }
+    }
+  } else if (y === ON_OFF) {
+    currentStep.on = !currentStep.on;
+  } else if (y >= STEP_SETTINGS) {
     let track = tracks[currentTrack];
     //handle pitch entry
     if (track.view === 0) {
@@ -81,25 +112,6 @@ const update = (x, y) => {
     //handle probability entry
     else if (track.view === 3) {
       currentStep.probability = yToColumn(y);
-    }
-  } else if (y === ON_OFF) {
-    currentStep.on = !currentStep.on;
-  } else if (y < CONTROL_PANEL) {
-    if (y === 0) {
-      if (x >= PAGE_SETTINGS) {
-        track.currentPage = x - 12;
-      }
-    } else {
-      if (x <= VIEW_SETTINGS) {
-        track.view = x;
-      } else if (x >= PAGE_SETTINGS) {
-        track.numPages = x - 11;
-        if (track.currentPage >= track.numPages) {
-          track.currentPage = track.numPages - 1;
-        }
-        track.seqLength = track.numPages * 16;
-        track.step = track.step % 16;
-      }
     }
   }
   return track;

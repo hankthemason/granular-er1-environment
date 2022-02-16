@@ -285,8 +285,8 @@ let chordMode = chordModes[0];
 
 const runMonome = async () => {
   let grid = await monomeGrid();
-  Sequencer.initialize();
-
+  const tracks = Sequencer.initialize();
+  grid.refresh(Monome.draw(tracks[0]));
   maxApi.addHandler("refresh", () => {
     grid.refresh(Monome.restore());
   });
