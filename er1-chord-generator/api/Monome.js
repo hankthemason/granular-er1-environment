@@ -9,6 +9,7 @@ let grid = new Array(HEIGHT);
 
 //row #s
 const onOffRow = 7;
+const NOTE_REPEAT = 5;
 
 for (let x = 0; x < WIDTH; x++) {
   let column = new Array(HEIGHT);
@@ -37,7 +38,10 @@ const update = (track) => {
   //sequence settings
   let seq = track.sequence;
   seq.map((step, index) => {
-    if (step.on === true) {
+    if (step.on == true) {
+      if (step.noteRepeat == true) {
+        grid[NOTE_REPEAT][index] = 1;
+      }
       grid[onOffRow][index] = 1;
       for (let i = 0; i < OCTAVE + step.octave * OCTAVE; i++) {
         if (track.pitchMapping) {
@@ -56,9 +60,8 @@ const update = (track) => {
   return grid;
 };
 
-const draw = (track, playhead = false) => {
-  const currentStep = track.sequence[track.step];
-  const controlPanel = drawControlPanel(track);
+const draw = (track, masterSettings, playhead = false) => {
+  const controlPanel = drawControlPanel(track, masterSettings);
   grid[0] = controlPanel[0];
   grid[1] = controlPanel[1];
   for (let y = 2; y < HEIGHT; y++) {
@@ -66,12 +69,16 @@ const draw = (track, playhead = false) => {
     for (let x = 0; x < WIDTH; x++) {
       const xToCurrentPage = x + track.currentPage * 16;
       const currentStep = track.sequence[xToCurrentPage];
-      if (y < onOffRow) {
+      //note repeat row
+      if (y === NOTE_REPEAT) {
+        row[x] =
+          currentStep.on == true && currentStep.noteRepeat == true ? 1 : 0;
+      } else if (y < onOffRow) {
         row[x] = 0;
       }
       //on/off row
       else if (y === onOffRow) {
-        if (currentStep.on === true) {
+        if (currentStep.on == true) {
           row[x] = 1;
         } else {
           row[x] = 0;
@@ -127,19 +134,21 @@ const draw = (track, playhead = false) => {
   return grid;
 };
 
-const drawControlPanel = (track) => {
+const drawControlPanel = (track, masterSettings) => {
   const controlPanel = new Array(2);
   const currentPageToX = track.currentPage + 12;
   const noteValueToX = track.noteValue + 6;
   const viewToX = track.view;
   const numPagesToX = track.numPages + 11;
   const currentTrackToX = track.trackNum;
+  const followModeToX = 6;
   controlPanel[0] = new Array(16).fill(0);
   controlPanel[1] = new Array(16).fill(0);
   controlPanel[0][currentTrackToX] = 1;
   controlPanel[0][currentPageToX] = 1;
   controlPanel[0][noteValueToX] = 1;
   controlPanel[1][viewToX] = 1;
+  controlPanel[1][followModeToX] = masterSettings.followMode === true ? 1 : 0;
   controlPanel[1][numPagesToX] = 1;
   return controlPanel;
 };

@@ -282,19 +282,30 @@ let sequence;
 let currentTrack = 0;
 let chordModes = ["first step", "every step"];
 let chordMode = chordModes[0];
+let masterSettings = {
+  followMode: false,
+  lowerLimit: 0,
+  upperLimit: 15,
+};
 
 const runMonome = async () => {
   let grid = await monomeGrid();
+
   const tracks = Sequencer.initialize();
-  grid.refresh(Monome.draw(tracks[0]));
+  grid.refresh(Monome.draw(tracks[0], masterSettings));
   maxApi.addHandler("refresh", () => {
     grid.refresh(Monome.restore());
   });
 
   maxApi.addHandler("fromMonome", (x, y, s) => {
     if (s === 1) {
-      const track = Sequencer.update(x, y);
-      grid.refresh(Monome.draw(track));
+      const { track, masterSettings: settings } = Sequencer.update(
+        x,
+        y,
+        masterSettings
+      );
+      masterSettings = settings;
+      grid.refresh(Monome.draw(track, masterSettings));
     }
   });
 
@@ -303,12 +314,16 @@ const runMonome = async () => {
   });
 
   maxApi.addHandler("tick", (trackNum) => {
-    const { output, grid: gridState } = Sequencer.play(trackNum);
-
+    const {
+      output,
+      masterSettings: settings,
+      grid: gridState,
+    } = Sequencer.play(trackNum, masterSettings);
+    masterSettings = settings;
     if (output) {
       if (includesVCO(output.pitches)) {
-        ER1.updateAllVoices({ level: 0 });
-        maxApi.outlet("envBang", "bang");
+        //ER1.updateAllVoices({ level: 0 });
+        maxApi.outlet("env", output.pitches);
       }
       if (chordMode === "first step") {
         if (output.step === 0 && includesVCO(output.pitches)) {
@@ -338,7 +353,7 @@ const runMonome = async () => {
 
   maxApi.addHandler("stop", () => {
     const track = Sequencer.reset();
-    grid.refresh(Monome.draw(track));
+    grid.refresh(Monome.draw(track, masterSettings));
   });
 };
 

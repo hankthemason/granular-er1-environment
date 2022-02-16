@@ -9,9 +9,12 @@ const CONTROL_PANEL = 2;
 const PAGE_SETTINGS = 12;
 const VIEW_SETTINGS = 5;
 const NOTE_VALUES = 6;
+const FOLLOW_MODE = 6;
+const NOTE_REPEAT = 5;
 
 const makePlayhead = require("../utils/makePlayhead");
 const yToColumn = require("../utils/yToColumn");
+const calculateLimits = require("../utils/monome/calculateLimits");
 const Monome = require("./Monome");
 const noteValues = require("../configs/noteValues.json");
 
@@ -22,6 +25,7 @@ const step = {
   on: false,
   octave: 0,
   probability: 8,
+  noteRepeat: false,
 };
 
 const track = {
@@ -52,27 +56,38 @@ const initialize = () => {
       }
     }
     //output track rates
-    maxApi.outlet("noteValue", t.trackNum, t.noteValue);
+    maxApi.outlet("noteValue", t.trackNum, noteValues[t.noteValue].coefficient);
   }
   return tracks;
 };
 
-const update = (x, y) => {
+const update = (x, y, masterSettings) => {
   const stepNum = track.currentPage * PAGE_LENGTH + x;
   const currentStep = track.sequence[stepNum];
   if (y < CONTROL_PANEL) {
     if (y === 0) {
       if (x >= NOTE_VALUES && x < PAGE_SETTINGS) {
         track.noteValue = x - NOTE_VALUES;
-        maxApi.outlet("noteValue", noteValues[track.noteValue].coefficient);
+        maxApi.outlet(
+          "noteValue",
+          track.trackNum,
+          noteValues[track.noteValue].coefficient
+        );
       } else if (x >= PAGE_SETTINGS) {
         track.currentPage = x - 12;
       }
     } else {
       if (x <= VIEW_SETTINGS) {
         track.view = x;
-      } else if (x >= PAGE_SETTINGS) {
+      } else if (x === FOLLOW_MODE) {
+        masterSettings.followMode = !masterSettings.followMode;
+      }
+      //numPages
+      else if (x >= PAGE_SETTINGS) {
         track.numPages = x - 11;
+        const limits = calculateLimits(track);
+        masterSettings.lowerLimit = limits.lowerLimit;
+        masterSettings.upperLimit = limits.upperLimit;
         if (track.currentPage >= track.numPages) {
           track.currentPage = track.numPages - 1;
         }
@@ -80,6 +95,8 @@ const update = (x, y) => {
         track.step = track.step % 16;
       }
     }
+  } else if (y === NOTE_REPEAT) {
+    currentStep.noteRepeat = !currentStep.noteRepeat;
   } else if (y === ON_OFF) {
     currentStep.on = !currentStep.on;
   } else if (y >= STEP_SETTINGS) {
@@ -114,11 +131,23 @@ const update = (x, y) => {
       currentStep.probability = yToColumn(y);
     }
   }
-  return track;
+  return { track, masterSettings };
 };
 
-const play = (trackNum) => {
+const play = (trackNum, masterSettings) => {
   const track = tracks[trackNum];
+  if (
+    masterSettings.followMode === true &&
+    track.step > masterSettings.upperLimit
+  ) {
+    track.currentPage = (track.currentPage + 1) % track.numPages;
+    const limits = calculateLimits(track);
+    masterSettings = {
+      ...masterSettings,
+      lowerLimit: limits.lowerLimit,
+      upperLimit: limits.upperLimit,
+    };
+  }
   const currentStep = track.sequence[track.step];
   let output;
   if (currentStep.on) {
@@ -132,6 +161,7 @@ const play = (trackNum) => {
           pitches: currentStep.pitches.filter((pitch) => pitch !== null),
           velocity: currentStep.velocity,
           step: track.step,
+          noteRepeat: currentStep.noteRepeat,
         };
       }
     } else {
@@ -139,18 +169,25 @@ const play = (trackNum) => {
         pitches: currentStep.pitches.filter((pitch) => pitch !== null),
         velocity: currentStep.velocity,
         step: track.step,
+        noteRepeat: currentStep.noteRepeat,
       };
       if (!output.pitches.length) {
-        output = null;
+        output = {
+          noteRepeat: 0,
+          pitches: [],
+        };
       }
     }
   }
-  const grid = Monome.draw(track, true);
+  const grid = Monome.draw(track, masterSettings, true);
   track.step++;
   if (track.step === track.seqLength) {
     track.step = 0;
+    if (masterSettings.followMode === true) {
+      track.currentPage = 0;
+    }
   }
-  return { output, grid };
+  return { output, masterSettings, grid };
 };
 
 const reset = () => {
