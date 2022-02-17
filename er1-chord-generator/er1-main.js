@@ -355,6 +355,10 @@ const runMonome = async () => {
     const track = Sequencer.reset();
     grid.refresh(Monome.draw(track, masterSettings));
   });
+
+  maxApi.addHandler("changeChordMode", (chordModeIdx) => {
+    chordMode = chordModes[chordModeIdx];
+  });
 };
 
 runMonome();
