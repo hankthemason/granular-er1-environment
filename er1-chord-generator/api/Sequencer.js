@@ -11,6 +11,7 @@ const VIEW_SETTINGS = 5;
 const NOTE_VALUES = 6;
 const FOLLOW_MODE = 6;
 const NOTE_REPEAT = 5;
+const SEQ_LENGTH = 2;
 
 const makePlayhead = require("../utils/makePlayhead");
 const yToColumn = require("../utils/yToColumn");
@@ -74,7 +75,9 @@ const update = (x, y, masterSettings) => {
           noteValues[track.noteValue].coefficient
         );
       } else if (x >= PAGE_SETTINGS) {
-        track.currentPage = x - 12;
+        if (x - 12 < track.numPages) {
+          track.currentPage = x - 12;
+        }
       }
     } else {
       if (x <= VIEW_SETTINGS) {
@@ -95,6 +98,8 @@ const update = (x, y, masterSettings) => {
         track.step = track.step % 16;
       }
     }
+  } else if (y === SEQ_LENGTH) {
+    track.seqLength = track.currentPage * 16 + x + 1;
   } else if (y === NOTE_REPEAT) {
     currentStep.noteRepeat = !currentStep.noteRepeat;
   } else if (y === ON_OFF) {
@@ -185,6 +190,12 @@ const play = (trackNum, masterSettings) => {
     track.step = 0;
     if (masterSettings.followMode === true) {
       track.currentPage = 0;
+      const limits = calculateLimits(track);
+      masterSettings = {
+        ...masterSettings,
+        lowerLimit: limits.lowerLimit,
+        upperLimit: limits.upperLimit,
+      };
     }
   }
   return { output, masterSettings, grid };

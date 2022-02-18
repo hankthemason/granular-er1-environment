@@ -8,6 +8,7 @@ const OCTAVE = 8;
 let grid = new Array(HEIGHT);
 
 //row #s
+const SEQ_LENGTH = 2;
 const onOffRow = 7;
 const NOTE_REPEAT = 5;
 
@@ -35,6 +36,7 @@ const update = (track) => {
   const controlPanel = drawControlPanel(track);
   grid[0] = controlPanel[0];
   grid[1] = controlPanel[1];
+  grid[2] = controlPanel[2];
   //sequence settings
   let seq = track.sequence;
   seq.map((step, index) => {
@@ -70,10 +72,16 @@ const draw = (track, masterSettings, playhead = false) => {
       const xToCurrentPage = x + track.currentPage * 16;
       const currentStep = track.sequence[xToCurrentPage];
       //note repeat row
-      if (y === NOTE_REPEAT) {
+      if (y === SEQ_LENGTH) {
+        if (x + track.currentPage * 16 < track.seqLength) {
+          row[x] = 1;
+        }
+      } else if (y === NOTE_REPEAT) {
         row[x] =
           currentStep.on == true && currentStep.noteRepeat == true ? 1 : 0;
-      } else if (y < onOffRow) {
+      }
+      //on-off row
+      else if (y < onOffRow) {
         row[x] = 0;
       }
       //on/off row
@@ -135,21 +143,27 @@ const draw = (track, masterSettings, playhead = false) => {
 };
 
 const drawControlPanel = (track, masterSettings) => {
-  const controlPanel = new Array(2);
+  const controlPanel = new Array(3).fill([]);
+
+  controlPanel.map((row, index) => {
+    controlPanel[index] = new Array(16).fill(0);
+  });
   const currentPageToX = track.currentPage + 12;
   const noteValueToX = track.noteValue + 6;
   const viewToX = track.view;
   const numPagesToX = track.numPages + 11;
   const currentTrackToX = track.trackNum;
   const followModeToX = 6;
-  controlPanel[0] = new Array(16).fill(0);
-  controlPanel[1] = new Array(16).fill(0);
+  const seqLengthToX = (track.seqLength - 1) % 16;
   controlPanel[0][currentTrackToX] = 1;
   controlPanel[0][currentPageToX] = 1;
   controlPanel[0][noteValueToX] = 1;
   controlPanel[1][viewToX] = 1;
   controlPanel[1][followModeToX] = masterSettings.followMode === true ? 1 : 0;
   controlPanel[1][numPagesToX] = 1;
+  for (let x = 0; x <= seqLengthToX; x++) {
+    controlPanel[2][x] = 1;
+  }
   return controlPanel;
 };
 
