@@ -1,6 +1,6 @@
 const monomeGrid = require("monome-grid");
 
-const yToColumn = require("../utils/yToColumn");
+const yToColumn = require("../utils/monome/yToColumn");
 
 const WIDTH = 16;
 const HEIGHT = 16;

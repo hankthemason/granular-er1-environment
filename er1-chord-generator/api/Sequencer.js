@@ -13,8 +13,7 @@ const FOLLOW_MODE = 6;
 const NOTE_REPEAT = 5;
 const SEQ_LENGTH = 2;
 
-const makePlayhead = require("../utils/makePlayhead");
-const yToColumn = require("../utils/yToColumn");
+const yToColumn = require("../utils/monome/yToColumn");
 const calculateLimits = require("../utils/monome/calculateLimits");
 const Monome = require("./Monome");
 const noteValues = require("../configs/noteValues.json");
