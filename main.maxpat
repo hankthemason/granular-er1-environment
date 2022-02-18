@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 179.0, 156.0, 1020.0, 809.0 ],
+		"rect" : [ 225.0, -924.0, 1020.0, 809.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -1415,7 +1415,7 @@
 				"box" : 				{
 					"id" : "obj-233",
 					"maxclass" : "newobj",
-					"numinlets" : 5,
+					"numinlets" : 6,
 					"numoutlets" : 0,
 					"patching_rect" : [ 1075.0, 704.0, 145.0, 22.0 ],
 					"text" : "er1-chord-generator-main",
@@ -6190,18 +6190,6 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 248.0, 195.0, 70.0, 22.0 ],
 					"text" : "loadmess 0"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-47",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 505.0, 577.0, 85.0, 22.0 ],
-					"text" : "monome-main"
 				}
 
 			}
@@ -24837,7 +24825,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-233", 3 ],
-					"midpoints" : [ 1952.0, 512.0, 1179.0, 512.0 ],
+					"midpoints" : [ 1952.0, 512.0, 1160.099999999999909, 512.0 ],
 					"source" : [ "obj-110", 0 ]
 				}
 
@@ -25417,7 +25405,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-233", 3 ],
-					"midpoints" : [ 1864.0, 464.0, 1179.0, 464.0 ],
+					"midpoints" : [ 1864.0, 464.0, 1160.099999999999909, 464.0 ],
 					"source" : [ "obj-23", 0 ]
 				}
 
@@ -25722,7 +25710,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-233", 4 ],
-					"midpoints" : [ 1282.5, 509.0, 1210.5, 509.0 ],
+					"midpoints" : [ 1282.5, 509.0, 1185.299999999999955, 509.0 ],
 					"order" : 0,
 					"source" : [ "obj-45", 0 ]
 				}
@@ -25743,21 +25731,6 @@
 					"midpoints" : [ 1282.5, 81.0, 915.5, 81.0 ],
 					"order" : 2,
 					"source" : [ "obj-45", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-240", 1 ],
-					"midpoints" : [ 580.5, 556.0, 996.5, 556.0 ],
-					"source" : [ "obj-47", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-63", 1 ],
-					"source" : [ "obj-47", 0 ]
 				}
 
 			}
@@ -25813,7 +25786,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-233", 1 ],
-					"midpoints" : [ 1188.5, 511.0, 1116.0, 511.0 ],
+					"midpoints" : [ 1188.5, 511.0, 1109.700000000000045, 511.0 ],
 					"source" : [ "obj-50", 0 ]
 				}
 
@@ -25864,17 +25837,18 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-238", 0 ],
-					"midpoints" : [ 581.0, 526.0, 942.0, 526.0, 942.0, 416.0, 963.5, 416.0 ],
-					"order" : 0,
-					"source" : [ "obj-56", 1 ]
+					"destination" : [ "obj-233", 5 ],
+					"midpoints" : [ 514.5, 530.0, 1210.5, 530.0 ],
+					"source" : [ "obj-56", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-47", 0 ],
-					"source" : [ "obj-56", 0 ]
+					"destination" : [ "obj-238", 0 ],
+					"midpoints" : [ 581.0, 526.0, 942.0, 526.0, 942.0, 416.0, 963.5, 416.0 ],
+					"order" : 0,
+					"source" : [ "obj-56", 1 ]
 				}
 
 			}
@@ -26020,7 +25994,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-233", 2 ],
-					"midpoints" : [ 1101.5, 546.0, 1147.5, 546.0 ],
+					"midpoints" : [ 1101.5, 546.0, 1134.900000000000091, 546.0 ],
 					"order" : 0,
 					"source" : [ "obj-75", 0 ]
 				}
@@ -27066,13 +27040,6 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "abletonSync.maxpat",
-				"bootpath" : "~/Documents/Max 8/Library",
-				"patcherrelativepath" : "../../../Documents/Max 8/Library",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
 				"name" : "ancient-grains-subpatch.maxpat",
 				"bootpath" : "~/Code/Max/granular-er1-environment/ancient-grains-mc",
 				"patcherrelativepath" : "./ancient-grains-mc",
@@ -27155,37 +27122,9 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "index.js",
-				"bootpath" : "~/Code/Max/granular-er1-environment/monome",
-				"patcherrelativepath" : "./monome",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
 				"name" : "makeSingleEnvelope.maxpat",
 				"bootpath" : "~/Code/Max/granular-er1-environment/er1-chord-generator/subpatches",
 				"patcherrelativepath" : "./er1-chord-generator/subpatches",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "monoNoteHold.maxpat",
-				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
-				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "monoNoteRepeat.maxpat",
-				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
-				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "monome-main.maxpat",
-				"bootpath" : "~/Code/Max/granular-er1-environment/monome",
-				"patcherrelativepath" : "./monome",
 				"type" : "JSON",
 				"implicit" : 1
 			}
@@ -27207,44 +27146,9 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "polyNoteRepeat.maxpat",
-				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
-				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "processMonoNoteEffects.maxpat",
-				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
-				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "processPolyNoteEffects.maxpat",
-				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
-				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "processRepeatsForMultipleNotes.maxpat",
-				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
-				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
 				"name" : "random.svg",
 				"bootpath" : "C74:/media/max/picts/m4l-picts",
 				"type" : "svg",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "reduceNoteLength.maxpat",
-				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
-				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
-				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
@@ -27288,13 +27192,6 @@
 				"bootpath" : "~/Code/Max/granular-er1-environment",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "trackClock.maxpat",
-				"bootpath" : "~/Code/Max/er1-chords/monome/subpatchers",
-				"patcherrelativepath" : "../er1-chords/monome/subpatchers",
-				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{

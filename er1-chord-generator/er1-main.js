@@ -40,7 +40,7 @@ const {
 
 const makeVoiceName = require("./utils/makeVoiceName");
 
-const includesVCO = require("./utils/includesVCO");
+const includesVCO = require("./utils/monome/includesVCO");
 
 let pitchCollectionIndex = 0;
 const pitchArrays = [pitchCollection1, pitchCollection2];

@@ -6,7 +6,7 @@ const waveTypes = ["square", "sine"];
 const arpDirections = ["up", "down", "upDown", "random"];
 
 let isPlaying = false;
-let tempo = 0.5;
+let tempo = 0;
 let envelopeMode = envelopeModes[0];
 let noteMode = noteModes[0];
 let waveType = waveTypes[0];
@@ -14,7 +14,7 @@ let arpDirection = arpDirections[0];
 let currentPitchCollectionIdx = 0;
 
 maxApi.addHandler("setTempo", (t) => {
-  tempo = t / 120;
+  tempo = t;
   if (isPlaying) {
     maxApi.outlet("tempo", tempo);
   }
