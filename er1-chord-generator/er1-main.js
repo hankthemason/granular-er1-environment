@@ -41,6 +41,7 @@ const {
 const makeVoiceName = require("./utils/makeVoiceName");
 
 const includesVCO = require("./utils/monome/includesVCO");
+const deleteSequence = require("./utils/monome/deleteSequence");
 
 let pitchCollectionIndex = 0;
 const pitchArrays = [pitchCollection1, pitchCollection2];
@@ -286,26 +287,44 @@ let masterSettings = {
   followMode: false,
   lowerLimit: 0,
   upperLimit: 15,
+  copying: false,
+  deleteKeyDown: false,
 };
 
 const runMonome = async () => {
   let grid = await monomeGrid();
 
-  const tracks = Sequencer.initialize();
+  let tracks = Sequencer.initialize();
   grid.refresh(Monome.draw(tracks[0], masterSettings));
   maxApi.addHandler("refresh", () => {
     grid.refresh(Monome.restore());
   });
 
   maxApi.addHandler("fromMonome", (x, y, s) => {
+    if (y === 0 && x === currentTrack) {
+      handleDelete(s, grid);
+      // if (del === true) {
+      //   tracks = Sequencer.initialize();
+      //   grid.refresh(Monome.draw(tracks[0], masterSettings));
+      //   maxApi.addHandler("refresh", () => {
+      //     grid.refresh(Monome.restore());
+      //   });
+      // }
+    }
     if (s === 1) {
       const { track, masterSettings: settings } = Sequencer.update(
         x,
         y,
+        s,
         masterSettings
       );
+
       masterSettings = settings;
-      grid.refresh(Monome.draw(track, masterSettings));
+      const virtualGrid = Monome.draw(track, masterSettings);
+      if (masterSettings.copying === true || masterSettings.syncing === true) {
+        flicker(grid, virtualGrid, masterSettings, x);
+      }
+      grid.refresh(virtualGrid);
     }
   });
 
@@ -359,6 +378,35 @@ const runMonome = async () => {
   maxApi.addHandler("changeChordMode", (chordModeIdx) => {
     chordMode = chordModes[chordModeIdx];
   });
+};
+
+const flicker = (monomeGrid, virtualGrid, masterSettings, x) => {
+  let flicker = 0;
+  const timer = setInterval(() => {
+    if (masterSettings.copying === true) {
+      virtualGrid[1][x] = flicker ? 0 : 1;
+      flicker = !flicker;
+      monomeGrid.refresh(virtualGrid);
+    } else {
+      clearInterval(timer);
+    }
+  }, 1000 / 10);
+};
+
+const handleDelete = (s, grid) => {
+  if (s === 1) {
+    masterSettings.deleteKeyDown = true;
+    setTimeout(() => {
+      if (masterSettings.deleteKeyDown === true) {
+        let tracks = Sequencer.initialize();
+        grid.refresh(Monome.draw(tracks[0], masterSettings));
+      } else {
+        console.log("not deleting");
+      }
+    }, 1000);
+  } else {
+    masterSettings.deleteKeyDown = false;
+  }
 };
 
 runMonome();

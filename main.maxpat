@@ -69,8 +69,8 @@
 					"numinlets" : 3,
 					"numoutlets" : 3,
 					"outlettype" : [ "bang", "bang", "" ],
-					"patching_rect" : [ 737.0, 684.0, 131.0, 22.0 ],
-					"text" : "sel singleNote allNotes"
+					"patching_rect" : [ 737.0, 684.0, 119.0, 22.0 ],
+					"text" : "sel firstNote allNotes"
 				}
 
 			}
@@ -81,8 +81,8 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 737.0, 660.0, 95.0, 22.0 ],
-					"text" : "r envelopeMode"
+					"patching_rect" : [ 737.0, 660.0, 76.0, 22.0 ],
+					"text" : "r chordMode"
 				}
 
 			}
@@ -2134,6 +2134,7 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
+						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-73",
@@ -2165,8 +2166,8 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 50.0, 100.0, 95.0, 22.0 ],
-									"text" : "r envelopeMode"
+									"patching_rect" : [ 50.0, 100.0, 76.0, 22.0 ],
+									"text" : "r chordMode"
 								}
 
 							}
@@ -2338,7 +2339,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 1306.0, 184.600002110004425, 139.0, 22.0 ],
+					"patching_rect" : [ 1306.0, 184.600002110004425, 121.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -2346,7 +2347,7 @@
 						"tags" : ""
 					}
 ,
-					"text" : "p envelopeModeHandler"
+					"text" : "p chordModeHandler"
 				}
 
 			}
@@ -5805,7 +5806,7 @@
 					"patching_rect" : [ 725.0, 33.199999809265137, 95.0, 20.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 511.0, 132.199991000000011, 95.0, 20.0 ],
-					"text" : "Envelope:"
+					"text" : "Make Chord:"
 				}
 
 			}
@@ -5875,8 +5876,8 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 571.5, 532.0, 97.0, 22.0 ],
-					"text" : "s envelopeMode"
+					"patching_rect" : [ 571.5, 532.0, 78.0, 22.0 ],
+					"text" : "s chordMode"
 				}
 
 			}
@@ -5911,8 +5912,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1306.0, 280.799993932247162, 121.0, 22.0 ],
-					"text" : "setEnvelopeMode $1"
+					"patching_rect" : [ 1306.0, 280.799993932247162, 104.0, 22.0 ],
+					"text" : "setChordMode $1"
 				}
 
 			}
@@ -6019,10 +6020,10 @@
 
 					}
 ,
-					"text" : "single note",
+					"text" : "first note",
 					"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"textoffcolor" : [ 1.0, 0.709803921568627, 0.196078431372549, 1.0 ],
-					"texton" : "single note",
+					"texton" : "first note",
 					"varname" : "live.text[10]"
 				}
 
@@ -6050,8 +6051,8 @@
 					"numinlets" : 7,
 					"numoutlets" : 7,
 					"outlettype" : [ "", "", "", "", "", "", "" ],
-					"patching_rect" : [ 505.0, 503.0, 418.0, 22.0 ],
-					"text" : "route tempo envelopeMode noteMode waveType arpDirection pitchCollection"
+					"patching_rect" : [ 505.0, 503.0, 399.0, 22.0 ],
+					"text" : "route tempo chordMode noteMode waveType arpDirection pitchCollection"
 				}
 
 			}
@@ -25846,7 +25847,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-238", 0 ],
-					"midpoints" : [ 581.0, 526.0, 942.0, 526.0, 942.0, 416.0, 963.5, 416.0 ],
+					"midpoints" : [ 577.833333333333371, 526.0, 942.0, 526.0, 942.0, 416.0, 963.5, 416.0 ],
 					"order" : 0,
 					"source" : [ "obj-56", 1 ]
 				}

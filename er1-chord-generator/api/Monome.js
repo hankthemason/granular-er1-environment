@@ -63,6 +63,7 @@ const update = (track) => {
 };
 
 const draw = (track, masterSettings, playhead = false) => {
+  let flicker = null;
   const controlPanel = drawControlPanel(track, masterSettings);
   grid[0] = controlPanel[0];
   grid[1] = controlPanel[1];
@@ -95,7 +96,18 @@ const draw = (track, masterSettings, playhead = false) => {
       //step input area
       else {
         if (xToCurrentPage === track.step && playhead === true) {
-          row[x] = 1;
+          if (
+            (track.view === 2 &&
+              currentStep.on &&
+              currentStep.velocity === 127) ||
+            (track.view === 3 &&
+              currentStep.on &&
+              currentStep.probability === 8)
+          ) {
+            row[x] = 0;
+          } else {
+            row[x] = 1;
+          }
         } else {
           //pitch
           if (track.view === 0) {

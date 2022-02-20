@@ -12,6 +12,8 @@ const NOTE_VALUES = 6;
 const FOLLOW_MODE = 6;
 const NOTE_REPEAT = 5;
 const SEQ_LENGTH = 2;
+const COPY = 8;
+const PASTE = 9;
 
 const yToColumn = require("../utils/monome/yToColumn");
 const calculateLimits = require("../utils/monome/calculateLimits");
@@ -39,6 +41,7 @@ const track = {
   numOctaves: 2,
   noteValue: 3,
   trackNum: 0,
+  copyBuffer: [],
 };
 
 let tracks = new Array(1).fill(track);
@@ -61,7 +64,7 @@ const initialize = () => {
   return tracks;
 };
 
-const update = (x, y, masterSettings) => {
+const update = (x, y, s, masterSettings) => {
   const stepNum = track.currentPage * PAGE_LENGTH + x;
   const currentStep = track.sequence[stepNum];
   if (y < CONTROL_PANEL) {
@@ -77,12 +80,37 @@ const update = (x, y, masterSettings) => {
         if (x - 12 < track.numPages) {
           track.currentPage = x - 12;
         }
+        const limits = calculateLimits(track);
+        masterSettings.lowerLimit = limits.lowerLimit;
+        masterSettings.upperLimit = limits.upperLimit;
       }
     } else {
       if (x <= VIEW_SETTINGS) {
         track.view = x;
       } else if (x === FOLLOW_MODE) {
         masterSettings.followMode = !masterSettings.followMode;
+      } else if (x === COPY || x === PASTE) {
+        if (x === COPY) {
+          masterSettings.copying = true;
+          track.copyBuffer = JSON.parse(
+            JSON.stringify(
+              track.sequence.slice(
+                masterSettings.lowerLimit,
+                masterSettings.upperLimit + 1
+              )
+            )
+          );
+        } else {
+          if (masterSettings.copying === true) {
+            track.sequence.splice(
+              masterSettings.lowerLimit,
+              track.copyBuffer.length,
+              ...track.copyBuffer
+            );
+            track.copyBuffer = [];
+            masterSettings.copying = false;
+          }
+        }
       }
       //numPages
       else if (x >= PAGE_SETTINGS) {
@@ -197,6 +225,7 @@ const play = (trackNum, masterSettings) => {
       };
     }
   }
+
   return { output, masterSettings, grid };
 };
 
