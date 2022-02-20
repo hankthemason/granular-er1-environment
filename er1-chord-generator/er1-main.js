@@ -41,7 +41,6 @@ const {
 const makeVoiceName = require("./utils/makeVoiceName");
 
 const includesVCO = require("./utils/monome/includesVCO");
-const deleteSequence = require("./utils/monome/deleteSequence");
 
 let pitchCollectionIndex = 0;
 const pitchArrays = [pitchCollection1, pitchCollection2];
@@ -299,17 +298,16 @@ const runMonome = async () => {
   maxApi.addHandler("refresh", () => {
     grid.refresh(Monome.restore());
   });
-
+  let timerId;
   maxApi.addHandler("fromMonome", (x, y, s) => {
-    if (y === 0 && x === currentTrack) {
-      handleDelete(s, grid);
-      // if (del === true) {
-      //   tracks = Sequencer.initialize();
-      //   grid.refresh(Monome.draw(tracks[0], masterSettings));
-      //   maxApi.addHandler("refresh", () => {
-      //     grid.refresh(Monome.restore());
-      //   });
-      // }
+    if (y === 0 && x === currentTrack && s === 1) {
+      timerId = setTimeout(() => {
+        let tracks = Sequencer.initialize();
+        grid.refresh(Monome.draw(tracks[0], masterSettings));
+      }, 2000);
+    }
+    if (y === 0 && x === currentTrack && s === 0) {
+      clearTimeout(timerId);
     }
     if (s === 1) {
       const { track, masterSettings: settings } = Sequencer.update(
@@ -394,19 +392,19 @@ const flicker = (monomeGrid, virtualGrid, masterSettings, x) => {
 };
 
 const handleDelete = (s, grid) => {
-  if (s === 1) {
-    masterSettings.deleteKeyDown = true;
-    setTimeout(() => {
-      if (masterSettings.deleteKeyDown === true) {
-        let tracks = Sequencer.initialize();
-        grid.refresh(Monome.draw(tracks[0], masterSettings));
-      } else {
-        console.log("not deleting");
-      }
-    }, 1000);
-  } else {
-    masterSettings.deleteKeyDown = false;
-  }
+  // if (s === 1) {
+  //   masterSettings.deleteKeyDown = true;
+  //   setTimeout(() => {
+  //     if (masterSettings.deleteKeyDown === true) {
+  //       let tracks = Sequencer.initialize();
+  //       grid.refresh(Monome.draw(tracks[0], masterSettings));
+  //     } else {
+  //       console.log("not deleting");
+  //     }
+  //   }, 1000);
+  // } else {
+  //   masterSettings.deleteKeyDown = false;
+  // }
 };
 
 runMonome();
