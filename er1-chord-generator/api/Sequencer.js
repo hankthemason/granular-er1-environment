@@ -64,7 +64,7 @@ const initialize = () => {
   return tracks;
 };
 
-const update = (x, y, s, masterSettings) => {
+const update = (x, y, masterSettings) => {
   const stepNum = track.currentPage * PAGE_LENGTH + x;
   const currentStep = track.sequence[stepNum];
   if (y < CONTROL_PANEL) {

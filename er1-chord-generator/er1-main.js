@@ -295,9 +295,11 @@ const runMonome = async () => {
 
   let tracks = Sequencer.initialize();
   grid.refresh(Monome.draw(tracks[0], masterSettings));
+
   maxApi.addHandler("refresh", () => {
     grid.refresh(Monome.restore());
   });
+
   let timerId;
   maxApi.addHandler("fromMonome", (x, y, s) => {
     if (y === 0 && x === currentTrack && s === 1) {
@@ -313,7 +315,6 @@ const runMonome = async () => {
       const { track, masterSettings: settings } = Sequencer.update(
         x,
         y,
-        s,
         masterSettings
       );
 
@@ -389,22 +390,6 @@ const flicker = (monomeGrid, virtualGrid, masterSettings, x) => {
       clearInterval(timer);
     }
   }, 1000 / 10);
-};
-
-const handleDelete = (s, grid) => {
-  // if (s === 1) {
-  //   masterSettings.deleteKeyDown = true;
-  //   setTimeout(() => {
-  //     if (masterSettings.deleteKeyDown === true) {
-  //       let tracks = Sequencer.initialize();
-  //       grid.refresh(Monome.draw(tracks[0], masterSettings));
-  //     } else {
-  //       console.log("not deleting");
-  //     }
-  //   }, 1000);
-  // } else {
-  //   masterSettings.deleteKeyDown = false;
-  // }
 };
 
 runMonome();
