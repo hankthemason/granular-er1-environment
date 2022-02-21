@@ -19,7 +19,7 @@ const getXLocation = (x, y) => {
     } else if (x >= 12) {
       return "current page";
     }
-  } else {
+  } else if (y === 1) {
     if (x < 6) {
       return "view selector";
     } else if (x === 6) {
@@ -31,6 +31,8 @@ const getXLocation = (x, y) => {
     } else if (x > 12) {
       return "number of pages";
     }
+  } else {
+    return null;
   }
 };
 

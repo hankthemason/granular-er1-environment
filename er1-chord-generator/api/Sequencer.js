@@ -1,25 +1,12 @@
 const maxApi = require("max-api");
 
-const PAGE_LENGTH = 16;
-const HEIGHT = 16;
-const OCTAVE = 8; //notes available for view in each octave
-const STEP_SETTINGS = 8; //step settings area (pitch, octave, velocity, etc.)
-const ON_OFF = 7;
-const CONTROL_PANEL = 2;
-const PAGE_SETTINGS = 12;
-const VIEW_SETTINGS = 5;
-const NOTE_VALUES = 6;
-const FOLLOW_MODE = 6;
-const NOTE_REPEAT = 5;
-const SEQ_LENGTH = 2;
-const COPY = 8;
-const PASTE = 9;
-
-const yToColumn = require("../utils/monome/yToColumn");
 const calculateLimits = require("../utils/monome/calculateLimits");
-const Monome = require("./Monome");
 const Track = require("./Track");
 const noteValues = require("../configs/noteValues.json");
+const {
+  getXLocation,
+  getYLocation,
+} = require("../utils/monome/getXandYLocations");
 
 const step = {
   pitches: [],
@@ -52,8 +39,6 @@ const track = {
 
 let tracks = new Array(1).fill(track);
 
-let currentTrack = 0;
-
 const initialize = () => {
   for (const t of tracks) {
     //initialize sequence
@@ -70,7 +55,10 @@ const initialize = () => {
   return tracks;
 };
 
-const updateTrack = (x, y, xLocation, yLocation, track) => {
+const updateTrack = (x, y, track) => {
+  const yLocation = getYLocation(y);
+  const xLocation = getXLocation(x, y);
+
   if (yLocation === "control panel") {
     if (xLocation === "note value") {
       track = Track.updateNoteValue(x, track);
@@ -94,13 +82,6 @@ const updateTrack = (x, y, xLocation, yLocation, track) => {
     track = Track.updateSeq(x, y, track);
   }
   return track;
-};
-
-const updateMasterSettings = (x, xLocation, masterSettings) => {
-  if (xLocation === "copy") {
-  } else if (xLocation === "paste") {
-  }
-  return masterSettings;
 };
 
 const checkLimits = (track) => {

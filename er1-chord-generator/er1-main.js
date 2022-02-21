@@ -41,10 +41,6 @@ const {
 const makeVoiceName = require("./utils/makeVoiceName");
 
 const includesVCO = require("./utils/monome/includesVCO");
-const {
-  getXLocation,
-  getYLocation,
-} = require("./utils/monome/getXAndYLocations");
 
 let pitchCollectionIndex = 0;
 const pitchArrays = [pitchCollection1, pitchCollection2];
@@ -282,24 +278,16 @@ maxApi.addHandler("readStateFromDisk", (filePath) => {
 });
 
 //SEQUENCER
-let sequence;
-let currentTrack = 0;
+let currentTrackIndex = 0;
 let chordModes = ["first step", "every step"];
 let chordMode = chordModes[0];
-let masterSettings = {
-  followMode: false, //remove
-  lowerLimit: 0, //remove
-  upperLimit: 15, //remove
-  copying: false,
-  deleteKeyDown: false,
-};
 
 const runMonome = async () => {
   let grid = await monomeGrid();
 
   let tracks = Sequencer.initialize();
-  let track = tracks[0];
-  grid.refresh(Monome.draw(track));
+  let currentTrack = tracks[currentTrackIndex];
+  grid.refresh(Monome.draw(currentTrack));
 
   maxApi.addHandler("refresh", () => {
     grid.refresh(Monome.restore());
@@ -307,28 +295,23 @@ const runMonome = async () => {
 
   let timerId;
   maxApi.addHandler("fromMonome", (x, y, s) => {
-    if (y === 0 && x === currentTrack && s === 1) {
+    if (y === 0 && x === currentTrackIndex && s === 1) {
       timerId = setTimeout(() => {
-        let tracks = Sequencer.initialize();
-        grid.refresh(Monome.draw(track));
+        tracks = Sequencer.initialize();
+        currentTrack = tracks[currentTrackIndex];
+        grid.refresh(Monome.draw(currentTrack));
       }, 2000);
     }
-    if (y === 0 && x === currentTrack && s === 0) {
+    if (y === 0 && x === currentTrackIndex && s === 0) {
       clearTimeout(timerId);
     }
 
-    const yLocation = getYLocation(y);
-    let xLocation = null;
-    if (yLocation === "control panel") {
-      xLocation = getXLocation(x, y);
-    }
-
     if (s === 1) {
-      track = Sequencer.updateTrack(x, y, xLocation, yLocation, track);
+      currentTrack = Sequencer.updateTrack(x, y, currentTrack);
 
-      const virtualGrid = Monome.draw(track);
-      if (track.copying === true || track.syncing === true) {
-        flicker(grid, virtualGrid, x);
+      const virtualGrid = Monome.draw(currentTrack);
+      if (currentTrack.copying === true || currentTrack.syncing === true) {
+        flicker(grid, virtualGrid, x, currentTrack);
       }
       grid.refresh(virtualGrid);
     }
@@ -339,8 +322,8 @@ const runMonome = async () => {
   });
 
   maxApi.addHandler("tick", () => {
-    track = Sequencer.checkLimits(track);
-    const output = Sequencer.getStepOutput(track);
+    currentTrack = Sequencer.checkLimits(currentTrack);
+    const output = Sequencer.getStepOutput(currentTrack);
     if (output) {
       if (includesVCO(output.pitches)) {
         //ER1.updateAllVoices({ level: 0 });
@@ -370,14 +353,14 @@ const runMonome = async () => {
       maxApi.outlet("sequencerOutput", output);
     }
 
-    const gridState = Monome.draw(track, true);
+    const gridState = Monome.draw(currentTrack, true);
     grid.refresh(gridState);
-    track = Sequencer.increment(track);
+    currentTrack = Sequencer.increment(currentTrack);
   });
 
   maxApi.addHandler("stop", () => {
-    const track = Sequencer.reset();
-    grid.refresh(Monome.draw(track));
+    currentTrack = Sequencer.reset();
+    grid.refresh(Monome.draw(currentTrack));
   });
 
   maxApi.addHandler("changeChordMode", (chordModeIdx) => {
@@ -385,10 +368,10 @@ const runMonome = async () => {
   });
 };
 
-const flicker = (monomeGrid, virtualGrid, x) => {
+const flicker = (monomeGrid, virtualGrid, x, currentTrack) => {
   let flicker = 0;
   const timer = setInterval(() => {
-    if (track.copying === true) {
+    if (currentTrack.copying === true) {
       virtualGrid[1][x] = flicker ? 0 : 1;
       flicker = !flicker;
       monomeGrid.refresh(virtualGrid);
