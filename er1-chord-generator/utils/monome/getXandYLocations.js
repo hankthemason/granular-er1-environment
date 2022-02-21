@@ -16,7 +16,7 @@ const getXLocation = (x, y) => {
   if (y === 0) {
     if (x > 5 && x < 12) {
       return "note value";
-    } else {
+    } else if (x >= 12) {
       return "current page";
     }
   } else {

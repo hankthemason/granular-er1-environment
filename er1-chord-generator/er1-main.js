@@ -299,7 +299,7 @@ const runMonome = async () => {
 
   let tracks = Sequencer.initialize();
   let track = tracks[0];
-  grid.refresh(Monome.draw(track, masterSettings));
+  grid.refresh(Monome.draw(track));
 
   maxApi.addHandler("refresh", () => {
     grid.refresh(Monome.restore());
@@ -310,7 +310,7 @@ const runMonome = async () => {
     if (y === 0 && x === currentTrack && s === 1) {
       timerId = setTimeout(() => {
         let tracks = Sequencer.initialize();
-        grid.refresh(Monome.draw(tracks[0], masterSettings));
+        grid.refresh(Monome.draw(track));
       }, 2000);
     }
     if (y === 0 && x === currentTrack && s === 0) {
@@ -339,12 +339,9 @@ const runMonome = async () => {
   });
 
   maxApi.addHandler("tick", (trackNum) => {
-    const {
-      output,
-      masterSettings: settings,
-      grid: gridState,
-    } = Sequencer.play(trackNum, masterSettings);
-    masterSettings = settings;
+    track = Sequencer.checkLimits(track);
+    const output = Sequencer.getStepOutput(track);
+
     if (output) {
       if (includesVCO(output.pitches)) {
         //ER1.updateAllVoices({ level: 0 });
@@ -371,14 +368,17 @@ const runMonome = async () => {
           maxApi.outlet("midiNoteNumbers", midiNoteNumbers);
         }
       }
+      maxApi.post(output);
       maxApi.outlet("sequencerOutput", output);
     }
+    const gridState = Monome.draw(track, true);
+    track = Sequencer.increment(track);
     grid.refresh(gridState);
   });
 
   maxApi.addHandler("stop", () => {
     const track = Sequencer.reset();
-    grid.refresh(Monome.draw(track, masterSettings));
+    grid.refresh(Monome.draw(track));
   });
 
   maxApi.addHandler("changeChordMode", (chordModeIdx) => {

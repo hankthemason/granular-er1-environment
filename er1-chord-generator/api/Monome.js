@@ -63,6 +63,7 @@ const update = (track) => {
 };
 
 const draw = (track, playhead = false) => {
+  console.log(track);
   const controlPanel = drawControlPanel(track);
   grid[0] = controlPanel[0];
   grid[1] = controlPanel[1];
@@ -78,7 +79,7 @@ const draw = (track, playhead = false) => {
         }
       } else if (y === NOTE_REPEAT) {
         row[x] =
-          currentStep.on == true && currentStep.noteRepeat == true ? 1 : 0;
+          currentStep.on === true && currentStep.noteRepeat === true ? 1 : 0;
       }
       //on-off row
       else if (y < onOffRow) {

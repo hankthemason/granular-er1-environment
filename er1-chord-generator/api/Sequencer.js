@@ -103,20 +103,20 @@ const updateMasterSettings = (x, xLocation, masterSettings) => {
   return masterSettings;
 };
 
-const play = (trackNum, masterSettings) => {
-  const track = tracks[trackNum];
-  if (
-    masterSettings.followMode === true &&
-    track.step > masterSettings.upperLimit
-  ) {
+const checkLimits = (track) => {
+  if (track.followMode === true && track.step > track.upperLimit) {
     track.currentPage = (track.currentPage + 1) % track.numPages;
     const limits = calculateLimits(track);
-    masterSettings = {
-      ...masterSettings,
+    track = {
+      ...track,
       lowerLimit: limits.lowerLimit,
       upperLimit: limits.upperLimit,
     };
   }
+  return track;
+};
+
+const getStepOutput = (track) => {
   const currentStep = track.sequence[track.step];
   let output;
   if (currentStep.on) {
@@ -148,22 +148,24 @@ const play = (trackNum, masterSettings) => {
       }
     }
   }
-  const grid = Monome.draw(track, masterSettings, true);
+  return output;
+};
+
+const increment = (track) => {
   track.step++;
   if (track.step === track.seqLength) {
     track.step = 0;
-    if (masterSettings.followMode === true) {
+    if (track.followMode === true) {
       track.currentPage = 0;
       const limits = calculateLimits(track);
-      masterSettings = {
-        ...masterSettings,
+      track = {
+        ...track,
         lowerLimit: limits.lowerLimit,
         upperLimit: limits.upperLimit,
       };
     }
   }
-
-  return { output, masterSettings, grid };
+  return track;
 };
 
 const reset = () => {
@@ -173,4 +175,11 @@ const reset = () => {
   return track;
 };
 
-module.exports = { initialize, update, play, reset, updateTrack };
+module.exports = {
+  initialize,
+  checkLimits,
+  getStepOutput,
+  reset,
+  updateTrack,
+  increment,
+};
