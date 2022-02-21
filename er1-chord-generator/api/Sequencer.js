@@ -28,7 +28,7 @@ const step = {
   on: false,
   octave: 0,
   probability: 8,
-  noteRepeat: false,
+  stepRepeat: false,
 };
 
 const track = {
@@ -130,7 +130,7 @@ const getStepOutput = (track) => {
           pitches: currentStep.pitches.filter((pitch) => pitch !== null),
           velocity: currentStep.velocity,
           step: track.step,
-          noteRepeat: currentStep.noteRepeat,
+          stepRepeat: currentStep.stepRepeat,
         };
       }
     } else {
@@ -138,7 +138,7 @@ const getStepOutput = (track) => {
         pitches: currentStep.pitches.filter((pitch) => pitch !== null),
         velocity: currentStep.velocity,
         step: track.step,
-        noteRepeat: currentStep.noteRepeat,
+        stepRepeat: currentStep.stepRepeat,
       };
       if (!output.pitches.length) {
         output = {

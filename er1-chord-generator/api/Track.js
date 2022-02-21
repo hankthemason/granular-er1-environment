@@ -89,7 +89,7 @@ const updateSeq = (x, y, track) => {
 };
 
 const updateStepRepeat = (currentStep) => {
-  currentStep.noteRepeat = !currentStep.noteRepeat;
+  currentStep.stepRepeat = !currentStep.stepRepeat;
   return currentStep;
 };
 

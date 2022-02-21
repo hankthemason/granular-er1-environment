@@ -41,7 +41,7 @@ const update = (track) => {
   let seq = track.sequence;
   seq.map((step, index) => {
     if (step.on == true) {
-      if (step.noteRepeat == true) {
+      if (step.stepRepeat == true) {
         grid[NOTE_REPEAT][index] = 1;
       }
       grid[onOffRow][index] = 1;
@@ -79,7 +79,7 @@ const draw = (track, playhead = false) => {
         }
       } else if (y === NOTE_REPEAT) {
         row[x] =
-          currentStep.on === true && currentStep.noteRepeat === true ? 1 : 0;
+          currentStep.on === true && currentStep.stepRepeat === true ? 1 : 0;
       }
       //on-off row
       else if (y < onOffRow) {

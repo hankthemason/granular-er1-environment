@@ -368,12 +368,11 @@ const runMonome = async () => {
           maxApi.outlet("midiNoteNumbers", midiNoteNumbers);
         }
       }
-      maxApi.post(output);
       maxApi.outlet("sequencerOutput", output);
     }
     const gridState = Monome.draw(track, true);
-    track = Sequencer.increment(track);
     grid.refresh(gridState);
+    track = Sequencer.increment(track);
   });
 
   maxApi.addHandler("stop", () => {
