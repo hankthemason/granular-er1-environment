@@ -63,7 +63,6 @@ const update = (track) => {
 };
 
 const draw = (track, playhead = false) => {
-  console.log(track);
   const controlPanel = drawControlPanel(track);
   grid[0] = controlPanel[0];
   grid[1] = controlPanel[1];

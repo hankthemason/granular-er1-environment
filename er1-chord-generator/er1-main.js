@@ -338,10 +338,9 @@ const runMonome = async () => {
     grid.refresh(Monome.update(x, y));
   });
 
-  maxApi.addHandler("tick", (trackNum) => {
+  maxApi.addHandler("tick", () => {
     track = Sequencer.checkLimits(track);
     const output = Sequencer.getStepOutput(track);
-
     if (output) {
       if (includesVCO(output.pitches)) {
         //ER1.updateAllVoices({ level: 0 });
@@ -370,6 +369,7 @@ const runMonome = async () => {
       }
       maxApi.outlet("sequencerOutput", output);
     }
+
     const gridState = Monome.draw(track, true);
     grid.refresh(gridState);
     track = Sequencer.increment(track);
