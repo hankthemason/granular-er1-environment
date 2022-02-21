@@ -62,9 +62,8 @@ const update = (track) => {
   return grid;
 };
 
-const draw = (track, masterSettings, playhead = false) => {
-  let flicker = null;
-  const controlPanel = drawControlPanel(track, masterSettings);
+const draw = (track, playhead = false) => {
+  const controlPanel = drawControlPanel(track);
   grid[0] = controlPanel[0];
   grid[1] = controlPanel[1];
   for (let y = 2; y < HEIGHT; y++) {
@@ -154,7 +153,7 @@ const draw = (track, masterSettings, playhead = false) => {
   return grid;
 };
 
-const drawControlPanel = (track, masterSettings) => {
+const drawControlPanel = (track) => {
   const controlPanel = new Array(3).fill([]);
 
   controlPanel.map((row, index) => {
@@ -171,7 +170,7 @@ const drawControlPanel = (track, masterSettings) => {
   controlPanel[0][currentPageToX] = 1;
   controlPanel[0][noteValueToX] = 1;
   controlPanel[1][viewToX] = 1;
-  controlPanel[1][followModeToX] = masterSettings.followMode === true ? 1 : 0;
+  controlPanel[1][followModeToX] = track.followMode === true ? 1 : 0;
   controlPanel[1][numPagesToX] = 1;
   for (let x = 0; x <= seqLengthToX; x++) {
     controlPanel[2][x] = 1;

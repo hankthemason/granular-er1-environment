@@ -18,6 +18,7 @@ const PASTE = 9;
 const yToColumn = require("../utils/monome/yToColumn");
 const calculateLimits = require("../utils/monome/calculateLimits");
 const Monome = require("./Monome");
+const Track = require("./Track");
 const noteValues = require("../configs/noteValues.json");
 
 const step = {
@@ -42,6 +43,11 @@ const track = {
   noteValue: 3,
   trackNum: 0,
   copyBuffer: [],
+  lowerLimit: 0,
+  upperLimit: 15,
+  followMode: false,
+  copying: false,
+  syncing: false,
 };
 
 let tracks = new Array(1).fill(track);
@@ -166,6 +172,39 @@ const update = (x, y, masterSettings) => {
   return { track, masterSettings };
 };
 
+const updateTrack = (x, y, xLocation, yLocation, track) => {
+  if (yLocation === "control panel") {
+    if (xLocation === "note value") {
+      track = Track.updateNoteValue(x, track);
+    } else if (xLocation === "current page") {
+      track = Track.updateCurrentPage(x, track);
+    } else if (xLocation === "view selector") {
+      track = Track.updateView(x, track);
+    } else if (xLocation === "follow mode") {
+      track = track.updateFollowMode(x, track);
+    } else if (xLocation === "number of pages") {
+      track = Track.updateNumPages(x, track);
+    } else if (xLocation === "copy") {
+      track = Track.copy();
+    } else if (xLocation === "paste") {
+      track = Track.paste();
+    }
+  } else if (yLocation === "sequence length selector") {
+    track = Track.updateSeqLength(x, track);
+  } else {
+    //repeat, on/off, step settings
+    track = Track.updateSeq(x, y, track);
+  }
+  return track;
+};
+
+const updateMasterSettings = (x, xLocation, masterSettings) => {
+  if (xLocation === "copy") {
+  } else if (xLocation === "paste") {
+  }
+  return masterSettings;
+};
+
 const play = (trackNum, masterSettings) => {
   const track = tracks[trackNum];
   if (
@@ -236,4 +275,4 @@ const reset = () => {
   return track;
 };
 
-module.exports = { initialize, update, play, reset };
+module.exports = { initialize, update, play, reset, updateTrack };

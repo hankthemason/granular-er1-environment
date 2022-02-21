@@ -41,6 +41,10 @@ const {
 const makeVoiceName = require("./utils/makeVoiceName");
 
 const includesVCO = require("./utils/monome/includesVCO");
+const {
+  getXLocation,
+  getYLocation,
+} = require("./utils/monome/getXAndYLocations");
 
 let pitchCollectionIndex = 0;
 const pitchArrays = [pitchCollection1, pitchCollection2];
@@ -283,9 +287,9 @@ let currentTrack = 0;
 let chordModes = ["first step", "every step"];
 let chordMode = chordModes[0];
 let masterSettings = {
-  followMode: false,
-  lowerLimit: 0,
-  upperLimit: 15,
+  followMode: false, //remove
+  lowerLimit: 0, //remove
+  upperLimit: 15, //remove
   copying: false,
   deleteKeyDown: false,
 };
@@ -294,7 +298,8 @@ const runMonome = async () => {
   let grid = await monomeGrid();
 
   let tracks = Sequencer.initialize();
-  grid.refresh(Monome.draw(tracks[0], masterSettings));
+  let track = tracks[0];
+  grid.refresh(Monome.draw(track, masterSettings));
 
   maxApi.addHandler("refresh", () => {
     grid.refresh(Monome.restore());
@@ -311,17 +316,19 @@ const runMonome = async () => {
     if (y === 0 && x === currentTrack && s === 0) {
       clearTimeout(timerId);
     }
-    if (s === 1) {
-      const { track, masterSettings: settings } = Sequencer.update(
-        x,
-        y,
-        masterSettings
-      );
 
-      masterSettings = settings;
-      const virtualGrid = Monome.draw(track, masterSettings);
-      if (masterSettings.copying === true || masterSettings.syncing === true) {
-        flicker(grid, virtualGrid, masterSettings, x);
+    const yLocation = getYLocation(y);
+    let xLocation = null;
+    if (yLocation === "control panel") {
+      xLocation = getXLocation(x, y);
+    }
+
+    if (s === 1) {
+      track = Sequencer.updateTrack(x, y, xLocation, yLocation, track);
+
+      const virtualGrid = Monome.draw(track);
+      if (track.copying === true || track.syncing === true) {
+        flicker(grid, virtualGrid, x);
       }
       grid.refresh(virtualGrid);
     }
@@ -379,10 +386,10 @@ const runMonome = async () => {
   });
 };
 
-const flicker = (monomeGrid, virtualGrid, masterSettings, x) => {
+const flicker = (monomeGrid, virtualGrid, x) => {
   let flicker = 0;
   const timer = setInterval(() => {
-    if (masterSettings.copying === true) {
+    if (track.copying === true) {
       virtualGrid[1][x] = flicker ? 0 : 1;
       flicker = !flicker;
       monomeGrid.refresh(virtualGrid);
