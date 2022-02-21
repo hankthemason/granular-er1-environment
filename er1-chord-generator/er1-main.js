@@ -293,6 +293,8 @@ const runMonome = async () => {
     grid.refresh(Monome.restore());
   });
 
+  //we have to declare this outside the scope of 'from monome',
+  //so that the id can persist across different calls
   let timerId;
   maxApi.addHandler("fromMonome", (x, y, s) => {
     if (y === 0 && x === currentTrackIndex && s === 1) {
