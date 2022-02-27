@@ -40,6 +40,41 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-439",
+					"maxclass" : "live.button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"parameter_enable" : 1,
+					"patching_rect" : [ 1023.5, 954.0, 15.0, 15.0 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_enum" : [ "off", "on" ],
+							"parameter_longname" : "live.button",
+							"parameter_mmax" : 1,
+							"parameter_shortname" : "live.button",
+							"parameter_type" : 2
+						}
+
+					}
+,
+					"varname" : "live.button"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-438",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 1040.5, 954.0, 97.0, 20.0 ],
+					"text" : "reset loop points"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-435",
 					"maxclass" : "message",
 					"numinlets" : 2,
@@ -1726,7 +1761,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "float", "bang" ],
-					"patching_rect" : [ 10.000001430511475, 920.833298206329346, 150.0, 22.0 ],
+					"patching_rect" : [ 12.0, 913.833298206329346, 150.0, 22.0 ],
 					"text" : "buffer~ playback1 10000 2"
 				}
 
@@ -27370,6 +27405,14 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-408", 0 ],
+					"midpoints" : [ 1032.5, 1019.0, 492.5, 1019.0 ],
+					"source" : [ "obj-439", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-233", 3 ],
 					"midpoints" : [ 1282.5, 509.0, 1179.0, 509.0 ],
 					"order" : 1,
@@ -28005,6 +28048,7 @@
 			"obj-408" : [ "button[1]", "button[1]", 0 ],
 			"obj-423" : [ "live.tab", "live.tab", 0 ],
 			"obj-433" : [ "live.toggle[6]", "live.toggle[6]", 0 ],
+			"obj-439" : [ "live.button", "live.button", 0 ],
 			"obj-45" : [ "number[33]", "number[35]", 0 ],
 			"obj-48" : [ "live.toggle[5]", "live.toggle[5]", 0 ],
 			"obj-4::obj-24" : [ "output", "Output", 0 ],
