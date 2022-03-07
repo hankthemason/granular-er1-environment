@@ -37747,10 +37747,13 @@
 			"obj-2::obj-111" : [ "umenu[14]", "umenu[2]", 0 ],
 			"obj-2::obj-117" : [ "umenu[11]", "umenu[1]", 0 ],
 			"obj-2::obj-118" : [ "umenu[13]", "umenu", 0 ],
+			"obj-2::obj-120" : [ "button[9]", "button[9]", 0 ],
 			"obj-2::obj-124" : [ "live.text[23]", "live.text[2]", 0 ],
 			"obj-2::obj-128" : [ "live.text[24]", "live.text[2]", 0 ],
 			"obj-2::obj-148" : [ "live.text[25]", "live.text[2]", 0 ],
 			"obj-2::obj-155" : [ "live.text[26]", "live.text[26]", 0 ],
+			"obj-2::obj-161" : [ "button[10]", "button[10]", 0 ],
+			"obj-2::obj-163" : [ "number", "number", 0 ],
 			"obj-2::obj-18" : [ "spray_ipad[1]", "spray", 0 ],
 			"obj-2::obj-209" : [ "gain~[2]", "gain~", 0 ],
 			"obj-2::obj-216" : [ "length_spread[2]", "length_spread", 0 ],
@@ -37765,7 +37768,6 @@
 			"obj-2::obj-239" : [ "grain_max_length", "grain_max_length", 0 ],
 			"obj-2::obj-241" : [ "grain_pitch", "grain_pitch", 0 ],
 			"obj-2::obj-242" : [ "pan[4]", "pan", 0 ],
-			"obj-2::obj-243" : [ "slider[1]", "slider", 0 ],
 			"obj-2::obj-244" : [ "pan_spread[1]", "pan_spread[1]", 0 ],
 			"obj-2::obj-253" : [ "number[43]", "number[16]", 0 ],
 			"obj-2::obj-256" : [ "number[42]", "number[17]", 0 ],
@@ -37813,6 +37815,7 @@
 			"obj-2::obj-502::obj-100" : [ "number[31]", "number[15]", 0 ],
 			"obj-2::obj-57" : [ "toggle", "toggle", 0 ],
 			"obj-2::obj-60" : [ "toggle[1]", "toggle[1]", 0 ],
+			"obj-2::obj-666" : [ "multislider[17]", "multislider", 0 ],
 			"obj-2::obj-74" : [ "number[9]", "number[9]", 0 ],
 			"obj-2::obj-83" : [ "live.text[20]", "live.text[2]", 0 ],
 			"obj-2::obj-84" : [ "live.text[21]", "live.text[2]", 0 ],
@@ -38466,51 +38469,6 @@
 					"parameter_longname" : "gain[9]"
 				}
 ,
-				"obj-2::obj-118" : 				{
-					"parameter_invisible" : 0,
-					"parameter_modmode" : 0,
-					"parameter_unitstyle" : 10
-				}
-,
-				"obj-2::obj-155" : 				{
-					"parameter_invisible" : 0,
-					"parameter_longname" : "live.text[26]",
-					"parameter_modmode" : 0,
-					"parameter_shortname" : "live.text[26]",
-					"parameter_type" : 2,
-					"parameter_unitstyle" : 10
-				}
-,
-				"obj-2::obj-278" : 				{
-					"parameter_invisible" : 0,
-					"parameter_longname" : "live.text[27]",
-					"parameter_modmode" : 0,
-					"parameter_type" : 2,
-					"parameter_unitstyle" : 10
-				}
-,
-				"obj-2::obj-325" : 				{
-					"parameter_invisible" : 0,
-					"parameter_longname" : "live.text[28]",
-					"parameter_modmode" : 0,
-					"parameter_type" : 2,
-					"parameter_unitstyle" : 10
-				}
-,
-				"obj-2::obj-400" : 				{
-					"parameter_invisible" : 0,
-					"parameter_longname" : "live.text[29]",
-					"parameter_modmode" : 0,
-					"parameter_type" : 2,
-					"parameter_unitstyle" : 10
-				}
-,
-				"obj-2::obj-451" : 				{
-					"parameter_invisible" : 0,
-					"parameter_modmode" : 0,
-					"parameter_unitstyle" : 10
-				}
-,
 				"obj-3::obj-113" : 				{
 					"parameter_longname" : "pan[1]"
 				}
@@ -38665,6 +38623,13 @@
 				"implicit" : 1
 			}
 , 			{
+				"name" : "handlePlayback.js",
+				"bootpath" : "~/Code/Max/granular-er1-environment/ancient-grains-mc",
+				"patcherrelativepath" : "./ancient-grains-mc",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "left-arrow.png",
 				"bootpath" : "~/Code/Max/granular-er1-environment/assets",
 				"patcherrelativepath" : "./assets",
@@ -38802,13 +38767,6 @@
 				"name" : "updown.svg",
 				"bootpath" : "C74:/media/max/picts/m4l-picts",
 				"type" : "svg",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "waveform.js",
-				"bootpath" : "~/Code/Max/granular-er1-environment/ancient-grains-mc",
-				"patcherrelativepath" : "./ancient-grains-mc",
-				"type" : "TEXT",
 				"implicit" : 1
 			}
  ],

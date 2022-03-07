@@ -23,8 +23,14 @@ let selectionEnd = 0;
 
 maxApi.addHandler("setSelectionEnd", (value) => {
   if (value === position) {
+    maxApi.post("///");
+    maxApi.post("first block");
+    maxApi.post(currentBufferLength);
     selectionEnd = currentBufferLength;
   } else {
+    maxApi.post("///");
+    maxApi.post("second block");
+    maxApi.post(value);
     selectionEnd = value;
   }
   maxApi.outlet("setSelectionEnd", selectionEnd);
