@@ -36,7 +36,6 @@ maxApi.addHandler("handlePlayPause", (status) => {
     } else {
       maxApi.outlet("lineInstruction", "pause");
       isPaused = true;
-      maxApi.post("pausing");
     }
   }
 });
@@ -46,13 +45,12 @@ maxApi.addHandler("setSelectionMade", (value) => {
 });
 
 const makeLine = () => {
-  maxApi.post(selectionStart, selectionEnd);
   if (selectionMade) {
     if (position < selectionStart || position > selectionEnd) {
       position = selectionStart;
     }
   }
-  mostRecentStartPosition = position;
+  mostRecentStartPosition = selectionStart;
   const duration =
     (selectionMade
       ? selectionEnd - selectionStart
@@ -80,27 +78,48 @@ maxApi.addHandler("setPlaybackMode", (modeIdx) => {
   playbackMode = playbackModes[modeIdx];
 });
 
-maxApi.addHandler("setSelectionStart", (value) => {
-  selectionStart = value;
-  //maxApi.post(position);
-  maxApi.post(selectionStart);
+maxApi.addHandler("setSelection", (start, end) => {
+  selectionStart = start;
+  selectionEnd = end;
   if (isPlaying && !isPaused) {
+    maxApi.outlet("lineInstruction", "stop");
     makeLine();
   } else {
     if (position < selectionStart) {
+      position = selectionStart;
+      maxApi.outlet("setPosition", position);
+      maxApi.outlet("lineInstruction", "stop");
+      isPlaying = false;
+      isPaused = false;
+    } else if (position > selectionEnd) {
       position = selectionStart;
       maxApi.outlet("setPosition", position);
     }
   }
 });
 
-maxApi.addHandler("setSelectionEnd", (value) => {
-  selectionEnd = value;
-  if (position > selectionEnd) {
-    position = selectionStart;
-    maxApi.outlet("setPosition", position);
-  }
-});
+// maxApi.addHandler("setSelectionStart", (value) => {
+//   selectionStart = value;
+//   if (isPlaying && !isPaused) {
+//     makeLine();
+//   } else {
+//     if (position < selectionStart) {
+//       position = selectionStart;
+//       maxApi.outlet("setPosition", position);
+//       maxApi.outlet("lineInstruction", "stop");
+//       isPlaying = false;
+//       isPaused = false;
+//     }
+//   }
+// });
+
+// maxApi.addHandler("setSelectionEnd", (value) => {
+//   selectionEnd = value;
+//   if (position > selectionEnd) {
+//     position = selectionStart;
+//     maxApi.outlet("setPosition", position);
+//   }
+// });
 
 maxApi.addHandler("reset", () => {
   if (isPlaying) {
@@ -131,4 +150,19 @@ maxApi.addHandler("handleOnOff", (status) => {
 
 maxApi.addHandler("setPosition", (value) => {
   position = value;
+});
+
+maxApi.addHandler("newInputBuffer", (length) => {
+  if (position >= length) {
+    position = 0;
+    maxApi.outlet("setPosition", position);
+    if (playbackMode === playbackModes[0]) {
+      isPlaying = false;
+      isPaused = false;
+      maxApi.outlet("lineInstruction", "stop");
+    }
+  }
+  selectionStart = 0;
+  selectionEnd = length;
+  maxApi.outlet("setSelection", [selectionStart, selectionEnd]);
 });
