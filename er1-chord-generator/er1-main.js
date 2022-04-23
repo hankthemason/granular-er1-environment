@@ -257,13 +257,30 @@ maxApi.addHandler("setRandomizePitches", (value) => {
   randomizePitches = value === 1 ? true : false;
 });
 
-let storedChords;
+let storedChords = [];
 
 maxApi.addHandler("storeChord", () => {
   const chord = storeChord(state);
+  chord.map((note) => {
+    note.midiNoteNumber = midiNoteNumbersByEr1Pitch[note.pitch].midiNoteNumber;
+  });
   storedChords.length < 5
     ? storedChords.push(chord)
-    : (storedChords[5] = chord);
+    : (storedChords[4] = chord);
+});
+
+maxApi.addHandler("recallChord", (chordIdx) => {
+  let midiNoteNumbers = [];
+  const chord = storedChords[chordIdx];
+  Object.entries(state)
+    .filter(([key]) => key.slice(0, 3) === "vco")
+    .map(([voice], idx) => {
+      state[voice].pitch = chord[idx].pitch;
+      state[voice].modDepth = chord[idx].modDepth;
+      midiNoteNumbers.push(chord[idx].midiNoteNumber);
+    });
+
+  maxApi.outlet("midiNoteNumbers", midiNoteNumbers);
 });
 
 //////////////////////////////////////////////////////////////////////////
