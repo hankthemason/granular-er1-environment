@@ -1,0 +1,23 @@
+{
+	"preset_data" : [ 		{
+			"number" : 1,
+			"data" : [ 5, "obj-735", "flonum", "float", -13.0, 5, "obj-739", "flonum", "float", -6.0, 5, "obj-726", "flonum", "float", -11.0, 5, "obj-723", "flonum", "float", 0.479999989271164, 5, "obj-720", "flonum", "float", 0.600000023841858, 5, "obj-717", "flonum", "float", 0.620000004768372, 5, "obj-713", "flonum", "float", 5.0 ]
+		}
+, 		{
+			"number" : 2,
+			"data" : [ 5, "obj-735", "flonum", "float", -17.0, 5, "obj-739", "flonum", "float", -3.0, 5, "obj-726", "flonum", "float", -15.0, 5, "obj-723", "flonum", "float", 0.949999988079071, 5, "obj-720", "flonum", "float", 1.240000009536743, 5, "obj-717", "flonum", "float", 0.180000007152557, 5, "obj-713", "flonum", "float", 16.0 ]
+		}
+, 		{
+			"number" : 3,
+			"data" : [ 5, "obj-735", "flonum", "float", -11.0, 5, "obj-739", "flonum", "float", -3.0, 5, "obj-726", "flonum", "float", -9.0, 5, "obj-723", "flonum", "float", 0.689999997615814, 5, "obj-720", "flonum", "float", 4.849999904632568, 5, "obj-717", "flonum", "float", 0.409999996423721, 5, "obj-713", "flonum", "float", 80.0 ]
+		}
+, 		{
+			"number" : 4,
+			"data" : [ 5, "obj-735", "flonum", "float", -9.0, 5, "obj-739", "flonum", "float", -3.0, 5, "obj-726", "flonum", "float", -11.0, 5, "obj-723", "flonum", "float", 0.340000003576279, 5, "obj-720", "flonum", "float", 7.0, 5, "obj-717", "flonum", "float", 0.709999978542328, 5, "obj-713", "flonum", "float", 143.0 ]
+		}
+, 		{
+			"number" : 5,
+			"data" : [ 5, "obj-735", "flonum", "float", -20.0, 5, "obj-739", "flonum", "float", -5.0, 5, "obj-726", "flonum", "float", -26.0, 5, "obj-723", "flonum", "float", 0.509999990463257, 5, "obj-720", "flonum", "float", 103.0, 5, "obj-717", "flonum", "float", 0.430000007152557, 5, "obj-713", "flonum", "float", 300.0 ]
+		}
+ ]
+}

@@ -20,7 +20,6 @@ maxApi.addHandler("touchEvent", (x, fingerNum, status) => {
   if (fingerNum > 2) {
     return;
   } else {
-    //maxApi.post(x, fingerNum, status);
     fingerNum -= 1;
     //wait until both fingers are down
     if (status === 1) {
@@ -39,8 +38,4 @@ maxApi.addHandler("touchEvent", (x, fingerNum, status) => {
     }
   }
   maxApi.outlet(fingersDown.slice().sort((a, b) => b - a));
-});
-
-maxApi.addHandler("post", () => {
-  maxApi.post(fingersDown);
 });

@@ -10,7 +10,8 @@ const noiseBlast = (voiceName, vco4PreviousState, globalDecay) => {
     pitch: 0,
     modSpeed: 0,
   };
-  maxApi.outlet("noiseBlast", midiNotes[midiNotes.length - 1]);
+  const envelopeTime = Math.random() * 2000 + 2000;
+  maxApi.outlet("noiseBlast", midiNotes[midiNotes.length - 1], envelopeTime);
   ER1.updateSingleVoice(voiceName, params);
   UI.updateSingleVoice(voiceName, params);
   setTimeout(() => {
@@ -23,6 +24,6 @@ const noiseBlast = (voiceName, vco4PreviousState, globalDecay) => {
     };
     ER1.updateSingleVoice(voiceName, params);
     UI.updateSingleVoice(voiceName, params);
-  }, 7525);
+  }, envelopeTime + 5525);
 };
 module.exports = noiseBlast;

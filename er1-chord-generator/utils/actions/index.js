@@ -7,6 +7,7 @@ const {
 } = require("./spreadAndRestoreValues");
 const arpeggiate = require("./arpeggiate");
 const makeChord = require("./makeChord");
+const storeChord = require("./storeChord");
 
 module.exports = {
   setNote,
@@ -16,4 +17,5 @@ module.exports = {
   restoreDefaultModDepths,
   arpeggiate,
   makeChord,
+  storeChord,
 };

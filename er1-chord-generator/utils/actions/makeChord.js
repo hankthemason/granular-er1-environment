@@ -16,7 +16,7 @@ const makeChord = (currentPitchArray) => {
       if (!isPositive) randomNum *= -1;
       modDepth += randomNum;
     }
-    pitches.push(pitch);
+    pitches.push({ pitch, modDepth });
     const params = { pitch: pitch, modDepth: modDepth };
     ER1.updateSingleVoice(voiceName, params);
     UI.updateSingleVoice(voiceName, params);

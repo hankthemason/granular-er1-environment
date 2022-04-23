@@ -1,1 +1,17 @@
-[{"pitch":21,"noteName":"C1","midiNoteNumber":"36","modDepth":66},{"pitch":42,"noteName":"A#1","midiNoteNumber":"46","modDepth":64},{"pitch":40,"noteName":"F2","midiNoteNumber":"53","modDepth":57},{"pitch":44,"noteName":"C3","midiNoteNumber":"60","modDepth":64},{"pitch":46,"noteName":"D3","midiNoteNumber":"62","modDepth":64},{"pitch":47,"noteName":"D#3","midiNoteNumber":"63","modDepth":64},{"pitch":51,"noteName":"G3","midiNoteNumber":"67","modDepth":64},{"pitch":54,"noteName":"A#3","midiNoteNumber":"70","modDepth":65},{"pitch":56,"noteName":"C4","midiNoteNumber":"72","modDepth":64},{"pitch":58,"noteName":"D4","midiNoteNumber":"74","modDepth":65},{"pitch":60,"noteName":"D#4","midiNoteNumber":"75","modDepth":59},{"pitch":62,"noteName":"F4","midiNoteNumber":"77","modDepth":64},{"pitch":64,"noteName":"G4","midiNoteNumber":"79","modDepth":64},{"pitch":67,"noteName":"A#4","midiNoteNumber":"82","modDepth":64},{"pitch":70,"noteName":"C5","midiNoteNumber":"84","modDepth":64}]
+[
+  { "pitch": 21, "noteName": "C1", "midiNoteNumber": "36", "modDepth": 66 },
+  { "pitch": 42, "noteName": "A#1", "midiNoteNumber": "46", "modDepth": 64 },
+  { "pitch": 40, "noteName": "F2", "midiNoteNumber": "53", "modDepth": 57 },
+  { "pitch": 44, "noteName": "C3", "midiNoteNumber": "60", "modDepth": 64 },
+  { "pitch": 46, "noteName": "D3", "midiNoteNumber": "62", "modDepth": 64 },
+  { "pitch": 47, "noteName": "D#3", "midiNoteNumber": "63", "modDepth": 64 },
+  { "pitch": 51, "noteName": "G3", "midiNoteNumber": "67", "modDepth": 64 },
+  { "pitch": 54, "noteName": "A#3", "midiNoteNumber": "70", "modDepth": 65 },
+  { "pitch": 56, "noteName": "C4", "midiNoteNumber": "72", "modDepth": 64 },
+  { "pitch": 58, "noteName": "D4", "midiNoteNumber": "74", "modDepth": 65 },
+  { "pitch": 60, "noteName": "D#4", "midiNoteNumber": "75", "modDepth": 59 },
+  { "pitch": 62, "noteName": "F4", "midiNoteNumber": "77", "modDepth": 64 },
+  { "pitch": 64, "noteName": "G4", "midiNoteNumber": "79", "modDepth": 64 },
+  { "pitch": 67, "noteName": "A#4", "midiNoteNumber": "82", "modDepth": 64 },
+  { "pitch": 70, "noteName": "C5", "midiNoteNumber": "84", "modDepth": 64 }
+]

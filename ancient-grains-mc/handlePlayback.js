@@ -165,4 +165,7 @@ maxApi.addHandler("newInputBuffer", (length) => {
   selectionStart = 0;
   selectionEnd = length;
   maxApi.outlet("setSelection", [selectionStart, selectionEnd]);
+  if (isPlaying) {
+    makeLine();
+  }
 });

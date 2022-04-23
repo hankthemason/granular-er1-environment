@@ -52,6 +52,9 @@ const updateNumPages = (x, track) => {
 
 const updateSeqLength = (x, track) => {
   track.seqLength = track.currentPage * 16 + x + 1;
+  if (track.step >= track.seqLength) {
+    track.step = 0;
+  }
   return track;
 };
 

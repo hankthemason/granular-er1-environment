@@ -31,38 +31,7 @@ const restore = () => {
   return grid;
 };
 
-const update = (track) => {
-  //control panel
-  const controlPanel = drawControlPanel(track);
-  grid[0] = controlPanel[0];
-  grid[1] = controlPanel[1];
-  grid[2] = controlPanel[2];
-  //sequence settings
-  let seq = track.sequence;
-  seq.map((step, index) => {
-    if (step.on == true) {
-      if (step.stepRepeat == true) {
-        grid[NOTE_REPEAT][index] = 1;
-      }
-      grid[onOffRow][index] = 1;
-      for (let i = 0; i < OCTAVE + step.octave * OCTAVE; i++) {
-        if (track.pitchMapping) {
-          const y = 15 - (i % OCTAVE);
-          grid[y][index] = step.pitches[i] ? 1 : 0;
-        }
-      }
-    } else {
-      grid[onOffRow][index] = 0;
-      for (let i = 0; i < OCTAVE + step.octave * OCTAVE; i++) {
-        const y = 15 - (i % OCTAVE);
-        grid[y][index] = 0;
-      }
-    }
-  });
-  return grid;
-};
-
-const draw = (track, playhead = false) => {
+const draw = (track, playhead = false, drawWhilePlaying = false) => {
   const controlPanel = drawControlPanel(track);
   grid[0] = controlPanel[0];
   grid[1] = controlPanel[1];
@@ -105,7 +74,11 @@ const draw = (track, playhead = false) => {
           ) {
             row[x] = 0;
           } else {
-            row[x] = 1;
+            if (!drawWhilePlaying) {
+              row[x] = 1;
+            } else {
+              row[(x - 1 + 16) % 16] = 1;
+            }
           }
         } else {
           //pitch
@@ -178,4 +151,4 @@ const drawControlPanel = (track) => {
   return controlPanel;
 };
 
-module.exports = { restore, update, draw };
+module.exports = { restore, draw };

@@ -33,7 +33,7 @@ const arpeggiate = (voiceNum, sequence, notesAscending, currentPitchArray) => {
     if (sequenceIndex < 0) {
       sequenceIndex = notesAscending.length - 1;
     }
-  } else if (sequence === "upDown") {
+  } else if (sequence === "upDown" || sequence === 0) {
     const note = notesAscending[sequenceIndex];
     const voiceName = `vco${voiceNum}`;
     const params = { pitch: note.pitch, modDepth: note.modDepth };
