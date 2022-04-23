@@ -4,7 +4,10 @@ const getPitchesFromState = (state) => {
   return Object.entries(state)
     .filter(([key]) => key.slice(0, 3) === "vco")
     .map(([, voiceSettings]) => {
-      return voiceSettings.pitch;
+      return {
+        pitch: voiceSettings.pitch,
+        modDepth: voiceSettings.modDepth,
+      };
     });
 };
 

@@ -224,7 +224,6 @@ maxApi.addHandler("setModDepth", (voiceName, modDepth) => {
 
 maxApi.addHandler("makeChord", () => {
   const pitches = makeChord(currentPitchArray);
-
   midiNoteNumbers = pitches.map((voice, index) => {
     const voiceName = makeVoiceName(index + 1);
     state[voiceName].pitch = voice.pitch;
@@ -259,25 +258,31 @@ maxApi.addHandler("setRandomizePitches", (value) => {
 
 let storedChords = [];
 
-maxApi.addHandler("storeChord", () => {
+maxApi.addHandler("storeChord", (chordIdx) => {
   const chord = storeChord(state);
   chord.map((note) => {
     note.midiNoteNumber = midiNoteNumbersByEr1Pitch[note.pitch].midiNoteNumber;
   });
-  storedChords.length < 5
-    ? storedChords.push(chord)
-    : (storedChords[4] = chord);
+  storedChords[chordIdx] = chord;
 });
 
 maxApi.addHandler("recallChord", (chordIdx) => {
   let midiNoteNumbers = [];
   const chord = storedChords[chordIdx];
+  maxApi.post(chord);
   Object.entries(state)
     .filter(([key]) => key.slice(0, 3) === "vco")
     .map(([voice], idx) => {
       state[voice].pitch = chord[idx].pitch;
       state[voice].modDepth = chord[idx].modDepth;
       midiNoteNumbers.push(chord[idx].midiNoteNumber);
+      const voiceName = makeVoiceName(idx + 1);
+      const params = {
+        pitch: chord[idx].pitch,
+        modDepth: chord[idx].modDepth,
+      };
+      ER1.updateSingleVoice(voiceName, params);
+      UI.updateSingleVoice(voiceName, params);
     });
 
   maxApi.outlet("midiNoteNumbers", midiNoteNumbers);
@@ -369,28 +374,30 @@ const runMonome = async () => {
       maxApi.outlet("sequencerOutput", output);
       if (chordMode === "first step") {
         if (output.step === 0 && includesVCO(output.pitches)) {
-          const pitches = randomizePitches
-            ? makeChord(currentPitchArray).map((noteObj) => noteObj.pitch)
+          const notes = randomizePitches
+            ? makeChord(currentPitchArray)
             : getPitchesFromState(state);
-          midiNoteNumbers = pitches.map((pitch, index) => {
+          midiNoteNumbers = notes.map((note, index) => {
             const voiceName = makeVoiceName(index + 1);
-            state[voiceName].pitch = pitch;
-            return midiNoteNumbersByEr1Pitch[pitch]
-              ? midiNoteNumbersByEr1Pitch[pitch].midiNoteNumber
+            state[voiceName].pitch = note.pitch;
+            state[voiceName].modDepth = note.modDepth;
+            return midiNoteNumbersByEr1Pitch[note.pitch]
+              ? midiNoteNumbersByEr1Pitch[note.pitch].midiNoteNumber
               : null;
           });
           maxApi.outlet("midiNoteNumbers", midiNoteNumbers);
         }
       } else {
         if (includesVCO(output.pitches)) {
-          const pitches = randomizePitches
-            ? makeChord(currentPitchArray).map((noteObj) => noteObj.pitch)
+          const notes = randomizePitches
+            ? makeChord(currentPitchArray)
             : getPitchesFromState(state);
-          midiNoteNumbers = pitches.map((pitch, index) => {
+          midiNoteNumbers = notes.map((note, index) => {
             const voiceName = makeVoiceName(index + 1);
-            state[voiceName].pitch = pitch;
-            return midiNoteNumbersByEr1Pitch[pitch]
-              ? midiNoteNumbersByEr1Pitch[pitch].midiNoteNumber
+            state[voiceName].pitch = note.pitch;
+            state[voiceName].modDepth = note.modDepth;
+            return midiNoteNumbersByEr1Pitch[note.pitch]
+              ? midiNoteNumbersByEr1Pitch[note.pitch].midiNoteNumber
               : null;
           });
           maxApi.outlet("midiNoteNumbers", midiNoteNumbers);
