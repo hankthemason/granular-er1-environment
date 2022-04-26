@@ -267,6 +267,7 @@ maxApi.addHandler("storeChord", (chordIdx) => {
 });
 
 maxApi.addHandler("recallChord", (chordIdx) => {
+  if (!storedChords[chordIdx]) return;
   let midiNoteNumbers = [];
   const chord = storedChords[chordIdx];
   maxApi.post(chord);
