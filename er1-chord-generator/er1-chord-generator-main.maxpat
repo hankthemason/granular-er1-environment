@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 126.0, -992.0, 1171.0, 901.0 ],
+		"rect" : [ 36.0, 104.0, 1171.0, 901.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -2003,11 +2003,11 @@
 				"box" : 				{
 					"id" : "obj-23",
 					"maxclass" : "newobj",
-					"numinlets" : 2,
+					"numinlets" : 3,
 					"numoutlets" : 4,
 					"outlettype" : [ "", "int", "", "" ],
-					"patching_rect" : [ 8.0, 198.0, 56.0, 22.0 ],
-					"text" : "serialosc",
+					"patching_rect" : [ 8.0, 190.5, 107.0, 22.0 ],
+					"text" : "serialoscWithInput",
 					"varname" : "serialosc-old"
 				}
 
@@ -2019,7 +2019,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 70.0, 198.0, 29.5, 22.0 ],
+					"patching_rect" : [ 119.0, 190.5, 29.5, 22.0 ],
 					"text" : "run"
 				}
 
@@ -5178,6 +5178,8 @@
 					"saved_object_attributes" : 					{
 						"autostart" : 0,
 						"defer" : 0,
+						"node_bin_path" : "",
+						"npm_bin_path" : "",
 						"watch" : 0
 					}
 ,
@@ -5628,6 +5630,15 @@
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
 					"order" : 1,
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-23", 2 ],
+					"midpoints" : [ 204.5, 183.0, 105.5, 189.5 ],
+					"order" : 2,
 					"source" : [ "obj-3", 0 ]
 				}
 
