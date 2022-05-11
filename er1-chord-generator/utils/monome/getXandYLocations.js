@@ -28,7 +28,7 @@ const getXLocation = (x, y) => {
       return "copy";
     } else if (x === 9) {
       return "paste";
-    } else if (x > 12) {
+    } else if (x >= 12) {
       return "number of pages";
     }
   } else {

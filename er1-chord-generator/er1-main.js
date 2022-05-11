@@ -270,7 +270,6 @@ maxApi.addHandler("recallChord", (chordIdx) => {
   if (!storedChords[chordIdx]) return;
   let midiNoteNumbers = [];
   const chord = storedChords[chordIdx];
-  maxApi.post(chord);
   Object.entries(state)
     .filter(([key]) => key.slice(0, 3) === "vco")
     .map(([voice], idx) => {
