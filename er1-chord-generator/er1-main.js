@@ -261,7 +261,9 @@ let storedChords = [];
 maxApi.addHandler("storeChord", (chordIdx) => {
   const chord = storeChord(state);
   chord.map((note) => {
-    note.midiNoteNumber = midiNoteNumbersByEr1Pitch[note.pitch].midiNoteNumber;
+    maxApi.post(note);
+    maxApi.post(midiNoteNumbersByEr1Pitch[note.pitch]);
+    note.midiNoteNumber = midiNoteNumbersByEr1Pitch[note.pitch]?.midiNoteNumber;
   });
   storedChords[chordIdx] = chord;
 });
