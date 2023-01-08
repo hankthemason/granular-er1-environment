@@ -5,7 +5,9 @@ const voiceMap = require("../configs/voiceMap.json");
 const numVCOs = 4;
 
 const updateSingleVoice = (voiceName, params) => {
+  maxApi.post(params);
   Object.entries(params).map(([param, value]) => {
+    maxApi.post(param);
     const nrpn = voiceMap[voiceName][param].nrpn;
     maxApi.outlet("nrpnOut", value, nrpn);
   });

@@ -15,7 +15,7 @@ const findAndSendNrpns = (voiceName, param, val, muteAndSoloState = null) => {
     } else {
       outputVal = val;
     }
-    params = { param: outputVal };
+    params = { [param]: outputVal };
     ER1.updateSingleVoice(voiceName, params);
   } else {
     if (param === "mute" || param === "solo") {
@@ -33,7 +33,7 @@ const findAndSendNrpns = (voiceName, param, val, muteAndSoloState = null) => {
         outputVal = val;
         nrpn = globalParams[param];
       }
-      params = { param: outputVal };
+      params = { [param]: outputVal };
       ER1.updateGlobalSettings(params);
     }
   }
